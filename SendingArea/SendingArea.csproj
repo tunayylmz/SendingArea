@@ -137,6 +137,7 @@
     <Content Include="Content\Css\elegant.css" />
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\Password.css" />
+    <Content Include="Content\Css\Payment.css" />
     <Content Include="Content\Css\theme.css" />
     <Content Include="Content\Css\owl.carousel.css" />
     <Content Include="favicon.ico" />
@@ -207,10 +208,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\PopupLogin.cshtml" />
     <Content Include="Views\Home\MyAccount.cshtml" />
     <Content Include="Views\Home\Password.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
+    <Content Include="Views\Home\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

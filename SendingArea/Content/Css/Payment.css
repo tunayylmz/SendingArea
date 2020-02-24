@@ -1,0 +1,3044 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+}
+
+sup {
+    text-decoration: underline;
+    font-size: 11px;
+    vertical-align: super;
+}
+/*Content Columns*/
+.grayContent {
+    padding-top: 20px;
+}
+
+.head_w {
+    padding: 0 10px;
+}
+
+.grayContent, #ContentCon {
+    position: relative;
+}
+
+    #ContentCon a:hover {
+        text-decoration: none;
+    }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ccc;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ccc;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ccc;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #ccc;
+}
+
+#P-CCNumberField::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    letter-spacing: 3px;
+}
+
+#P-CCNumberField::-moz-placeholder { /* Firefox 19+ */
+    letter-spacing: 3px;
+}
+
+#P-CCNumberField:-ms-input-placeholder { /* IE 10+ */
+    letter-spacing: 3px;
+}
+
+#P-CCNumberField:-moz-placeholder { /* Firefox 18- */
+    letter-spacing: 3px;
+}
+
+#P-CVCNumberField {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+/*Content Columns End*/
+
+/*Processes*/
+.processes p {
+    word-wrap: break-word
+}
+
+h4 {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    h4 a.sublink {
+        font-size: 12px;
+    }
+
+.ProductIco, .CargoIco, .PayIco {
+    background-image: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/basket_sprite.png);
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+h4.ProductIco {
+    background-position: 0 -168px;
+}
+
+h4.CargoIco {
+    background-position: 0 -184px;
+}
+
+h4.PayIco {
+    background-position: 0 -200px;
+}
+
+.Products li.bnone {
+    border: none;
+}
+
+.PCount {
+    float: left;
+    width: 100%;
+    color: #999999;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.PPrice {
+    font-weight: bold;
+}
+
+    .PPrice strike {
+        display: block;
+        color: #8e8e8e;
+    }
+
+    .PPrice span {
+        color: #333;
+    }
+
+    .PPrice .dpnone {
+        display: none;
+    }
+
+.discount {
+    color: #8e8e8e;
+}
+
+.processes .Gray {
+    line-height: 18px;
+    color: #999;
+}
+
+    .processes .Gray.PayPal {
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/basket_sprite.png) no-repeat 0 -218px;
+        padding: 0 0 5px 46px;
+    }
+
+:first-child + html .processes .Gray.PayPal {
+    background-position: 0 -218px;
+}
+
+.processes .highlighted {
+    background: #FEFBD9;
+    padding: 0 4px 4px;
+}
+
+.Gray {
+    color: #999 !important;
+}
+
+.right-content-box {
+    background: #fff;
+    word-wrap: break-word;
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(85,85,85,0.5);
+}
+
+.address-info {
+    font-size: 12px;
+}
+
+    .address-info h4 {
+        padding: 0 20px 20px;
+        color: #333;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
+    .address-info strong, .address-info a {
+        font-size: 14px;
+        padding-right: 10px;
+    }
+
+#DiscountCoupon {
+    padding: 20px;
+}
+
+.secure-label {
+    position: relative;
+    top: -3px;
+}
+
+#Info3D, #InfoCVC {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #ddd;
+    color: #181825;
+    font-weight: bold;
+    text-align: center;
+    top: 3px;
+    left: 3px;
+    position: relative;
+}
+
+#InfoCVC {
+    float: left;
+    top: 0;
+    left: 5px;
+}
+
+#Info3D span {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    font-size: 10px;
+}
+
+#InfoCVC span {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    font-size: 10px;
+}
+
+.position-fixed {
+    position: fixed;
+    top: 0;
+    padding-top: 20px;
+    z-index: 100;
+}
+/*processes End*/
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*Add New - Edit Address - Lightbox*/
+#agreement-content {
+    display: none;
+}
+
+#simplemodal-container {
+    width: auto !important;
+    height: auto !important;
+}
+
+.LightboxContent {
+    width: 450px;
+    background-color: #e7e7e7;
+    padding: 10px;
+    display: none;
+}
+
+.LightboxBCon {
+    background-color: #fff;
+    position: relative;
+}
+
+.LightboxCon {
+    background-color: #fff;
+}
+
+.LightboxContent h4 {
+    font-size: 18px;
+    padding: 15px 10px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.LBButtons {
+    border-top: 1px solid #ebebee;
+    position: relative;
+    padding: 10px 0;
+    text-align: right;
+}
+
+    .LBButtons input {
+        margin-right: 15px;
+    }
+
+#giveup {
+    font-weight: bold;
+    color: #195ea5;
+    cursor: pointer;
+}
+
+.LBButtons .button_gray1 {
+    color: #195ea5;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.simplemodal-wrap {
+    width: auto !important;
+}
+/*Add New - Edit Address - Lightbox*/
+
+/*Paypal Icon*/
+.TabSelect.tab-white li.on a.Btn {
+    padding: 18px 0 19px;
+}
+
+.PayPal span.icon {
+    background: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/paypal_logo.png') no-repeat 0 0;
+    padding-left: 58px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.TabSelect.tab-white li a {
+    padding: 0 !important;
+    height: 53px;
+    font: 400 14px/56px Roboto, 'Arial';
+    color: #333;
+    border-radius: 0;
+    border-bottom: 0;
+}
+
+    .TabSelect.tab-white li a .text-con {
+        display: table;
+        margin: 0 auto;
+    }
+
+.TabSelect.tab-white li.on a .text-con .icon {
+    margin-top: 15px;
+}
+
+.TabSelect.tab-white li a .text-con .icon {
+    float: left;
+    display: block;
+    margin-top: 17px;
+}
+
+.TabSelect.tab-white li a .text-con .text {
+    float: left;
+    display: block;
+    margin-left: 8px;
+    color: #767676;
+}
+
+.TabSelect li.on a.Btn {
+    height: 52px !important;
+    font-weight: bold;
+    line-height: 52px;
+    color: #333;
+}
+
+.TabSelect li.on a .text-con .icon {
+    height: 52px !important;
+}
+
+@media (max-width: 767px) {
+    .TabSelect.tab-white li.on a.Btn {
+        font: 500 18px/58px "Roboto","Arial",sans-serif;
+        border-bottom: none;
+    }
+}
+
+#P-PayViaCC .icon {
+    background: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/cart-icon.png') center left no-repeat;
+    background-size: 100%;
+    width: 29px;
+    padding: 0;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#P-PayViaGarantiPay .icon {
+    background: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/payment-logo/garanti-pay-logo.png') no-repeat;
+    background-size: 91px 22px;
+    width: 91px;
+    height: 22px;
+    padding: 0;
+    display: inline-block;
+}
+
+#P-PayViaGarantiCredit .icon {
+    background: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/payment-logo/garanti-logo.png') no-repeat;
+    background-size: 60px 22px;
+    width: 60px;
+    height: 22px;
+    padding: 0;
+    display: inline-block;
+}
+
+.ShoppingLinks .gg-ui-checkbox + label {
+    border-radius: 2px;
+}
+
+.gg-ui-checkbox + label .check {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+#GarantiPay .WarnBox .head {
+    padding-bottom: 0;
+}
+
+
+/*BKM*/
+.TabSelect.tab-white li.BkmExpress a {
+    padding: 17px 0;
+}
+
+.TabSelect.tab-white li.BkmExpress.on a.Btn {
+    padding: 15px 0 22px;
+}
+
+.BkmExpress span.icon {
+    background: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/payment-logo/bkm-express-logo.png') no-repeat;
+    background-size: 79px 23px;
+    width: 79px;
+    height: 23px;
+    padding: 0;
+    display: inline-block;
+    margin: 0 auto;
+}
+/*BKM Info*/
+.BkmInfoBox, .GarantiInfoBox {
+    display: block;
+    height: 36px;
+    background: #fff;
+    padding: 12px;
+    font-size: 11px;
+    position: absolute;
+    top: -70px;
+    border-bottom: 2px solid #0c54ba;
+    -webkit-box-shadow: -3px -1px 10px 0px rgba(204,204,204,1);
+    -moz-box-shadow: -3px -1px 10px 0px rgba(204,204,204,1);
+    box-shadow: -3px -1px 10px 0px rgba(204,204,204,1);
+    z-index: 10;
+}
+
+    .BkmInfoBox p, .GarantiInfoBox p {
+        width: 70%;
+        margin-left: 32px;
+    }
+
+#bkmInfoCon, #garantiInfoCon {
+    margin-top: -8px;
+}
+
+    #bkmInfoCon:after,
+    #garantiInfoCon:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 9px 0 9px;
+        border-color: #0c54ba transparent transparent transparent;
+        margin: 0 auto;
+        position: relative;
+        z-index: 20;
+    }
+
+.BkmInfoBox .icon-info, .GarantiInfoBox .icon-info {
+    font-size: 24px;
+    color: #0c54ba;
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.BkmInfoBox .icon-close, .GarantiInfoBox .icon-close {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/close-img.png');
+    background-size: 100%;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.BkmInfoBox sup, .GarantiInfoBox sup {
+    font-size: 8px;
+}
+
+.payment-warning-seperator {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+}
+
+    .payment-warning-seperator p {
+        border-bottom: 1px solid lightgray;
+        font-family: Arial, sans-serif !important;
+        font-size: 14px !important;
+        font-weight: normal !important;
+        font-style: normal !important;
+        font-stretch: normal !important;
+        line-height: 1.43 !important;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333 !important;
+    }
+
+    .payment-warning-seperator .info-visual {
+        float: left;
+        padding-right: 10px;
+    }
+
+.payment-steps-unordered {
+    list-style-type: disc;
+}
+
+.payment-how-to h1 {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+}
+
+.payment-how-to {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+}
+
+/*BKM - End*/
+/*Payment Menu*/
+
+/*Card Info*/
+.TabSelect {
+    z-index: 30;
+}
+
+.CardInfo {
+    padding: 30px 0 15px 0;
+    position: relative;
+    z-index: 10000;
+}
+
+    .CardInfo .gg-ui-txt, .CardInfo .gg-ui-select {
+        font-weight: bold;
+        font-family: Courier, Arial;
+        font-size: 14px;
+    }
+
+.CardInfoSort {
+    display: block;
+    position: absolute;
+    right: 24px;
+    top: 40px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 10px 5px 0;
+    border-color: transparent #dddddd transparent transparent;
+}
+/*.CardInfo ul { border-right: 3px solid #f0f0f0; padding-right: 30px; }*/
+.CardInfo ul li {
+    margin-bottom: 20px;
+}
+
+    .CardInfo ul li.clearfix {
+        z-index: 10;
+        position: relative;
+    }
+
+.CardInfo ol li {
+    padding: 3px;
+    margin: 0;
+}
+
+.CardInfo input.FormInput {
+    height: auto;
+}
+
+.CardInfo .CardCVC input {
+    width: 65px;
+}
+
+.cvc-text-container {
+    text-align: center;
+}
+
+#CreditCard {
+    position: relative;
+    z-index: 25;
+}
+
+.payment-text-content {
+    display: none;
+    font: 14px/24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    position: relative;
+    z-index: 0;
+    top: -1px;
+}
+
+    .payment-text-content p {
+        font: 400 12px/24px 'Arial';
+        color: #1e2025;
+    }
+
+#payment-summary .FormTxtWarn, .ContentLeft .FormTxtWarn {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    width: auto;
+}
+
+.card-seperator {
+    height: 280px;
+    display: block;
+    width: 1px;
+    background: #ddd;
+    margin: 0 auto;
+}
+
+#Info3DCon {
+    position: absolute;
+    font-size: 11px;
+    left: 189px;
+    width: 450px;
+    top: 307px;
+    display: none;
+    z-index: 900;
+}
+
+#InfoCVCCon {
+    position: absolute;
+    font-size: 11px;
+    left: 272px;
+    width: 352px;
+    top: 198px;
+    display: none;
+    z-index: 900;
+}
+
+.FormTxt {
+    font-weight: normal;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ContentLeft .address-info {
+    display: none;
+}
+/*Card Info*/
+
+/*.Credit Card*/
+#CreditCardFront {
+    font-family: Courier, Arial;
+    width: 270px;
+    height: 169px;
+    top: 25px;
+    float: left;
+    position: absolute;
+    font-weight: bold;
+}
+
+.card-logo-container {
+    width: 268px;
+    height: 43px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    background: #fff;
+}
+
+.card-detail-container {
+    width: 270px;
+    height: 125px;
+    background: #333;
+    color: #999;
+}
+
+#CreditCardFront span, #CreditCardFront strong {
+    display: block !important;
+    position: absolute;
+    font-weight: normal;
+}
+
+.focused {
+    color: #ccc !important;
+}
+
+#CreditCardFront strong {
+    color: #8e8e8e;
+}
+
+.CardNumber {
+    top: 65px;
+    left: 20px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.LastDate {
+    left: 120px;
+    top: 100px;
+    font-size: 14px;
+}
+
+.UserName {
+    color: #999999;
+    top: 137px;
+    left: 15px;
+    font-size: 14px;
+    display: block;
+    width: 205px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.CardLogo {
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    display: none;
+}
+
+#CreditCardFront .CVCTxt {
+    display: none !important;
+}
+
+#CreditCardBack {
+    font-family: Courier, Arial;
+    width: 270px;
+    height: 170px;
+    background: #333333;
+    top: 25px;
+    float: left;
+}
+
+.CVCTxt {
+    position: absolute;
+    left: 177px;
+    top: 96px;
+    color: #333 !important;
+    font-size: 14px;
+    width: 50px;
+    padding: 10px 0;
+    text-align: center;
+    min-height: 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: rgb(227,227,227); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(227,227,227,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(227,227,227,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(227,227,227,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+}
+
+.card-back-band {
+    background: #555555;
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    top: 15px;
+    left: 0;
+}
+
+.card-type {
+    position: relative !important;
+    margin: 3px auto;
+    display: block;
+}
+
+    .card-type.VisaC {
+        width: 41px;
+        height: 13px;
+        margin-top: 8px;
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/cart-types-logo/visa.png) center center no-repeat;
+        background-size: 41px 13px;
+    }
+
+    .card-type.MasterC {
+        width: 29px;
+        height: 24px;
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/cart-types-logo/master-card.png) center center no-repeat;
+        background-size: 29px 24px;
+    }
+
+    .card-type.Amex {
+        width: 40px;
+        height: 24px;
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/cart-types-logo/amex.png) center center no-repeat;
+        background-size: 40px 24px;
+    }
+
+    .card-type.Troy {
+        width: 40px;
+        height: 18px;
+        margin: 5px auto;
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/cart-types-logo/troy.png) center center no-repeat;
+        background-size: 40px 18px;
+    }
+
+.CreditCard .FormInputErr {
+    margin: 0;
+}
+/*.Credit Card*/
+
+/*SelectBox*/
+.gg-ui-select-box .gg-ui-select {
+    font-size: 15px;
+}
+
+.DateSelect {
+    width: 65px;
+    margin: 1px 5px 0 0;
+    border: 1px solid #c3c3c3;
+    padding: 4px 5px;
+    background: none;
+}
+
+    .DateSelect.FormInputErr {
+        border: 1px solid #DF1E31;
+    }
+    /*#P-CCMonthSelect { width: 57px; } #P-CCYearSelect { width: 72px; }*/
+
+
+    .DateSelect a, #CreditCard .FormInput {
+        font-weight: bold;
+    }
+
+    .DateSelect ol {
+        margin-left: -6px;
+        width: 76px;
+        padding: 0;
+        overflow-y: scroll;
+        height: 100px;
+        overflow-x: hidden;
+    }
+/*SelectBox*/
+
+/*Banks*/
+.banksContent {
+    margin: 10px 0 0 0;
+}
+
+.banks a.ArrowLink {
+    position: absolute;
+    right: 0;
+    top: 14px;
+}
+
+.banks h3 {
+    padding: 10px 0 0 0;
+    color: #181825;
+}
+
+.banks ul li {
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 10px;
+    line-height: 14px;
+}
+
+    .banks ul li:hover {
+        text-decoration: underline;
+    }
+
+    .banks ul li.first {
+        padding: 10px 20px;
+        line-height: 18px;
+        text-align: left;
+    }
+
+        .banks ul li.first h4 {
+            font-family: arial, helvetica, sans-serif;
+        }
+
+    .banks ul li.ykbC.bankCommissions,
+    .banks ul li.ykbC.bankCommissionsForCorp {
+        padding-left: 20px;
+    }
+
+    .Banks ul li#last {
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+.banksContent .banks {
+    padding: 15px 0;
+}
+
+.banks strong {
+    display: block;
+    color: #8e8e8e;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.banks .icon {
+    text-indent: -9999px;
+    width: 80px;
+    height: 40px;
+    background-image: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/bank-logo-sprite.png);
+    display: inline-block;
+    margin: 0 0 5px 0;
+    background-size: 80px 240px;
+}
+
+.axsC .icon {
+    background-position: 0 -40px;
+}
+
+.ykbC .icon {
+    background-position: 0 0;
+}
+
+.isbankC .icon {
+    background-position: 0 -80px;
+}
+
+.bonusC .icon {
+    background-position: 0 -120px;
+}
+
+.finansC .icon {
+    background-position: 0 -160px;
+}
+
+.hsbcC .icon {
+    background-position: 0 -200px;
+}
+/*Banks*/
+
+/*Shopping Total*/
+.overall-total-txt, .general-overall-total-txt {
+    display: block;
+    font: 500 15px/15px "Roboto","Arial",sans-serif;
+    color: #333;
+    margin: 0 auto 10px;
+    text-align: center;
+}
+
+.strike .overall-total-txt {
+    font: 400 14px/19px "Roboto","Arial",sans-serif;
+    color: #333;
+    float: left;
+}
+
+#CouponCon {
+    position: relative;
+}
+
+.ShoppingLinks {
+    padding: 15px 0 !important;
+}
+
+    .ShoppingLinks table {
+        padding-top: 2px;
+    }
+
+    .ShoppingLinks tr td {
+        padding: 5px 0;
+    }
+
+        .ShoppingLinks tr td label {
+            line-height: 16px;
+        }
+
+.Terms li {
+    color: #8e8e8e;
+    padding-bottom: 5px;
+}
+
+    .Terms li label {
+        margin-left: 5px;
+    }
+
+.ShoppingTPrice {
+    text-align: right;
+}
+
+.ShoppingTotal strike, .strike {
+    font: 400 16px/19px "Roboto","Arial",sans-serif;
+    color: #999;
+    text-decoration: line-through;
+    text-align: right;
+    display: block;
+}
+
+.ShoppingTotal p.strike {
+    padding-top: 0;
+}
+
+.ShoppingTotal b, .ShoppingTotal strong {
+    font-weight: normal;
+    font-size: 14px;
+    color: #333;
+    display: block;
+}
+
+    .ShoppingTotal strong.price, .ShoppingTotal strong .price {
+        display: block;
+        font: 500 36px/42px "Roboto","Arial",sans-serif;
+        color: #333;
+        margin: 0 auto;
+    }
+
+.SumTxt {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8e8e8e;
+    padding-right: 10px;
+}
+
+.ShoppingTPrice .gg-ui-select-box {
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+
+.ShoppingTPrice p, .ShoppingTPrice div:first-child {
+    text-align: center;
+    display: block;
+}
+/*Shopping Total*/
+
+/*New Discount Selection*/
+.new-discount-selection-container {
+    background: #f4f4f4;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0 20px
+}
+
+    .new-discount-selection-container .see-all-discounts {
+        color: #0654ba;
+        font: 500 14px/19px "Roboto","Arial",sans-serif;
+        position: relative
+    }
+
+        .new-discount-selection-container .see-all-discounts.discounts-hidden:after {
+            border-width: 0 6px 6px 6px;
+            border-color: transparent transparent #0654ba transparent
+        }
+
+.radio-selection-box {
+    text-align: left !important;
+    padding-bottom: 15px;
+}
+
+    .radio-selection-box h3 {
+        font: 500 16px/19px "Roboto","Arial",sans-serif;
+        padding: 18px 0 10px
+    }
+
+    .radio-selection-box .gg-input-radio {
+        margin: 0
+    }
+
+        .radio-selection-box .gg-input-radio label {
+            margin-bottom: 10px;
+            display: block;
+            text-align: left
+        }
+
+#payment-options-info .radio-selection-box ul {
+    display: block;
+}
+
+.radio-selection-box .gg-input-radio .hidden-discounts {
+    display: none
+}
+
+.see-all-link {
+    color: #0654ba;
+    font: 500 14px/19px "Roboto","Arial",sans-serif;
+    position: relative;
+    margin-top: 6px
+}
+
+    .see-all-link:hover {
+        text-decoration: none;
+    }
+
+    .see-all-link:after {
+        width: 0;
+        height: 0;
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 5px;
+        border-style: solid;
+        border-width: 6px 6px 0 6px;
+        border-color: #0654ba transparent transparent transparent;
+        line-height: 0
+    }
+    /*New Discount Selection*/
+    /*Other campaigns*/
+
+    .see-all-link.show-all:after {
+        border-width: 0 6px 6px 6px;
+        border-color: transparent transparent #0654ba transparent
+    }
+
+.other-campaigns-container {
+    font-family: "Roboto","Arial",sans-serif;
+    position: relative;
+    padding: 16px 20px !important;
+    width: auto;
+    margin-top: 10px;
+}
+
+    .other-campaigns-container .other-campaigns {
+        color: #333;
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 500
+    }
+
+        .other-campaigns-container .other-campaigns:hover {
+            text-decoration: none;
+        }
+
+        .other-campaigns-container .other-campaigns .gg-icon-info {
+            font-size: 16px;
+            padding-left: 8px;
+            display: inline-block;
+            color: #0654ba;
+            position: relative;
+            top: 2px
+        }
+
+    .other-campaigns-container .show-other-campaigns {
+        position: absolute;
+        right: 20px;
+        top: 22px;
+        color: #0654ba;
+        font-size: 8px
+    }
+
+    .other-campaigns-container .other-campaigns-list {
+        font-size: 14px;
+        color: #555;
+        margin-top: 15px;
+        padding: 0 0 0 15px;
+        display: none
+    }
+
+        .other-campaigns-container .other-campaigns-list.show {
+            display: inline-block
+        }
+
+        .other-campaigns-container .other-campaigns-list li {
+            font-weight: 300;
+            line-height: 16px;
+            list-style-type: disc;
+            list-style-position: outside;
+            padding-bottom: 8px
+        }
+
+        .other-campaigns-container .other-campaigns-list .hidden-campaigns {
+            display: none
+        }
+
+@media (max-width: 767px) {
+    .other-campaigns-container .other-campaigns-list {
+        display: block !important;
+        width: 100%
+    }
+
+    .other-campaigns-container .see-all-campaigns {
+        display: inline-block !important;
+        visibility: visible !important
+    }
+}
+/*Other campaigns*/
+/*Payment Options*/
+#payment-options-info ul {
+    display: none;
+}
+
+#payment-options-info .installment-container {
+    height: auto;
+    padding: 0 0 10px 0;
+    border: 0;
+}
+
+#payment-options-info li {
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+#payment-options-info .ins-prices {
+    text-align: right;
+}
+
+#payment-options-info .cash-price,
+#payment-options-info .installment-price,
+#payment-options-info .total-payment-price {
+    padding-top: 0 !important;
+}
+
+#payment-options-info .cash-price,
+#payment-options-info .total-payment-price {
+    font-size: 14px;
+    color: #333;
+}
+
+#payment-options-info .installment-price {
+    font-size: 12px;
+}
+
+.installment-price strong {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+}
+
+.bank-commissions-container {
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.bankCommissionsForCorp {
+    display: none;
+}
+
+.payment-options {
+    display: none;
+}
+
+    .payment-options .ins-names {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    .payment-options .ins-prices {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+.installment-check-label {
+    display: inline-block !important;
+}
+
+.installment-text-label {
+    position: relative;
+    top: -3px;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.PaymentOptions {
+    padding: 10px 0 0 0;
+    position: relative;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    display: none;
+}
+
+.ins-4 .gg-d-6 {
+    width: 20%;
+}
+
+.ins-4 .hidden-txt {
+    display: none;
+}
+
+.installment-container {
+    padding: 5px 20px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.installment-list.selected .installment-container {
+    border: 1px solid #0654ba;
+}
+
+.installment-container.FormInputErr {
+    border: 1px solid #df1e31;
+}
+
+.InsInfo {
+    background-color: #f0f0f0;
+    width: 477px;
+    margin: 6px 0 0 161px;
+    padding: 5px 0;
+    display: none;
+}
+
+    .InsInfo.selected {
+        display: block;
+        -moz-box-shadow: 5px -2px 5px 0px #CDCDCD;
+        -webkit-box-shadow: 5px -2px 5px 0px #CDCDCD;
+        box-shadow: 5px -2px 5px 0px #CDCDCD;
+    }
+
+.InsBox {
+    position: relative;
+    display: none;
+    padding: 5px 10px;
+}
+
+.PaymentOptions .InsBox label {
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+    padding-right: 15px;
+}
+
+.InsBox table tr td {
+    padding: 5px 0;
+}
+
+.InsBoxJoin {
+    position: absolute;
+    width: 155px;
+    height: 6px;
+    top: -11px;
+}
+
+    .InsBoxJoin.Join3 {
+        left: 0;
+    }
+
+    .InsBoxJoin.Join6 {
+        left: 161px;
+    }
+
+    .InsBoxJoin.Join12 {
+        left: 322px;
+    }
+
+.CampInfo {
+    text-align: center;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.Insstatus {
+    width: 175px;
+    text-align: center;
+    font-weight: bold;
+    border-left: 1px solid #fdfcfd;
+    color: #fff;
+}
+
+    .Insstatus p {
+        display: none;
+    }
+
+#bonus_Ins.selected, #bonus_Ins.selected .InsBoxJoin {
+    background: #5faf32;
+}
+
+#isbank_Ins.selected, #isbank_Ins.selected .InsBoxJoin {
+    background: #ce006c;
+}
+
+#ykb_Ins.selected, #ykb_Ins.selected .InsBoxJoin {
+    background: #6b267f;
+}
+
+#axs_Ins.selected, #axs_Ins.selected .InsBoxJoin {
+    background: #ed9500;
+}
+
+#finans_Ins.selected, #finans_Ins.selected .InsBoxJoin {
+    background: #103482;
+}
+
+    #hsbc_Ins.selected, #finans_Ins.selected .InsBoxJoin {
+        background: #fbab56;
+    }
+
+.ChckBox {
+    float: left;
+    width: 22px;
+    text-align: left;
+}
+
+.ChckInfo {
+    float: left;
+    width: 105px;
+    color: #FFF;
+    text-align: left;
+}
+
+    .ChckInfo p {
+        padding-bottom: 5px;
+        font-size: 11px;
+    }
+
+    .ChckInfo label {
+        color: #FFF;
+    }
+/*Payment Options*/
+
+/*3D Animation*/
+.Perspective {
+    position: relative;
+    height: 196px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    -ms-perspective: 600px;
+    -o-perspective: 600px;
+    perspective: 600px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+
+    .Perspective div {
+        -webkit-transition: all 600ms ease, opacity 200ms ease;
+        -moz-transition: all 600ms ease;
+        -ms-transition: all 600ms ease, opacity 200ms ease;
+        -o-transition: all 600ms ease, opacity 200ms ease;
+        transition: all 600ms ease, opacity 200ms ease;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+
+    .Perspective .past {
+        display: none\9;
+        opacity: 0;
+        -webkit-transform: rotateY( 180deg );
+        -moz-transform: rotateY( 180deg );
+        -ms-transform: rotateY( 180deg );
+        -o-transform: rotateY( 180deg );
+        transform: rotateY( 180deg );
+    }
+
+    .Perspective .future {
+        display: none\9;
+        opacity: 0;
+        -webkit-transform: rotateY( -180deg );
+        -moz-transform: rotateY( -180deg );
+        -ms-transform: rotateY( -180deg );
+        -o-transform: rotateY( -180deg );
+        transform: rotateY( -180deg );
+    }
+/*3D Animation*/
+
+/*TC Number*/
+.TCNumber {
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+    .TCNumber span {
+        display: block;
+        margin: 0 0 10px 0;
+    }
+
+        .TCNumber span.RedWarn {
+            color: #CC2320;
+        }
+
+    .TCNumber input {
+        width: 96px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .TCNumber strong, #CouponInfo strong {
+        font-size: 11px;
+    }
+
+#TCInfo {
+    position: absolute;
+    font-size: 11px;
+    left: 0;
+    width: 100%;
+    top: 21px;
+    display: none;
+}
+
+.international-seller-tc-info {
+    position: relative;
+}
+
+#internationalTCInfo {
+    position: absolute;
+    font-size: 11px;
+    left: 0;
+    width: 100%;
+    top: 21px;
+    display: none;
+    z-index: 100;
+}
+
+#CouponInfo {
+    position: absolute;
+    font-size: 11px;
+    left: 0;
+    width: 240px;
+    top: 40px;
+    display: none;
+    z-index: 90;
+}
+
+    #CouponInfo b, #CouponInfo strong {
+        color: #333;
+        display: inline-block !important;
+        font-size: 11px;
+    }
+
+.InfoBubble.ArrowB {
+    padding-bottom: 13px;
+}
+/*TC Number*/
+
+/*Ins Info*/
+#InsInfoCon blockquote {
+    display: inline-block;
+}
+
+#InsInfo {
+    position: absolute;
+    font-size: 11px;
+    right: 19px;
+    top: -75px;
+    width: 229px;
+    display: none;
+}
+
+#InsInfoCon #InsInfo {
+    text-align: left;
+}
+
+#InsInfo .InfoBubble.ArrowB:before {
+    right: 5%;
+}
+
+.postop {
+    position: relative;
+    z-index: 100;
+}
+
+#InsInfo .InfoBubble.ArrowB .Arrow {
+    left: 90%;
+}
+/*Ins Info*/
+
+/*Captcha*/
+#recaptcha_logo, #recaptcha_tagline {
+    display: none;
+}
+
+#recaptcha_area .recaptchatable {
+    border: none !important;
+}
+
+.recaptchatable .FormInput {
+    border: 1px solid #C3C3C3;
+    padding: 5px;
+    width: 290px;
+}
+
+    .recaptchatable .FormInput.FormInputFcs {
+        border: 1px solid #4DB3D9;
+    }
+
+#recaptcha_image {
+    margin-right: 5px !important;
+}
+
+.recaptcha_input_area {
+    padding: 0 !important;
+}
+
+.recaptchatable, #recaptcha_area tr, #recaptcha_area td, #recaptcha_area th {
+    padding: 0 !important;
+}
+/*Captcha*/
+
+/*3D Dialog*/
+#ggDialogPageContainer {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #181824;
+}
+
+    #ggDialogPageContainer h5 {
+        font-size: 18px;
+        padding: 10px 0;
+        color: #484852;
+    }
+
+    #ggDialogPageContainer p {
+        padding-bottom: 10px;
+    }
+/*3D Dialog*/
+
+/*NumPad*/
+.NumpadIco {
+    width: 20px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/numpad-gray.png) no-repeat 0 0;
+    right: 10px;
+    top: 12px;
+    text-indent: -9999px;
+    z-index: 15;
+    background-size: 20px 14px;
+}
+
+    .NumpadIco.active {
+        background: url(//st.gittigidiyor.net/rsrc/payment-steps/img/payment/numpad.png) no-repeat 0 0;
+        background-size: 20px 14px;
+    }
+
+#jqfnumkeypad_cardnum {
+    right: 10px;
+    width: 128px;
+    background: #fff;
+    padding: 15px;
+    border: none;
+    top: 43px;
+    z-index: 9999;
+}
+
+#main-content .jqfnumkeypad .jqfnumkeypad_keypad {
+    display: block;
+    padding: 0;
+    background: none;
+}
+
+.CardInfo table {
+    border-collapse: separate;
+}
+
+.jqfnumkeypad .jqfnumkeypad_digit,
+.jqfnumkeypad .jqfnumkeypad_clear,
+.jqfnumkeypad .jqfnumkeypad_random {
+    padding: 0 !important;
+    font-size: 15px !important;
+    border: none !important;
+    background: none !important;
+}
+
+span.button-container {
+    display: block;
+    padding: 10px 0 !important;
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+    font-size: 15px;
+    color: #333333 !important;
+    background: #e3e3e3 !important;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.jqfnumkeypad .jqfnumkeypad_clear span.button-container,
+.jqfnumkeypad .jqfnumkeypad_random span.button-container {
+    background: #0654ba !important;
+    color: #fff !important;
+    font-weight: normal;
+}
+
+.jqfnumkeypad_random label {
+    cursor: pointer;
+    color: #fff !important;
+}
+/*NumPad*/
+
+/*Mail Note*/
+#MailNote {
+    width: 211px;
+    position: absolute;
+    left: 275px;
+    top: -29px;
+    display: none;
+}
+/*Mail Note*/
+
+/*Warning Content*/
+#CreditCard .Warnings {
+    border: none;
+}
+/*Warning Content*/
+
+/*Discount Coupons*/
+.discount-coupon-con {
+    position: relative;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.coupons-icon {
+    display: inline;
+}
+
+.define-link {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+    .define-link .gg-icon-discount-coupon {
+        color: #769ad0;
+        font-size: 30px;
+        position: absolute;
+        left: 0;
+        top: -8px;
+    }
+
+    .define-link .define-coupon-text {
+        padding-left: 45px;
+    }
+
+.add-coupon-con {
+    text-align: left;
+}
+
+.add-discount-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ContentLeft .discount-coupon-con .FormTxtWarn {
+    font-size: 11px;
+}
+
+.positive-icon {
+    background-position: 0 -20px;
+    color: #82ba22;
+}
+
+    .positive-icon .icon-check {
+        font-size: 20px;
+        padding-right: 10px;
+    }
+
+.warning-icon {
+    background-position: 0 -49px;
+    color: #efa345;
+}
+
+    .warning-icon .icon-info {
+        font-size: 20px;
+        padding-right: 10px;
+        top: 3px;
+        position: relative;
+    }
+
+.discount-info {
+    display: block;
+    position: relative;
+    padding-bottom: 10px;
+    float: right;
+    width: 100%;
+}
+/*Discount Coupons*/
+
+/*Add Discount coupon box*/
+.discount-coupon-box {
+    padding: 20px 0 0 0;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #e3e3e3;
+}
+
+.discount-coupon-link {
+    display: table;
+    margin: 0 auto;
+}
+
+    .discount-coupon-link .gg-icon-discount-coupon {
+        float: left;
+        font-size: 24px;
+        margin-top: -3px;
+        color: #769ad0;
+    }
+
+    .discount-coupon-link .btn-discount {
+        float: left;
+        font-size: 14px;
+        font-family: Roboto, 'Arial';
+        line-height: 16px;
+        margin-left: 10px;
+        color: #1d54ba;
+    }
+
+        .discount-coupon-link .btn-discount:hover {
+            text-decoration: underline;
+        }
+
+.discount-coupon-top-box {
+    float: left;
+    width: 100%;
+    padding: 0 0 20px 0;
+    box-sizing: border-box;
+}
+
+    .discount-coupon-top-box p {
+        float: left;
+        font: 14px/14px "Arial";
+        color: #181825;
+    }
+
+    .discount-coupon-top-box a {
+        float: right;
+        font: 12px/14px "Arial";
+        color: #2075c8;
+    }
+
+.right-box {
+    float: left;
+    background: #fff;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.remove-item-box {
+    display: block;
+    width: 100%;
+}
+
+    .remove-item-box .icon-up {
+        float: left;
+        font-size: 22px;
+    }
+
+    .remove-item-box strong {
+        float: left;
+        font-size: 14px;
+        line-height: 24px;
+        margin: 6px 5px 0 5px;
+    }
+
+    .remove-item-box .btn-remove-item {
+        float: left;
+        font-size: 14px;
+        line-height: 40px;
+        color: #2075c8;
+        cursor: pointer;
+    }
+
+.discount-voucher-box {
+    display: block;
+    height: auto;
+}
+
+    .discount-voucher-box .input-box {
+        display: none;
+    }
+
+        .discount-voucher-box .input-box .txt-discount-code {
+            float: left;
+            line-height: 100% !important;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        .discount-voucher-box .input-box .btn-discount-code {
+            float: left;
+            margin-left: 4%;
+        }
+
+    .discount-voucher-box.close .input-box {
+        float: left;
+        display: block;
+        width: 100%;
+    }
+
+        .discount-voucher-box.close .input-box .txt-discount-code {
+            float: left;
+            background: #fff;
+            width: 66%;
+        }
+
+        .discount-voucher-box.close .input-box .btn-discount-code {
+            float: right;
+            padding: 0;
+            height: 48px;
+            width: 30%;
+        }
+
+
+.discount-coupon-success {
+    float: right;
+    display: none;
+    padding-right: 15px;
+    margin: 10px 0;
+}
+
+    .discount-coupon-success .icon-confirm {
+        float: left;
+        font-size: 24px;
+        color: #5da529;
+        margin-right: 10px;
+    }
+
+    .discount-coupon-success p {
+        float: left;
+        font: 400 12px/24px "Arial";
+        color: #5da529;
+    }
+
+.discount-coupon-info {
+    display: none;
+}
+
+    .discount-coupon-info .icon-info {
+        font-size: 20px;
+        color: #db2236;
+        margin-right: 10px;
+    }
+
+    .discount-coupon-info p {
+        display: table;
+        margin: 0 auto;
+        font: 400 12px/24px "Arial";
+        color: #db2236;
+    }
+
+    .discount-coupon-info span {
+        font-size: 11px;
+        line-height: 20px;
+        margin-bottom: 10px;
+        position: relative;
+        top: -5px;
+    }
+/*Add Discount coupon box*/
+
+
+/*Pay With Points*/
+#pay-with-points-con, .pwp-discount-text, #gg-points-con {
+    display: none;
+}
+
+#pay-with-points {
+    background: #f8f8f8;
+    padding: 10px !important;
+}
+
+    #pay-with-points td {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    #pay-with-points tr.first td {
+        padding: 0 0 10px 0;
+    }
+
+    #pay-with-points tr.last td {
+        border: none;
+        padding: 10px 0 0 0;
+    }
+
+.point-color {
+    font-weight: bold;
+}
+
+.bonus-puan .point-color {
+    color: #73a42e;
+}
+
+.world-puan .point-color {
+    color: #6b267f;
+}
+
+.chip-para .point-color {
+    color: #ed9500;
+}
+
+.sub-pwp-txt {
+    color: #8e8e8e;
+    padding: 8px;
+    text-align: left !important;
+}
+
+.first-sub {
+    padding-top: 0 !important;
+}
+
+.sub-pwp-price {
+    padding: 5px 10px;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.pwp-total {
+    font-weight: bold;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    padding-bottom: 20px;
+}
+
+#sub-pwp1 {
+    text-decoration: line-through;
+}
+
+#pay-with-points.gg-form-item .gg-input-radio {
+    margin: 0 0 15px 0 !important;
+}
+/*Pay With Points*/
+
+.ins-dt {
+    display: block;
+    font: 400 14px 'Arial';
+}
+
+.payment-info-text {
+    text-align: right;
+    padding: 10px 0px 0px;
+}
+
+.SentAdress p {
+    line-height: 18px;
+}
+
+#payment-summary .SentAdress {
+    padding: 0 20px;
+}
+
+.installment-list {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    .installment-list:hover .installment-container {
+        border: 1px solid #333;
+    }
+
+    .installment-list.selected:hover .installment-container {
+        border: 1px solid #0654ba;
+    }
+
+    .installment-list:last-child {
+        margin-bottom: 0;
+    }
+
+.installment-title {
+    font-family: Roboto, 'Arial';
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.installment-subtitle {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #999999;
+}
+
+#mobile-installment-info-container {
+    position: relative;
+    margin: 10px 0 20px 0;
+}
+
+    #mobile-installment-info-container .mobile-padding {
+        padding: 0 5px;
+    }
+
+.show-bank-info {
+    position: absolute;
+    right: 5px;
+    bottom: 45%;
+}
+
+.changeCard {
+    display: block;
+    text-align: center;
+}
+
+.gg-info-box.type-info p {
+    padding-right: 14px;
+}
+
+.gg-info-box i.icon-close {
+    top: 18px;
+}
+
+@media (min-width: 1200px) {
+    .mss_main {
+        width: 760px !important;
+    }
+
+    .CardInfoSort {
+        right: 17px;
+    }
+}
+
+@media (min-width: 980px) {
+
+    .cardDate {
+        margin-bottom: 20px;
+    }
+
+    .cvc-text-container {
+        text-align: left;
+    }
+}
+
+@media (max-width: 979px) {
+
+    .cardDate {
+        margin-bottom: 20px;
+    }
+
+    .cvc-text-container {
+        float: left;
+        text-align: left;
+    }
+
+    .LightboxContent {
+        width: 470px;
+    }
+
+    .CardInfoSort {
+        right: 13px;
+    }
+
+    #basket-info {
+        position: relative;
+        top: -1px;
+    }
+
+    .mss_main {
+        width: 665px !important;
+    }
+
+    .banks ul li {
+        padding: 5px;
+    }
+
+    .tablet-text {
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .gg-info-box.type-error {
+        margin: 10px 10px 0 10px;
+    }
+
+    #payment-summary .FormTxtWarn {
+        display: block;
+    }
+
+    #InfoCVCCon {
+        top: 202px;
+        left: 10px;
+        width: 95%;
+    }
+
+    #Info3DCon {
+        top: 313px;
+    }
+
+        #Info3DCon:after {
+            left: 191px;
+        }
+
+    #InfoCVCCon:after {
+        left: 80%
+    }
+
+    .installment-title {
+        font-size: 16px;
+    }
+
+    .cvc-payment-step .other-price-info {
+        padding-bottom: 20px;
+    }
+
+    .cvc-payment-step .overall-total-txt {
+        display: inline-block;
+    }
+
+    #payment-options-info {
+        border: none;
+        background: #fff;
+        padding: 0 20px 20px;
+    }
+
+    #mobile-installment-info-container .mobile-padding {
+        padding: 0 20px;
+    }
+
+    .ShoppingTotal strike, .strike,
+    .ShoppingTotal b, .ShoppingTotal strong {
+        display: inline-block;
+        font-size: 14px;
+        padding-top: 0;
+    }
+
+    .ShoppingTotal strike {
+        text-align: right;
+        display: block;
+    }
+
+    .ShoppingTotal b, .ShoppingTotal strong, .general-overall-total-txt, .overall-total-txt {
+        color: #999999;
+    }
+
+    .BkmInfoBox, .GarantiInfoBox {
+        padding: 6px;
+        font-size: 10px;
+        line-height: 13px;
+        height: 48px;
+    }
+
+        .BkmInfoBox p, .GarantiInfoBox p {
+            width: 95%;
+            margin-left: 0;
+        }
+
+        .BkmInfoBox .icon-close, .GarantiInfoBox .icon-close {
+            top: 6px;
+            right: 6px;
+            width: 10px;
+            height: 10px;
+        }
+
+    .changeCard {
+        margin-bottom: 20px;
+    }
+
+    .CardInfo .changeCard {
+        margin-bottom: 0;
+    }
+
+    .payment-info-text {
+        text-align: center;
+    }
+
+    .PaymentOptions ul li.disabled td.sec {
+        text-align: left !important;
+    }
+
+    .PaymentOptions ul li.disabled p.disabled {
+        float: right;
+        padding: 0 10px 0 0;
+    }
+
+    .PaymentOptions label {
+        padding: 0 0 0 5px;
+    }
+
+    .box-content.TabBorder .ml3 {
+        margin: 0;
+    }
+
+    span.icon {
+        text-indent: -9999px;
+        padding-left: 0;
+    }
+
+    .discount-coupon-con input {
+        padding: 0 10px !important;
+    }
+
+    .discount-coupon-con {
+        position: relative;
+        padding: 0;
+        border: 0;
+        text-align: left;
+    }
+
+    .ShoppingTPrice {
+        text-align: left;
+    }
+
+    .ContentLeft {
+        padding: 0;
+        position: relative;
+        z-index: 50;
+    }
+
+        .ContentLeft.BkmExpressCampaign {
+            padding-top: 40px;
+        }
+
+        .ContentLeft.GarantiExpressCampaign {
+            padding-top: 40px;
+        }
+
+    #InsInfo {
+        right: inherit;
+        left: 32px;
+    }
+
+    .mss_main {
+        width: 100% !important;
+    }
+
+    #ggDialogPageContainer {
+        border: none !important;
+    }
+
+    .ggDialogCloser {
+        display: none !important;
+    }
+
+    .agreement-title {
+        height: auto;
+    }
+
+    .main_bg2 {
+        padding: 0 !important;
+        margin: 10px 0;
+    }
+
+        .main_bg2 .agreement-title {
+            background: url('//st.gittigidiyor.net/rsrc/mss/img/mss-arrows.png') #f4f4f4 no-repeat right -21px;
+            padding: 10px !important;
+            cursor: pointer;
+        }
+
+    .agreement-title strong {
+        color: #195ea5;
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 81%;
+        padding-right: 20px;
+        cursor: pointer;
+        background: url('//st.gittigidiyor.net/rsrc/mss/img/mss-arrows.png') no-repeat right -6px;
+    }
+
+    .main_bg {
+        height: auto !important;
+        margin: 10px 0;
+    }
+
+    .sozlesme {
+        overflow: hidden;
+        width: 85%;
+    }
+
+    .LightboxContent {
+        border: 1px solid #ddd;
+        padding: 0;
+    }
+
+    .InsTableCon, .Installments.clearfix {
+        width: 100%;
+        max-height: 100%;
+        padding-right: 0;
+        border: none;
+    }
+
+    .Installments {
+        padding: 0;
+    }
+
+    .LightboxCon {
+        height: auto !important;
+        max-height: 100% !important;
+        overflow: hidden;
+    }
+
+    .InsTableCon {
+        overflow-y: hidden;
+    }
+
+    .LightboxContent {
+        width: 100% !important;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+        .LightboxContent h4 {
+            font-size: 16px;
+        }
+
+    .BankInstallmens td.bankInsMobile strong {
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .banks ul li {
+        padding: 0px;
+        width: 33%;
+        height: 75px;
+    }
+
+    .banksContent {
+        padding: 0 !important;
+    }
+
+    .BankInstallmens td.bankInsMobile {
+        color: #8e8e8e;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .BankInstallmens span.black {
+        display: block;
+        color: #181825;
+        padding-top: 5px;
+    }
+
+    .PaymentOptions .Gray {
+        padding: 5px 0 5px 0;
+    }
+
+    .PaymentOptions a.ArrowLink {
+        padding: 0 0 5px 0;
+        position: relative;
+        right: inherit;
+        top: inherit;
+        display: block;
+    }
+
+    .mss_scr {
+        max-height: auto !important;
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+
+    #Info3DCon {
+        left: 10px;
+        width: 95%;
+    }
+
+    #agreement-content {
+        background: #fff;
+    }
+
+    .ggDialogPageContainer, .ggDialogPageBlocker {
+        display: none !important;
+    }
+
+    #pay-with-points-con {
+        padding: 0;
+    }
+
+    .pwp-price-info {
+        text-align: left;
+    }
+
+    .sub-pwp-price {
+        min-height: 35px;
+    }
+
+    /*BKM Info mobile*/
+    .TabSelect ul {
+        position: relative;
+    }
+    /*BKM Info mobile*/
+
+    .pFixed {
+        position: fixed;
+        z-index: 999;
+        margin-bottom: 0 !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #payment-summary {
+        padding: 0 !important;
+        margin: 10px 0 0 0;
+        position: relative;
+        z-index: 20;
+    }
+
+        #payment-summary #basket-products {
+            border-right: 0 !important;
+        }
+
+    .cvc-text-container {
+        text-align: left;
+    }
+
+    #DiscountCoupon p {
+        padding: 0px 10px 10px 10px;
+    }
+
+    .FormInput {
+        height: 30px !important;
+    }
+
+    .DateSelect#P-CCMonthSelect {
+        margin-right: 20px;
+    }
+
+    .ShoppingLinks {
+        border-bottom: 1px solid #ddd;
+        margin: 0 0 20px 0;
+    }
+
+        .ShoppingLinks.shopping-links-margin {
+            margin: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+
+    .CardInfo {
+        padding: 30px 10px 15px 10px;
+    }
+
+    #BkmExpress, #GarantiPay {
+        padding: 0 20px;
+    }
+
+    .TabBorder {
+        border-bottom: none;
+    }
+
+    #mobile-installment-info-container {
+        margin: 0;
+        padding: 0 0 20px 0;
+    }
+
+    .show-bank-info {
+        position: relative;
+        right: inherit;
+        bottom: inherit;
+        padding: 20px 10px 20px;
+        display: block;
+    }
+
+    .small-info-icon {
+        background-position: 20px center;
+        padding-left: 60px;
+    }
+
+    .payment-shopping-total-container {
+        padding-top: 20px;
+    }
+
+    .pwp-total {
+        padding: 10px 10px 20px 20px;
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+
+    .point-info {
+        padding: 0 10px;
+    }
+
+    .sub-pwp-total {
+        padding-bottom: 15px;
+    }
+
+    .edit-basket {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        font-weight: normal;
+    }
+
+    .address-info h4 {
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+    .address-info {
+        padding: 0;
+    }
+
+    .bankCommissions ul, .bankCommissionsForCorp ul {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .restricted-info-mobile-con .restricted-info-con .icon-info {
+        top: 30%
+    }
+
+    .restricted-info-mobile-con .restricted-info-con .restricted-info-text {
+        padding: 20px 10px 20px 35px;
+    }
+
+    .payment-buttons-container .btn-pay {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        margin-top: 0;
+    }
+
+    .installment-list {
+        padding: 0 20px;
+    }
+
+    .payment-options .ins-prices {
+        margin: 0;
+    }
+
+    .installment-list:first-child .ins-prices {
+        margin-top: 10px;
+    }
+
+    .payment-options .ins-names {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .installment-text-label {
+        margin-left: 10px;
+    }
+
+    .installment-container {
+        padding: 10px 20px;
+    }
+
+    #payment-summary .SentAdress {
+        padding: 20px 20px 0 20px;
+    }
+}
+
+.userNick {
+    font-size: 14px;
+    color: #8e8e8e;
+    font-family: Arial;
+    margin: 20px 20px 0px 0;
+    width: 150px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.small-info-icon {
+    background: url('/rsrc/common/img/small-info-icon.png') no-repeat 10px center;
+    padding: 0 20px 0 50px;
+    background-size: 24px 24px;
+    margin-bottom: 20px;
+}
+
+.restricted-info-con .icon-info {
+    position: absolute;
+    left: 10px;
+    top: 18%;
+    color: #2254b3;
+    font-size: 24px;
+}
+
+.restricted-info-con .restricted-info-text {
+    padding: 10px 10px 20px 35px;
+    display: inline-block;
+}
+
+    .restricted-info-con .restricted-info-text.one-row {
+        line-height: 22px;
+    }
+
+.show-installments-info.restricted-info-con .restricted-info-text {
+    padding-bottom: 0;
+}
+
+.new-restricted-info .icon-info {
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    color: #2254b3;
+    font-size: 18px;
+}
+
+.new-restricted-info .show-installments-info,
+.new-restricted-info .installment-restricted-text,
+.new-restricted-info .has-no-installment {
+    padding: 7px 10px 20px 25px;
+    display: inline-block;
+}
+
+.installment-restricted-product-list {
+    list-style-type: disc;
+    display: block;
+    list-style-position: inside;
+    padding: 0 10px 10px 25px;
+}
+
+    .installment-restricted-product-list li {
+        padding-bottom: 10px;
+        line-height: 18px;
+    }
+
+/*Warning Bank logos*/
+
+.bank-logo-ykb {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/yapi-kredi-logo.png');
+    background-size: 125px 22px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.bank-logo-garanti {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/garanti-logo.png');
+    background-size: 103px 33px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.bank-logo-akbank {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/akbank-logo.png');
+    background-size: 137px 15px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.bank-logo-finansbank {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/finansbank-logo.png');
+    background-size: 107px 32px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.bank-logo-hsbc {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/hsbc-logo.png');
+    background-size: 121px 21px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+
+.bank-logo-is-bankasi {
+    background-image: url('//st.gittigidiyor.net/rsrc/payment-steps/img/payment/warning-bank-logos/is-bankasi-logo.png');
+    background-size: 128px 40px;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+}
+/*Warning Bank logos*/
+
+.address-highlight-info {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    position: relative;
+    background: #e8eff8;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+    .address-highlight-info p {
+        word-wrap: break-word;
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #767676;
+        padding-right: 60px;
+        line-height: 20px;
+    }
+
+    .address-highlight-info strong {
+        padding-left: 25px;
+        color: #181825;
+    }
+
+    .address-highlight-info .address-change-link {
+        position: absolute;
+        right: 20px;
+        font: 500 12px/20px Roboto, 'Arial';
+        top: 10px;
+        text-decoration: none;
+    }
+
+.address-pin-icon {
+    font-size: 18px;
+    color: #0654ba;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+@media (max-width: 767px) {
+    .address-highlight-info {
+        margin: 0;
+        background: none;
+    }
+
+        .address-highlight-info p {
+            color: #181825;
+        }
+}
+
+.bank-commissions-container, .other-price-info {
+    position: relative;
+}
+
+.loading-container {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 50
+}
+
+.loading-container-img {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index: 100;
+}
+
+.ShoppingTPrice .loading-container-img {
+    left: 39%;
+}
+
+.payment-options-info {
+    padding-bottom: 0;
+}
+
+#bottom-payment-button {
+    padding: 30px 10px;
+}
+
+    #bottom-payment-button .general-overall-total-txt {
+        font-size: 16px;
+        display: block;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    #bottom-payment-button .total-price-text {
+        font-size: 30px;
+        line-height: 25px;
+    }
+
+    #bottom-payment-button .loading-container-img {
+        top: -10px;
+    }
+
+
+#payment-options-container {
+    box-shadow: 0 1px 2px 0 rgba(85,85,85,0.5);
+}
+
+/*Caption Title and Icon */
+.caption-icon-container {
+    padding-right: 10px;
+}
+
+    .caption-icon-container span {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: #e8eff8;
+        text-align: center;
+        position: relative;
+        display: block;
+    }
+
+        .caption-icon-container span i.clip-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #eee;
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            z-index: 5;
+            opacity: 0.8;
+        }
+
+        .caption-icon-container span i {
+            top: 10px;
+            position: relative;
+            font-size: 20px;
+            color: #0654ba;
+            z-index: 0;
+        }
+
+            .caption-icon-container span i.reverse-icon {
+                color: #fff;
+                background: #0654ba;
+            }
+
+.caption-container {
+    padding-bottom: 20px;
+}
+
+    .caption-container h3 {
+        color: #333;
+        font: 500 20px/24px Roboto,Arial !important;
+    }
+
+    .caption-container .caption-sub-title {
+        color: #999999;
+        font: 300 14px/16px Roboto,Arial !important;
+    }
+
+.caption-header {
+    padding: 20px 20px 0;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.caption-container .caption-total-text {
+    font: 500 14px/20px Roboto,Arial !important;
+}
+
+.caption-total-text a {
+    color: #0654ba;
+}
+
+.caption-total-text span {
+    color: #767676;
+}
+
+@media (max-width: 767px) {
+    #payment-options-container .caption-container h3 {
+        font-size: 16px !important;
+    }
+
+    .moex-card-selection-container .caption-container h3 {
+        padding-left: 20px;
+    }
+
+    .caption-header {
+        padding: 15px 15px 0;
+    }
+
+        .caption-header td {
+            height: auto;
+        }
+
+    #payment-summary .caption-container {
+        padding-bottom: 15px;
+    }
+}
+/*Caption Title and Icon */
+
+/*Shipping Info*/
+.shipping-detail-container {
+    font: 300 14px/20px Roboto,Arial !important;
+    padding: 0 !important;
+    margin-top: 20px;
+}
+
+.shipping-detail-info {
+    padding: 25px 20px;
+    position: relative;
+}
+
+.shipping-detail-container .shipping-title {
+    font: 500 16px/21px Roboto,Arial !important;
+}
+
+.change-shipping-address {
+    position: absolute;
+    top: 40%;
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .shipping-detail-container {
+        margin-top: 10px;
+    }
+
+    .shipping-detail-info {
+        padding: 15px 5px;
+    }
+
+    .change-shipping-address {
+        position: relative;
+        top: inherit;
+        padding: 10px;
+    }
+}
+/*Shipping Info*/
+/*Payment products summary*/
+.shopping-products-container {
+    margin-top: 20px;
+    padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .shopping-products-container {
+        margin-top: 10px;
+    }
+}
+/*Payment products summary*/
+
+.campaign-box {
+    padding: 10px;
+    background-color: #f4f4f4;
+    display: inline-block;
+    border-radius: 3px;
+    position: relative;
+}
+
+    .campaign-box .gg-icon.gg-icon-check {
+        width: 14px;
+        height: 14px;
+        display: block;
+        position: absolute;
+        font-size: 12px;
+        color: #FFF;
+        font-weight: bold;
+        background-color: #5ba71b;
+        border-radius: 7px;
+        padding-top: 2px;
+        padding-left: 1px;
+        box-sizing: border-box;
+        left: -5px;
+        top: -5px;
+    }
+
+.campaign-icon {
+    color: #5ba71b;
+    font-size: 14px;
+    width: 13px;
+    height: 15px;
+    display: block;
+    float: left;
+    margin-right: 5px;
+}

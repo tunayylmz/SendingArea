@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Content Wrap -->
+<link href="~/Content/Css/Account.css" rel="stylesheet" />
+<link href="~/Content/Css/Payment.css" rel="stylesheet" />
+<div class="grey">
+    <div class="container">
+        <div class="topheader">
+            <h1>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        Ödeme
+                    </font>
+                </font>
+            </h1>
+        </div>
+        <div class="breadcrumbs">
+            <ul class="list-inline">
+                <li>
+                    <a href="Index">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">
+                                Anasayfa
+                            </font>
+                        </font>
+                    </a>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            /
+                        </font>
+                    </font>
+                </li>
+                <li>
+                    <span class="current">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">
+                                Ödeme
+                            </font>
+                        </font>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section white page-content" id="MyAccount">
+    <div class="container">
+        <div id="content" class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="post-contents">
+                <div class="woocommerce">
+                    <div class="woocommerce-notices-wrapper">
+                    </div>
+                    <h2>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">
+                                Ödeme Yap
+                            </font>
+                        </font>
+                    </h2>
+                    <form class="woocommerce-form woocommerce-form-login login" method="post">
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="CardNo">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Kart Numarası &nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="CardNo" id="CardNo" autocomplete="CardNo" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Kart Üzerindeki Ad Soyad &nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="tc" id="tc" autocomplete="tc" value="">
+                        </p>
+                        <br />
+                        <ul style="margin-left: 0.5%">
+                            <li class="clearfix posr2">
+                                <div class="gg-w-16 gg-d-14 padding-none cardDate">
+                                    <span class="FormTxt" style="font-size:16px">Son Kullanma Tarihi</span>
+                                    <div class="clearfix ">
+                                        <br />
+                                        <div class="gg-d-12 pl0 gg-select-form-item" style="float:left; margin-right:5%; ">
+                                            <div class="gg-label">Ay</div>
+                                            <div class="gg-input gg-input-select ">
+                                                <select name="month" class=" DateSelect FormSelect gg-ui-select" id="P-CCMonthSelect" tabindex="3" style="border:1px solid #dedede; height:40px;padding:5px;">
+                                                    <option value="0">-</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="gg-d-12 pl0 gg-select-form-item " style="float:left; margin-right:5%;">
+                                            <div class="gg-label">Yıl</div>
+                                            <div class="gg-input gg-input-select ">
+                                                <select name="year" id="P-CCYearSelect" class="DateSelect FormSelect gg-ui-select" tabindex="4" style="border:1px solid #dedede; height:40px;padding:5px;">
+                                                    <option value="0">-</option>
+                                                    <option value="20">2020</option>
+                                                    <option value="21">2021</option>
+                                                    <option value="22">2022</option>
+                                                    <option value="23">2023</option>
+                                                    <option value="24">2024</option>
+                                                    <option value="25">2025</option>
+                                                    <option value="26">2026</option>
+                                                    <option value="27">2027</option>
+                                                    <option value="28">2028</option>
+                                                    <option value="29">2029</option>
+                                                    <option value="30">2030</option>
+                                                    <option value="31">2031</option>
+                                                    <option value="32">2032</option>
+                                                    <option value="33">2033</option>
+                                                    <option value="34">2034</option>
+                                                    <option value="35">2035</option>
+                                                    <option value="36">2036</option>
+                                                    <option value="37">2037</option>
+                                                    <option value="38">2038</option>
+                                                    <option value="39">2039</option>
+                                                    <option value="40">2040</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="gg-w-8 gg-d-10 padding-none" style="float:left; margin-right:9%; ">
+                                            <span class="FormTxt cvc-text-container">Güvenlik Kodu</span>
+                                            <div class="txt-box gg-input">
+                                                <input style="border:1px solid #dedede ; height:40px;padding:5px;" id="P-CVCNumberField" type="text" size="26" min="0" max="9999" name="CVC" autocomplete="section-cvc" class="gg-ui-txt" maxlength="4" tabindex="5" onkeypress="return ggPaymentFormController.functions.alpha(event,ggPaymentFormController.numbers)" data-type="tel">
+                                            </div>
+                                        </div>
+                                        <div class="gg-w-8 gg-d-10 padding-none" style="float:left;">
+                                            <div class="Perspective" >
+                                                <div id="CreditCardFront">
+                                                    <div class="card-logo-container">
+                                                        <span class="CardLogo"></span>
+                                                    </div>
+                                                    <div class="card-detail-container">
+                                                        <span class="CardNumber">1234 5678 9000 0000</span>
+                                                        <span class="UserName">AD SOYAD</span>
+                                                        <span class="LastDate">AA / YY</span>
+                                                        <div class="card-type-container">
+                                                            <span class="card-type"></span>
+                                                        </div>
+                                                        <span class="CVCTxt focused" style="display: none;">CVC</span>
+                                                    </div>
+                                                </div>
+                                                <div id="CreditCardBack" class="past">
+                                                    <div class="card-back-band"></div>
+                                                    <span class="CVCTxt focused">CVC</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="form-row">
+                            <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="38efa7f48d">
+                            <input type="hidden" name="_wp_http_referer" value="/themes/gocourierwp/my-account/">
+                            <br />
+                            <button style="background-color:#F5AB35;" type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">
+                                <font style="vertical-align: inherit; color:white ">
+                                    <font style="vertical-align: inherit;">
+                                        Ödeme Yap
+                                    </font>
+                                </font>
+                            </button>
+                            <br /><br />
+                        </p>
+                        @*<p class="woocommerce-LostPassword lost_password">
+                                <a href="http://event-theme.com/themes/gocourierwp/my-account/lost-password/">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            Şifreni mi unuttun?
+                                        </font>
+                                    </font>
+                                </a>
+                            </p>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="sidebar" class="col-md-3 col-sm-12 col-xs-12">
+
+        </div>
+    </div>
+</div>
+<!-- Content Wrap -->

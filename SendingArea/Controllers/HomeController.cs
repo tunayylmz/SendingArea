@@ -31,5 +31,10 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
     }
 }
