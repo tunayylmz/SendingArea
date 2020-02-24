@@ -1,0 +1,641 @@
+﻿@{
+    ViewBag.Title = "PopupLogin";
+}
+
+<div class="modal-window" data-modal-name="signin-signup-modal">
+    <div class="modal-window__panel">
+        <div class="modal-window__container ">
+            <div class="modal-window__inner">
+                <div class="modal-window__body">
+                    <div class="b-login-popup">
+                        <i class="icon icon-cancel modal-close trigger-close trigger-close--inverse">
+                        </i>
+                        <div class="b-login-popup__header">
+                            <div class="b-login-popup__header-tabs b-login-popup__right-box">
+                                <span class="nolink b-login-popup__header-tabs-button b-login-popup__login-button active">
+                                    <span>Oturum aç</span>
+                                </span> <span class="nolink b-login-popup__header-tabs-button b-login-popup__signup-button">
+                                    <span>Kayıt Ol</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="b-login-popup__content">
+                            <div class="b-login-popup__content-tab">
+                                <div class="b-login-popup__login-tabs ">
+                                    <span class="nolink b-login-popup__login-tabs-btn active">
+                                        <span class="b-login-popup__login-tabs-btn-label">Bireysel</span>
+                                    </span> <span class="nolink b-login-popup__login-tabs-btn ">
+                                        <span class="b-login-popup__login-tabs-btn-label">Kurumsal</span>
+                                    </span>
+                                </div>
+                                <div class="b-login-popup__login-tabs-bodies">
+                                    <form novalidate method="post" action="https://banabikurye.com/user-login" class="b-login-popup__login-form b-login-popup__login-form--person form">
+                                        <div class="form-line b-login-popup__line line line--phone" data-type="phone">
+                                            <label class="line-label" for="client_phone-1">Telefon numarası</label>
+
+                                            <div class="line-value notification-target notification-target--required" data-type="phone">
+                                                <div class="input-group input-required input-ballooned notification-target-input">
+
+                                                    <span class="input-group-prefix">+90</span>
+
+                                                    <input name="phone" type="tel" id="client_phone-1" value="" class="input-group-input " maxlength="20" placeholder="532 575 2246" title="" required data-validation-type="phone" v-dep->
+                                                </div>
+                                                <div class="notification-target-msgs msgs msgs--errors msgs--balloons">
+                                                    <div class="msgs-item required">Cep telefon numaranızı girin</div><div class="msgs-item invalid_phone">Telefon numaranız 10 karakterden oluşmalı.</div>
+                                                    <div class="msgs-item regex">
+                                                        Sadece sayıları yazınız
+                                                    </div>
+                                                    <div class="msgs-item length">
+                                                        Cep telefon numaranızı girin
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="line b-login-popup__line">
+                                            <label class="line-label" for="password__1">Şifre</label>
+                                            <div class="line-value notification-target notification-target--required">
+                                                <input name="password" id="password__1" maxlength="50" class="notification-target-input input-required" type="password" value="" placeholder="********" autocomplete="off" required data-validation-type="password">
+                                                <div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item required">
+                                                        Şifreyi girin
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="b-login-popup__line b-login-popup__remember-box">
+                                            <span class="action-link b-login-popup__recover-button b-login-popup__recover-button--person">Şifrenizi mi unuttunuz?</span>
+                                        </div>
+
+                                        <div class="form-errors ">
+                                            <div data-error-code="invalid_credentials" class="hidden form-errors-item form-errors-item--invalid_credentials form-error form-error--invalid_credentials">
+                                                Böyle bir şifre ve kullanıcı adı bulunamadı.
+                                            </div>
+                                            <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                                Bilinmeyen hata
+                                            </div>
+                                            <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                                Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                            </div>
+                                            <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                                Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                                            </div>
+                                        </div>
+                                        <div class="form-line form-footer form-line--submit">
+
+                                            <button class="btn btn--cta" type="submit">Oturum aç</button>
+                                        </div>
+                                    </form> <form novalidate method="post" action="https://banabikurye.com/user-login" class="b-login-popup__login-form b-login-popup__login-form--corp">
+                                        <div class="line b-login-popup__line">
+                                            <label class="line-label" for="email__2">Email</label>
+                                            <div class="line-value notification-target notification-target--required">
+                                                <input name="email" id="email__2" maxlength="51" class="notification-target-input input-required" type="email" value="" placeholder="name@domain.com" autocomplete="off" required data-validation-type="email">
+                                                <div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item required">
+                                                        E-mail adresinizi girin
+                                                    </div>
+                                                    <div class="msgs-item regex">
+                                                        Email is incorrect
+                                                    </div>
+                                                    <div class="msgs-item unique">
+                                                        Email is occupied
+                                                    </div>
+                                                    <div class="msgs-item invalid_email">
+                                                        Email is occupied
+                                                    </div>
+                                                </div>
+                                                <i class="form-value-hint">
+
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <div class="line b-login-popup__line">
+                                            <label class="line-label" for="password__3">Şifre</label>
+                                            <div class="line-value notification-target notification-target--required">
+                                                <input name="password" id="password__3" maxlength="50" class="notification-target-input input-required" type="password" value="" placeholder="********" autocomplete="off" required data-validation-type="password"><div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item required">
+                                                        Şifreyi girin
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="b-login-popup__line b-login-popup__remember-box">
+                                            <span class="action-link b-login-popup__recover-button b-login-popup__recover-button--corp">Şifrenizi mi unuttunuz?</span>
+                                        </div>
+                                        <div class="form-errors ">
+                                            <div data-error-code="invalid_credentials" class="hidden form-errors-item form-errors-item--invalid_credentials form-error form-error--invalid_credentials">
+                                                Böyle bir şifre ve kullanıcı adı bulunamadı.
+                                            </div>
+                                            <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                                Bilinmeyen hata
+                                            </div>
+                                            <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                                Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                            </div>
+                                            <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                                Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                                            </div>
+                                        </div>
+                                        <div class="form-line form-footer form-line--submit">
+                                            <button class="btn btn--cta" type="submit">Oturum aç</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="b-login-popup__content-tab">
+                                <div class="b-login-popup__line line b-login-popup__info-block">
+                                    *Kayıt ol tuşuna tıklayarak, en son haberlerimizi, tekliflerimizi ve program seçeneklerimize ilişkin bilgileri e-posta veya cep telefonu aracılığı ile teslim almayı kabul etmiş olursunuz. İstediğiniz zaman bundan vazgeçebilir ve üyeliğinizi iptal edebilirsiniz.
+                                </div>
+                                <div class="b-login-popup__line line ">
+                                    <label class="b-login-popup__line-label">Üyelik tipi</label>
+                                    <div class="b-login-popup__line-value b-login-popup__register-tabs-headers">
+                                        <span class="nolink b-login-popup__button-user-type tab-header active">
+                                            <span class="action-link tab-header-link">Bireysel</span>
+                                            <p class="tab-header-caption">Nakit ödemeli gönderiler yapın</p>
+                                        </span>
+                                        <span class="nolink b-login-popup__button-user-type tab-header">
+                                            <span class="action-link tab-header-link">Kurumsal</span>
+                                            <p class="tab-header-caption">Kurumlara özel ödeme seçenekleri</p>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="b-login-popup__register-tabs-bodies">
+                                    <form novalidate class="b-login-popup__register-person b-login-popup__register-tab " method="post" action="https://banabikurye.com/user/register-person">
+                                        <div class="line b-login-popup__line b-login-popup__username">
+                                            <label class="line-label" for="user_name__4">İsim</label>
+                                            <div class="line-value notification-target notification-target--required">
+
+                                                <input name="user_name" id="user_name__4" maxlength="50" class="notification-target-input input-required" type="text" value="" placeholder="İsminizi girin" autocomplete="off" required data-validation-type="text">
+
+                                                <div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item required">
+                                                        İsminizi girin
+                                                    </div><div class="msgs-item length">Length must be from 2 to 50 characters</div>
+                                                </div>
+                                            </div>
+                                        </div><div class="line b-login-popup__line b-login-popup__email">
+                                            <label class="line-label" for="email__5">Email</label><div class="line-value notification-target notification-target--required">
+                                                <input name="email" id="email__5" maxlength="51" class="notification-target-input input-required" type="email" value="" placeholder="name@domain.com" autocomplete="off" required data-validation-type="email">
+                                                <div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item required">E-mail adresinizi girin</div><div class="msgs-item regex">Email is incorrect</div><div class="msgs-item unique">Email is occupied</div><div class="msgs-item invalid_email">
+                                                        Email is occupied
+                                                    </div>
+                                                </div>
+                                                <i class="form-value-hint">
+                                                </i>
+                                            </div>
+                                        </div>
+
+                                        <div class="line b-password-setter__line b-login-popup__line">
+                                            <label class="line-label" for="password__6">Şifre</label><div class="line-value notification-target notification-target--required">
+                                                <input name="password" id="password__6" maxlength="50" class="notification-target-input input-required" type="password" value="" placeholder="" autocomplete="off" required data-validation-type="password-new">
+                                                <div class="notification-target-msgs msgs msgs--errors ">
+                                                    <div class="msgs-item length">
+                                                        Şifreniz en az 10 karakter olmalı. Şifre sadece rakam içermemeli.<br /> <span class="recommended-password--js">
+                                                            Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                            </span>
+                                                        </span>
+                                                    </div><div class="msgs-item required">Şifreyi girin</div><div class="msgs-item invalid_password_reused">
+                                                        Bu şifre daha önce kullanılmış<br /> <span class="recommended-password--js">
+                                                            Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="msgs-item invalid_password_easy">
+                                                        Daha güvenli bir şifre oluşturun<br /> <span class="recommended-password--js">
+                                                            Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="b-phone-verifier b-login-popup__phone-verifier" data-url-request-code="/backend/send-verification-sms" data-url-verify-phone="/backend/check-verification-code" data-purpose="registration">
+                                            <div class="b-phone-verifier__line b-phone-verifier__line--column b-phone-verifier__line--phone">
+                                                <div class="b-phone-verifier__phone line line--phone" data-type="phone">
+                                                    <label class="line-label" for="client_phone-2">Telefon numarası</label> <div class="line-value notification-target notification-target--required" data-type="phone">
+                                                        <div class="input-group input-required input-ballooned notification-target-input">
+                                                            <span class="input-group-prefix">+90</span> <input name="phone" type="tel" id="client_phone-2" value="" class="input-group-input b-phone-verifier__phone-input" maxlength="20" placeholder="532 575 2246" title="" required data-validation-type="phone" v-dep->
+                                                        </div>
+                                                        <div class="notification-target-msgs msgs msgs--errors msgs--balloons">
+                                                            <div class="msgs-item required">Cep telefon numaranızı girin</div><div class="msgs-item invalid_phone">
+                                                                Telefon numaranız 10 karakterden oluşmalı.
+                                                            </div>
+                                                            <div class="msgs-item regex">
+                                                                Sadece sayıları yazınız
+                                                            </div><div class="msgs-item length">
+                                                                Cep telefon numaranızı girin
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a class="action-link b-phone-verifier__code-btn">Doğrulama kodunu gönder</a>
+                                            </div> <div class="line b-phone-verifier__line b-phone-verifier__line--code">
+                                                <label class="line-label" for="code__7">SMS onay kodu</label><div class="line-value notification-target notification-target--required">
+                                                    <input name="code" id="code__7" maxlength="4" class="notification-target-input b-phone-verifier__code-input input-required" type="text" value="" placeholder="2529" autocomplete="off" required data-validation-type="sms-code">
+                                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                                        <div class="msgs-item required">
+                                                            SMS onay kodu gerekli
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" class="b-phone-verifier__source-input" value="signup">
+                                            <div class="b-phone-verifier__line b-phone-verifier__resend hidden">
+                                                <div>
+                                                    <div class="b-phone-verifier__resend-timer">
+                                                        <span class="b-phone-verifier__resend-timer-caption">Yeni mesaj birazdan tekrar gönderilecek</span> <span class="b-phone-verifier__resend-timer-val">
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <a class="action-link b-phone-verifier__resend-btn">Tekrar gönder</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-errors b-phone-verifier__errors">
+                                                <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                                    Server hatası
+                                                </div>
+                                                <div data-error-code="app" class="hidden form-errors-item form-errors-item--app form-error form-error--app">
+                                                    Hatalı kod
+                                                </div>
+                                                <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                                    Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                                </div>
+                                                <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                                    Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-errors ">
+                                            <div data-error-code="phone_is_not_verified" class="hidden form-errors-item form-errors-item--phone_is_not_verified form-error form-error--phone_is_not_verified">
+                                                Lütfen devam etmeden önce telefon numaranızı doğrulayın.
+                                            </div>
+                                            <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                                Hatalı parametre
+                                            </div>
+                                            <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                                Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                            </div>
+                                        </div> <div class="form-line form-footer form-line--submit">
+                                            <button class="btn btn--cta" type="submit">
+                                                Kayıt Ol
+                                            </button>
+
+                                        </div>
+                                    </form><div class="regcorp b-login-popup__register-corp b-login-popup__register-tab">
+                                        <form novalidate action="https://banabikurye.com/user/register-corp" method="post" class="regcorp-form">
+                                            <h3 class="b-login-popup__line">İrtibat bilgilerini doldurun</h3><div class="line b-login-popup__line">
+                                                <label class="line-label" for="user_name__8">İsim</label><div class="line-value notification-target notification-target--required">
+                                                    <input name="user_name" id="user_name__8" maxlength="50" class="notification-target-input input-required" type="text" value="" placeholder="İsminizi girin" autocomplete="off" required data-validation-type="text">
+                                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                                        <div class="msgs-item required">
+                                                            İsminizi girin
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="line b-login-popup__line">
+                                                <label class="line-label" for="email__9">Email</label><div class="line-value notification-target notification-target--required">
+                                                    <input name="email" id="email__9" maxlength="50" class="notification-target-input input-required" type="email" value="" placeholder="name@domain.com" autocomplete="off" required data-validation-type="email">
+                                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                                        <div class="msgs-item email">Email is incorrect</div><div class="msgs-item required">
+                                                            E-mail adresinizi girin
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="b-login-popup__line line line--phone" data-type="phone">
+                                                <label class="line-label" for="client_phone-3">Telefon numarası</label> <div class="line-value notification-target notification-target--required" data-type="phone">
+                                                    <div class="input-group input-required input-ballooned notification-target-input">
+                                                        <span class="input-group-prefix">+90</span> <input name="phone" type="tel" id="client_phone-3" value="" class="input-group-input " maxlength="20" placeholder="532 575 2246" title="" required data-validation-type="phone" v-dep->
+                                                    </div>
+                                                    <div class="notification-target-msgs msgs msgs--errors msgs--balloons">
+                                                        <div class="msgs-item required">Cep telefon numaranızı girin</div><div class="msgs-item invalid_phone">
+                                                            Telefon numaranız 10 karakterden oluşmalı.
+                                                        </div>
+                                                        <div class="msgs-item regex">
+                                                            Sadece sayıları yazınız
+                                                        </div>
+                                                        <div class="msgs-item length">
+                                                            Cep telefon numaranızı girin
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="b-login-popup__line line line--phone" data-type="phone">
+                                                <label class="line-label" for="client_phone-4">Diğer numara</label> <div class="line-value notification-target " data-type="phone">
+                                                    <div class="input-group input-ballooned notification-target-input">
+                                                        <span class="input-group-prefix">+90</span> <input name="phone_alt" type="tel" id="client_phone-4" value="" class="input-group-input " maxlength="20" placeholder="532 575 2246" title="" data-validation-type="phone-alt" v-dep->
+                                                    </div>
+                                                    <div class="notification-target-msgs msgs msgs--errors msgs--balloons">
+                                                        <div class="msgs-item required">Cep telefon numaranızı girin</div><div class="msgs-item invalid_phone">
+                                                            Telefon numaranız 10 karakterden oluşmalı.
+                                                        </div>
+                                                        <div class="msgs-item regex">
+                                                            Sadece sayıları yazınız
+                                                        </div>
+                                                        <div class="msgs-item length">
+                                                            Cep telefon numaranızı girin
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-errors ">
+                                                <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                                    Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                                </div>
+                                                <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                                    Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                                                </div>
+                                            </div>
+                                            <div class="form-line form-footer form-line--submit">
+                                                <button class="btn btn--cta" type="submit">Kayıt Ol</button>
+                                            </div>
+
+                                        </form>
+
+                                        <div class="regcorp-success b-login-popup__line hidden">
+                                            <h3>Başarılı</h3> <p class="registration-success"> İlk adımı başarıyla tamamladınız. Lütfen e-postanızı kontrol ediniz. </p> <p class="regcorp-success-goto-email hidden">
+                                                Git <a class="regcorp-success-goto-email-link" target="_blank">
+                                                </a>
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!--/noindex--> <!--noindex--> <div class="modal-window" data-modal-name="recover-password-person-modal">
+    <div class="modal-window__panel">
+        <div class="modal-window__container ">
+            <div class="modal-window__inner">
+                <div class="modal-window__body">
+                    <div class="b-recover-person">
+                        <i class="icon icon-cancel modal-close trigger-close trigger-close--inverse"></i> <h3 class="b-recover-person__line b-recover-person__header">Yeni şifre oluşturma</h3>
+                        <div class="b-recover-person__phone-verifier-block">
+                            <form class="b-phone-verifier b-recover-person__phone-verifier" data-url-request-code="/backend/send-verification-sms" data-url-verify-phone="/backend/check-verification-code" data-purpose="">
+                                <figcaption class="b-phone-verifier__line b-phone-verifier__caption">Lütfen, telefon numaranızı doğrulayın</figcaption>
+                                <div class="b-phone-verifier__line b-phone-verifier__line--column b-phone-verifier__line--phone">
+                                    <div class="b-phone-verifier__phone line line--phone" data-type="phone">
+                                        <label class="line-label" for="client_phone-5">Telefon numarası</label> <div class="line-value notification-target notification-target--required" data-type="phone">
+                                            <div class="input-group input-required input-ballooned notification-target-input">
+                                                <span class="input-group-prefix">+90</span>
+                                                <input name="phone" type="tel" id="client_phone-5" value="" class="input-group-input b-phone-verifier__phone-input" maxlength="20" placeholder="532 575 2246" title="" required data-validation-type="phone" v-dep->
+                                            </div>
+                                            <div class="notification-target-msgs msgs msgs--errors msgs--balloons">
+                                                <div class="msgs-item required">
+                                                    Cep telefon numaranızı girin
+                                                </div>
+                                                <div class="msgs-item invalid_phone">
+                                                    Telefon numaranız 10 karakterden oluşmalı.
+                                                </div>
+
+                                                <div class="msgs-item regex">
+                                                    Sadece sayıları yazınız
+                                                </div>
+                                                <div class="msgs-item length">
+                                                    Cep telefon numaranızı girin
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="action-link b-phone-verifier__code-btn">Doğrulama kodunu gönder</a>
+                                </div>
+                                <div class="line b-phone-verifier__line b-phone-verifier__line--code">
+                                    <label class="line-label" for="code__10">SMS onay kodu</label><div class="line-value notification-target notification-target--required">
+                                        <input name="code" id="code__10" maxlength="4" class="notification-target-input b-phone-verifier__code-input input-required" type="text" value="" placeholder="2529" autocomplete="off" required data-validation-type="sms-code">
+                                        <div class="notification-target-msgs msgs msgs--errors ">
+                                            <div class="msgs-item required">
+                                                SMS onay kodu gerekli
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="b-phone-verifier__source-input" value="recover_password"> <div class="b-phone-verifier__line b-phone-verifier__resend hidden">
+                                    <div>
+                                        <div class="b-phone-verifier__resend-timer">
+                                            <span class="b-phone-verifier__resend-timer-caption">Yeni mesaj birazdan tekrar gönderilecek</span> <span class="b-phone-verifier__resend-timer-val">
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a class="action-link b-phone-verifier__resend-btn">
+                                                Tekrar gönder
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-errors b-phone-verifier__errors">
+                                    <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                        Server hatası
+                                    </div>
+                                    <div data-error-code="app" class="hidden form-errors-item form-errors-item--app form-error form-error--app">Hatalı kod</div>
+                                    <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                        Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                    </div>
+                                    <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                        Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="b-recover-corp__line b-recover-corp__line--back">
+                                <span class="action-link b-recover__back-link">Şifremi hatırladım</span>
+                            </div>
+                        </div>
+                        <form class="b-password-setter b-recover-person__password-setter hidden" action="https://banabikurye.com/backend/set-password-person" method="post">
+                            <input name="phone" type="hidden" class="b-password-setter__phone"> <input name="token" type="hidden" class="b-password-setter__token"><div class="line b-password-setter__line ">
+                                <label class="line-label" for="password__11">Şifre</label>
+                                <div class="line-value notification-target notification-target--required">
+                                    <input name="password" id="password__11" maxlength="50" class="notification-target-input b-password-setter__password input-required" type="password" value="" placeholder="" autocomplete="off" required data-validation-type="password-new">
+                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                        <div class="msgs-item length">
+                                            Şifreniz en az 10 karakter olmalı. Şifre sadece rakam içermemeli.<br />
+                                            <span class="recommended-password--js">Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass"></span></span>
+                                        </div><div class="msgs-item required">Şifreyi girin</div><div class="msgs-item invalid_password_reused">
+                                            Bu şifre daha önce kullanılmış<br /> <span class="recommended-password--js">
+                                                Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="msgs-item invalid_password_easy">
+                                            Daha güvenli bir şifre oluşturun<br /> <span class="recommended-password--js">Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="line b-password-setter__line">
+                                <label class="line-label" for="password_repeat__12">Repeat password</label><div class="line-value notification-target notification-target--required">
+                                    <input name="password_repeat" id="password_repeat__12" maxlength="50" class="notification-target-input b-password-setter__password-repeat input-required" type="password" value="" placeholder="" autocomplete="off" required data-validation-type="password-repeat">
+                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                        <div class="msgs-item matches">
+                                            Enter your password one more time
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-errors ">
+                                <div data-error-code="app" class="hidden form-errors-item form-errors-item--app form-error form-error--app">
+                                    Hata! Geçersiz veya süresi dolmuş simge/sembol
+                                </div>
+                                <div data-error-code="invalid_token" class="hidden form-errors-item form-errors-item--invalid_token form-error form-error--invalid_token">
+                                    Hata! Geçersiz veya süresi dolmuş simge/sembol
+                                </div>
+                                <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                    Bağlantı hatası. Lütfen tekrar deneyiniz.
+                                </div>
+                                <div data-error-code="not_registered" class="hidden form-errors-item form-errors-item--not_registered form-error form-error--not_registered">
+                                    Kullanıcı bulunamadı
+                                </div>
+                                <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                    Hatalı parametre
+                                </div>
+                                <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                    Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                                </div>
+                            </div>
+                            <div class="b-password-setter__line b-password-setter__footer">
+                                <button type="button" class="btn btn--cta b-password-setter__btn">Şifre oluştur</button>
+                            </div>
+                        </form>
+                        <div class="b-recover-person__success hidden">
+                            <p class="b-recover-person__line b-recover-person__success-text">Yeni şifreniz başarıyla oluşturuldu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!--/noindex--> <!--noindex-->
+<div class="modal-window" data-modal-name="recover-password-corp-modal">
+    <div class="modal-window__panel">
+        <div class="modal-window__container ">
+            <div class="modal-window__inner">
+                <div class="modal-window__body">
+                    <div class="b-recover-corp">
+                        <i class="icon icon-cancel modal-close trigger-close trigger-close--inverse"></i>
+                        <h3 class="b-recover-corp__line b-recover-corp__header">Yeni şifre oluşturun</h3>
+                        <form novalidate class="b-recover-corp__form" action="https://banabikurye.com/backend/send-corp-recover-mail" method="post">
+                            <div class="line b-recover-corp__line">
+                                <label class="line-label" for="email__13">E-posta</label><div class="line-value notification-target notification-target--required">
+                                    <input name="email" id="email__13" maxlength="50" class="notification-target-input b-recover-corp__input-email input-required" type="email" value="" placeholder="" autocomplete="off" required data-validation-type="email">
+                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                        <div class="msgs-item required">
+                                            Lütfen e-posta adresinizi girin
+                                        </div>
+                                    </div>
+                                    <i class="form-value-hint">
+                                        Lütfen kayıt olurken kullandığınız e-posta adresinizi girin
+                                    </i>
+
+                                </div>
+                            </div>
+                            <div class="b-recover-corp__line b-recover-corp__line--back">
+                                <span class="action-link b-recover__back-link">
+                                    Giriş ekranına dön
+                                </span>
+
+                            </div>
+                            <div class="b-recover-corp__line b-recover-corp__footer">
+                                <button type="button" class="btn btn--cta b-recover-corp__send-btn">
+                                    Şifre yenileme e-maili gönder
+                                </button>
+                            </div>
+                        </form>
+                        <div class="b-recover-corp__success b-recover-corp__line hidden">
+                            <p class="b-recover-corp__success-text"> Kurtarma e-postası, belirtmiş olduğunuz adrese gönderildi. Lütfen e-postanızı kontrol edin.</p>
+                        </div>
+                        <form class="b-password-setter b-recover-corp__password-setter hidden" action="https://banabikurye.com/backend/set-password-corp" method="post">
+                            <input name="phone" type="hidden" class="b-password-setter__phone">
+                            <input name="token" type="hidden" class="b-password-setter__token"><div class="line b-password-setter__line ">
+                                <label class="line-label" for="password__14">Şifre</label>
+                                <div class="line-value notification-target notification-target--required">
+                                    <input name="password" id="password__14" maxlength="50" class="notification-target-input b-password-setter__password input-required" type="password" value="" placeholder="" autocomplete="off" required data-validation-type="password-new">
+                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                        <div class="msgs-item length">
+                                            Şifreniz en az 10 karakter olmalı. Şifre sadece rakam içermemeli.<br />
+                                            <span class="recommended-password--js">
+                                                Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="msgs-item required">
+                                            Şifreyi girin
+
+                                        </div>
+                                        <div class="msgs-item invalid_password_reused">
+                                            Bu şifre daha önce kullanılmış<br /> <span class="recommended-password--js">
+                                                Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass">
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="msgs-item invalid_password_easy">
+                                            Daha güvenli bir şifre oluşturun<br /> <span class="recommended-password--js">Şu şifreyi kullanabilirsiniz: <span class="recommended-password__pass"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div class="line b-password-setter__line">
+                                <label class="line-label" for="password_repeat__15">Repeat password</label>
+                                <div class="line-value notification-target notification-target--required">
+                                    <input name="password_repeat" id="password_repeat__15" maxlength="50" class="notification-target-input b-password-setter__password-repeat input-required" type="password" value="" placeholder="" autocomplete="off" required data-validation-type="password-repeat">
+                                    <div class="notification-target-msgs msgs msgs--errors ">
+                                        <div class="msgs-item matches">
+                                            Enter your password one more time
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-errors ">
+                                <div data-error-code="app" class="hidden form-errors-item form-errors-item--app form-error form-error--app">
+                                    Hata! Geçersiz veya süresi dolmuş simge/sembol
+                                </div>
+                                <div data-error-code="invalid_token" class="hidden form-errors-item form-errors-item--invalid_token form-error form-error--invalid_token">
+                                    Hata! Geçersiz veya süresi dolmuş simge/sembol
+                                </div>
+                                <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                    Bağlantı hatası. Lütfen tekrar deneyiniz.
+                                </div>
+                                <div data-error-code="not_registered" class="hidden form-errors-item form-errors-item--not_registered form-error form-error--not_registered">
+                                    Kullanıcı bulunamadı
+                                </div>
+                                <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                    Hatalı parametre
+                                </div>
+                                <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                    Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+
+                                </div>
+                            </div>
+
+                            <div class="b-password-setter__line b-password-setter__footer">
+                                <button type="button" class="btn btn--cta b-password-setter__btn">Şifre oluştur</button>
+                            </div>
+                        </form>
+                        <div class="b-recover-corp__success-change b-recover-corp__line hidden">
+                            <p class="b-recover-corp__success-text">Yeni şifreniz başarıyla oluşturuldu</p>
+                        </div>
+                        <div class="form-errors ">
+                            <div data-error-code="server" class="hidden form-errors-item form-errors-item--server form-error form-error--server">
+                                Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                            </div>
+                            <div data-error-code="unexpected_error" class="hidden form-errors-item form-errors-item--unexpected_error form-error form-error--unexpected_error">
+                                Bilinmeyen hata. Lütfen daha sonra tekrar deneyin
+                            </div>
+                            <div data-error-code="invalid_parameters" class="hidden form-errors-item form-errors-item--invalid_parameters form-error form-error--invalid_parameters">
+                                Alanlardan biri geçersiz. Lütfen formu kontrol edin.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

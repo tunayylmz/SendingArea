@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sending Area</title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/Css/animate.css" rel="stylesheet" />
+    <link href="~/Content/Css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/elegant.css" rel="stylesheet" />
+    <link href="~/Content/Css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/theme.css" rel="stylesheet" />
+    <link href="~/Content/Css/Pop-Up/tilda-animation-1.0.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/Pop-Up/tilda-blocks-2.12.css" rel="stylesheet" />
+    <link href="~/Content/Css/Pop-Up/tilda-grid-3.0.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/Pop-Up/tilda-slds-1.4.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/Pop-Up/tilda-zoom-2.0.min.css" rel="stylesheet" />
+
+</head>
+<body id="home">
+
+    @*<div id="preloader">
+
+            <div class="small1">
+                <div class="small ball smallball1"></div>
+                <div class="small ball smallball2"></div>
+                <div class="small ball smallball3"></div>
+                <div class="small ball smallball4"></div>
+            </div>
+
+
+            <div class="small2">
+                <div class="small ball smallball5"></div>
+                <div class="small ball smallball6"></div>
+                <div class="small ball smallball7"></div>
+                <div class="small ball smallball8"></div>
+            </div>
+
+            <div class="bigcon">
+                <div class="big ball"></div>
+            </div>
+
+        </div>*@
+    <!-- /.Preloader -->
+    <!-- Main Wrapper -->
+    <main class="wrapper">
+
+        <!-- Header -->
+        <header class="header-main">
+
+            <!-- Header Topbar -->
+            <div class="top-bar font2-title1 white-clr" style="background-color:black;">
+                <div class="theme-container container">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <a class="navbar-logo" href="#"> <img src="assets/img/logo/logo-black.png" alt="logo" /> </a>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="dv-desktop-menu__login-button b-header__login-button header-login-action">
+            <div class="dv-button dv-button--colorless dv-button--small">
+                <button>Giriş / Kayıt</button>
+            </div>
+        </div>*@
+                <a data-toggle="modal" href="#login-popup" class="sign-in fs-12 theme-clr-bg"> Giriş / Kayıt </a>
+
+            </div>
+            <!-- /.Header Topbar -->
+            <!-- Header Logo & Navigation -->
+            @*<nav class="menu-bar font2-title1">
+                    <div class="theme-container container">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-logo" href="#"> <img src="assets/img/logo/logo-black.png" alt="logo" /> </a>
+                            </div>
+                            <div class="col-md-10 col-sm-10 fs-12">
+                                <div id="navbar" class="collapse navbar-collapse no-pad">
+                                    <ul class="navbar-nav theme-menu">
+                                        <li class="dropdown active">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Home </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="index-2.html">Home Page1</a></li>
+                                                <li><a href="index-3.html">Home Page2</a></li>
+                                                <li><a href="index-4.html">Home Page3</a></li>
+
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Submenu Level 1 </a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Submenu</a></li>
+                                                        <li><a href="#">Submenu</a></li>
+                                                        <li class="dropdown">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Submenu Level 2</a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="#">Submenu</a></li>
+                                                                <li><a href="#">Submenu</a></li>
+                                                                <li><a href="#">Submenu</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li> <a href="about-us.html">about</a> </li>
+                                        <li> <a href="tracking.html"> tracking </a> </li>
+                                        <li> <a href="pricing-plans.html"> pricing </a> </li>
+                                        <li> <a href="contact-us.html"> contact </a> </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Blog</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-left.html">Blog Left</a></li>
+                                                <li><a href="single-blog.html">Single Post</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">pages </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="get-quote.html"> Quote Page </a></li>
+                                                <li><a href="contact-us-2.html"> Contact-2 Page </a></li>
+                                                <li><a href="404.html"> Error Page </a></li>
+                                                <li><a href="coming-soon.html"> Coming Soon Page </a></li>
+                                            </ul>
+                                        </li>
+                                        <li><span class="search fa fa-search theme-clr transition"> </span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>*@
+            <!-- /.Header Logo & Navigation -->
+
+        </header>
+
+        @RenderBody()
+    <footer>
+        <div class="footer-main pad-120 white-clr" style="background-color:black">
+            <div class="theme-container container">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-6 footer-widget">
+                        <a href="#"> <img class="logo" alt="#" src="" /> </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-widget">
+                        <h2 class="title-1 fw-900">quick links</h2>
+                        <ul>
+                            <li> <a href="#">sitemap</a> </li>
+                            <li> <a href="#">pricing</a> </li>
+                            <li> <a href="#">payment method</a> </li>
+                            <li> <a href="#">support</a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-widget">
+                        <h2 class="title-1 fw-900">important links</h2>
+                        <ul>
+                            <li> <a href="#">themeforest</a> </li>
+                            <li> <a href="#">envato</a> </li>
+                            <li> <a href="#">audiojungle</a> </li>
+                            <li> <a href="#">videohibe</a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-widget">
+                        <h2 class="title-1 fw-900">İletişim linkleri</h2>
+                        <ul class="social-icons list-inline">
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#" class="fa fa-facebook"></a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#" class="fa fa-twitter"></a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#" class="fa fa-google-plus"></a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#" class="fa fa-linkedin"></a> </li>
+                        </ul>
+                        <ul class="payment-icons list-inline">
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#"> <img alt="#" src="~/images/payment-1.png" /> </a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#"> <img alt="#" src="~/images/payment-2.png" /> </a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#"> <img alt="#" src="~/images/payment-3.png" /> </a> </li>
+                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#"> <img alt="#" src="~/images/payment-4.png" /> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="theme-container container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p> © Telif hakkı 2020, Tüm hakları saklıdır. </p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 text-right">
+                        <p> Dizayn işlemleri <a href="#" class="main-clr"> Md Arge Tarafından yapılmıştır. </a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popup: Login -->
+        <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
+
+                <div class="modal-content">
+                    <div class="login-wrap text-center">
+                        <h2 class="title-3"> giriş </h2>
+                        <p> Tüm ayrıntıları görmek için <strong> Sending Area </strong> ' da oturum açın </p>
+
+                        <div class="login-form clrbg-before">
+                            <form class="login">
+                                <div class="form-group"><input type="text" placeholder="EMAIL" class="form-control"></div>
+                                <div class="form-group"><input type="password" placeholder="ŞİFRE" class="form-control"></div>
+                                <div class="form-group">
+                                    <button class="btn-1 " type="submit"> giriş yapın </button>
+                                </div>
+                            </form>
+                            <a href="Home/Password" class="gray-clr"> Şifrenizi mi unuttunuz? </a>
+                        </div>
+                    </div>
+                    <div class="create-accnt">
+                        <a href="Home/MyAccount" class="white-clr"> Hesabınız yok mu? </a>
+                        <h2 class="title-2"> <a href="Home/MyAccount" class="green-clr under-line">ÜCRETSİZ BİR HESAP OLUŞTUR</a> </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Popup: Login -->
+        <!-- Search Popup -->
+        <div class="search-popup">
+            <div>
+                <div class="popup-box-inner">
+                    <form>
+                        <input class="search-query" type="text" placeholder="Search and hit enter" />
+                    </form>
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="close-search"><i class="fa fa-close"></i></a>
+        </div>
+        <!-- / Search Popup -->
+    </footer>
+    </main>
+    <script src="~/Scripts/System Js/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/System Js/bootstrap.min.js"></script>
+    <script src="~/Scripts/System Js/data.binder.js"></script>
+    <script src="~/Scripts/System Js/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/System Js/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/System Js/jquery.sticky.js"></script>
+    <script src="~/Scripts/System Js/owl.carousel.min.js"></script>
+    <script src="~/Scripts/System Js/theme-ajax-mail.js"></script>
+    <script src="~/Scripts/System Js/theme.js"></script>
+    <script src="~/Scripts/System Js/wow.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</body>
+</html>
