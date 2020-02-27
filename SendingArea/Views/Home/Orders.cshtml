@@ -1,0 +1,576 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="page-header">
+                <div class="container-fluid affix-top">
+                    <h1>Siparişler</h1>
+                    <div class="pull-right">
+                        <select id="order_access" class="form-control" style="display: inline-block;width: auto;">
+                            <option value="0">Onaylı</option>
+                            <option value="1">Hazırlanıyor</option>
+                        </select>
+                        <button id="button_access" class="btn btn-primary" data-toggle="tooltip" title="" data-original-title="Kaydet"><i class="fa fa-save"></i></button>
+                        <a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu" class="btn btn-danger" data-toggle="tooltip" title="" data-original-title="İptal">İptal</a>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu">Anasayfa</a></li>
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu">Siparişler</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> Sipariş listesi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-order-id">Sipariş Numarası</label>
+                                        <input type="text" name="filter_order_id" value="" placeholder="Sipariş Numarası" id="input-order-id" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-customer">Müşteri</label>
+                                        <input type="text" name="filter_customer" value="" placeholder="Müşteri" id="input-customer" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-order-access">Kargo Teslim Bilgisi</label>
+                                        <select name="filter_order_access" id="input-order-access" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Onaylı</option>
+                                            <option value="0">Hazırlanıyor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-order-status">Sipariş Durumu</label>
+                                        <select name="filter_order_status" id="input-order-status" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="0">Tamamlanmayan Siparişler</option>
+                                            <option value="10">Başarısız</option>
+                                            <option value="18">GeT Onaylı</option>
+                                            <option value="2">Hazırlanıyor</option>
+                                            <option value="11">İade Edildi</option>
+                                            <option value="7">İptal Edildi</option>
+                                            <option value="9">İptal Geri Alındı</option>
+                                            <option value="3">Kargoya Verildi</option>
+                                            <option value="17">Müşteri Onayında</option>
+                                            <option value="1">Onay Bekliyor</option>
+                                            <option value="8">Reddedildi</option>
+                                            <option value="5">Tamamlandı</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-total">Genel Toplam</label>
+                                        <input type="text" name="filter_total" value="" placeholder="Genel Toplam" id="input-total" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-date-added">Sipariş Tarihi</label>
+                                        <div class="input-group date">
+                                            <input type="text" name="filter_date_added" value="" placeholder="Sipariş Tarihi" data-date-format="YYYY-MM-DD" id="input-date-added" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-date-modified">Değiştirilme Tarihi</label>
+                                        <div class="input-group date">
+                                            <input type="text" name="filter_date_modified" value="" placeholder="Değiştirilme Tarihi" data-date-format="YYYY-MM-DD" id="input-date-modified" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-search"></i> Filtre</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="post" enctype="multipart/form-data" id="form-order" action="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=0">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=customer&amp;order=ASC">Mağaza</a>
+                                            </td>
+
+                                            <td class="text-right">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=o.order_id&amp;order=ASC" class="desc">Sipariş No</a>
+                                            </td>
+                                            <td class="text-right">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=o.total&amp;order=ASC">Sipariş Toplamı</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=o.date_added&amp;order=ASC">Sipariş Tarihi</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=o.date_modified&amp;order=ASC">Son İşlem Tarihi</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=status&amp;order=ASC">Sipariş Durumu</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=status&amp;order=ASC">Kargo Teslim Bilgisi</a>
+                                            </td>
+                                            <td>GeT Durumu</td>
+                                            <td>Ödeme Onayına Kalan Gün</td>
+                                            <td class="text-right">İşlem</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="135">
+                                            </td>
+                                            <td class="text-left">DiamondRose</td>
+
+                                            <td class="text-right">135</td>
+                                            <td class="text-right">470,82 TL</td>
+                                            <td class="text-left">22/02/2020</td>
+                                            <td class="text-left">25/02/2020</td>
+                                            <td class="text-left">Müşteri Onayında</td>
+                                            <td class="text-left"></td>
+                                            <td><span class="btn btn-warning">GeT Onay Bekliyor</span></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=8&amp;order_id=135" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="133">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">133</td>
+                                            <td class="text-right">45,00 TL</td>
+                                            <td class="text-left">18/02/2020</td>
+                                            <td class="text-left">18/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=133" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="132">
+                                            </td>
+                                            <td class="text-left">White_Black_Tekstil</td>
+
+                                            <td class="text-right">132</td>
+                                            <td class="text-right">177,00 TL</td>
+                                            <td class="text-left">17/02/2020</td>
+                                            <td class="text-left">17/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=7&amp;order_id=132" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="131">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">131</td>
+                                            <td class="text-right">36,00 TL</td>
+                                            <td class="text-left">17/02/2020</td>
+                                            <td class="text-left">17/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=131" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="130">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">130</td>
+                                            <td class="text-right">45,00 TL</td>
+                                            <td class="text-left">12/02/2020</td>
+                                            <td class="text-left">12/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=130" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="129">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">129</td>
+                                            <td class="text-right">45,00 TL</td>
+                                            <td class="text-left">12/02/2020</td>
+                                            <td class="text-left">12/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=129" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="128">
+                                            </td>
+                                            <td class="text-left">Tiger</td>
+
+                                            <td class="text-right">128</td>
+                                            <td class="text-right">500,00 TL</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=11&amp;order_id=128" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="128">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">128</td>
+                                            <td class="text-right">211,80 TL</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=128" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="127">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">127</td>
+                                            <td class="text-right">33,04 TL</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=127" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="122">
+                                            </td>
+                                            <td class="text-left">BaranTek</td>
+
+                                            <td class="text-right">122</td>
+                                            <td class="text-right">35,00 TL</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">İade Edildi</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=27&amp;order_id=122" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="120">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">120</td>
+                                            <td class="text-right">36,00 TL</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=120" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="119">
+                                            </td>
+                                            <td class="text-left">BaranTek</td>
+
+                                            <td class="text-right">119</td>
+                                            <td class="text-right">35,00 TL</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">Hazırlanıyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=27&amp;order_id=119" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="118">
+                                            </td>
+                                            <td class="text-left">istanbulsoft</td>
+
+                                            <td class="text-right">118</td>
+                                            <td class="text-right">36,00 TL</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">06/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=26&amp;order_id=118" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="117">
+                                            </td>
+                                            <td class="text-left">DiamondRose</td>
+
+                                            <td class="text-right">117</td>
+                                            <td class="text-right">719,80 TL</td>
+                                            <td class="text-left">03/02/2020</td>
+                                            <td class="text-left">03/02/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=8&amp;order_id=117" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="116">
+                                            </td>
+                                            <td class="text-left">White_Black_Tekstil</td>
+
+                                            <td class="text-right">116</td>
+                                            <td class="text-right">590,00 TL</td>
+                                            <td class="text-left">31/01/2020</td>
+                                            <td class="text-left">31/01/2020</td>
+                                            <td class="text-left">Onay Bekliyor</td>
+                                            <td class="text-left"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <a onclick="$(this).parents('tr').find('input[type=\'checkbox\']').prop('checked',true);$('#form-order').attr('action', 'https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/access&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_access=1'); $('#form-order').submit();" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Siparişi İptal Et"><i class="fa fa-thumbs-o-down"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order/info&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;seller_id=7&amp;order_id=116" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-6 text-left"><ul class="pagination"><li class="active"><span>1</span></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=2">2</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=3">3</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=4">4</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=5">5</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=6">6</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=7">7</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=2" class="next">&gt;</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/order&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;page=7">&gt;|</a></li></ul></div>
+                            <div class="col-sm-6 text-right">Gösterilen: 1 ile 15 arası, toplam: 98 (7 Sayfa)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+<!--
+
+                $("#button_access").on('click', function () {
+
+                    var url = $('#form-order').attr('action');
+
+                    var tmpurl = url + "&seller_access=" + $('#order_access').val();
+
+                    $('#form-order').attr('action', tmpurl);
+
+                    $('#form-order').submit();
+
+                });
+
+                $('#button-filter').on('click', function () {
+                    url = 'index.php?route=customerpartner/order&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu';
+
+                    var filter_order_id = $('input[name=\'filter_order_id\']').val();
+
+                    if (filter_order_id) {
+                        url += '&filter_order_id=' + encodeURIComponent(filter_order_id);
+                    }
+
+                    var filter_customer = $('input[name=\'filter_customer\']').val();
+
+                    if (filter_customer) {
+                        url += '&filter_customer=' + encodeURIComponent(filter_customer);
+                    }
+
+                    var filter_order_status = $('select[name=\'filter_order_status\']').val();
+
+                    if (filter_order_status != '*') {
+                        url += '&filter_order_status=' + encodeURIComponent(filter_order_status);
+                    }
+
+                    var filter_order_access = $('select[name=\'filter_order_access\']').val();
+
+                    if (filter_order_access != '*') {
+                        url += '&filter_order_access=' + encodeURIComponent(filter_order_access);
+                    }
+
+                    var filter_total = $('input[name=\'filter_total\']').val();
+
+                    if (filter_total) {
+                        url += '&filter_total=' + encodeURIComponent(filter_total);
+                    }
+
+                    var filter_date_added = $('input[name=\'filter_date_added\']').val();
+
+                    if (filter_date_added) {
+                        url += '&filter_date_added=' + encodeURIComponent(filter_date_added);
+                    }
+
+                    var filter_date_modified = $('input[name=\'filter_date_modified\']').val();
+
+                    if (filter_date_modified) {
+                        url += '&filter_date_modified=' + encodeURIComponent(filter_date_modified);
+                    }
+
+                    location = url;
+                });
+                //--></script>
+            <script src="view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+            <link href="view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" media="all">
+            <script type="text/javascript">
+<!--
+                $('.date').datetimepicker({
+                    pickTime: false
+                });
+//--></script>
+        </div>
+    </div>
+</body>
+

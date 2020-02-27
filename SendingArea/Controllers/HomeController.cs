@@ -36,5 +36,36 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+
+        public ActionResult AdminPanel()
+        {
+            return View();
+        }
+
+        public ActionResult Orders()
+        {
+            return View();
+        }
+
+        public ActionResult Companies()
+        {
+            return View();
+        }
+
+        public ActionResult Customers()
+        {
+            return View();
+        }
+
+        public ActionResult CanceledOrders()
+        {
+            return View();
+        }
+
+        public ActionResult ActivePasifCompanies()
+        {
+            return View();
+        }
+
     }
 }

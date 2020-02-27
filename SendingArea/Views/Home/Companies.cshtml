@@ -1,0 +1,809 @@
+﻿
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="page-header">
+                <div class="container-fluid affix-top">
+                    <div class="pull-right">
+                        <select id="partnet_status" class="form-control" style="display: inline-block;width: auto;">
+                            <option value="0">Seçilenleri Sil</option>
+                            <option value="1">Seçilenleri Onayla</option>
+                        </select>
+
+                        <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/add&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=date_added&amp;order=DESC&amp;create_seller" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Yeni Mağaza Oluştur"><i class="fa fa-plus"></i></a>
+                        <button id="prs_action" type="submit" form="form-seller" formaction="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/approve&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-success" data-original-title="Onayla"><i class="fa fa-thumbs-o-up"></i></button>
+                        <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Sil / Kaldır, geri alınamaz! Bunu yapmak istediğinden emin misin ?') ? $('#form-seller').submit() : false;" data-original-title="Sil (Yalnızca pazaryeri verileri silinir. Müşteri bilgileri sistemde kayıtlı olmaya devam eder.)"><i class="fa fa-trash-o"></i></button>
+
+                    </div>
+                    <h1>Mağazalar</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF">Anasayfa</a></li>
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=date_added&amp;order=DESC">Mağazalar</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> Mağazalar</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">Yetkili Adı</label>
+                                        <div class="input-group">
+                                            <input type="text" name="filter_name" value="" placeholder="Yetkili Adı" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-angle-double-down"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-model">E-Posta</label>
+                                        <input type="text" name="filter_email" value="" placeholder="E-Posta" id="input-model" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-customer_group">Müşteri Grubu</label>
+                                        <select name="filter_customer_group_id" id="input-customer_group" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Bireysel</option>
+                                            <option value="2">Kurumsal</option>
+                                            <option value="5">Mağazalar</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-status">Durum</label>
+                                        <select name="filter_status" id="input-status" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Açık</option>
+                                            <option value="0">Kapalı</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-approved">Onaylı Müşteriler</label>
+                                        <select name="filter_approved" id="input-approved" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Evet</option>
+                                            <option value="0">Hayır</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-approved"><span data-toggle="tooltip" title="" data-original-title="Bu bölümden mevcut mağazalarınızı, daha önce mağaza olarak kayıt olan fakat mağaza yetkileri dondurulmuş müşterilerinizi ve tüm üyelerinizi görüntüleyebilirsiniz.">Müşteri Tipi </span></label>
+                                        <select id="view_all" name="wk_viewall" class="form-control">
+                                            <option selected="" value="0">Onaylı Mağazalar</option>
+                                            <option value="2">Onay Bekleyen Mağazalar</option>
+                                            <option value="1">Tüm Müşteriler ve Mağazalar</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="button" onclick="filter();" class="btn btn-primary pull-right"><i class="fa fa-search"></i> Filtre</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/delete&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=date_added&amp;order=DESC" method="post" enctype="multipart/form-data" id="form-seller">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td width="1" style="text-align: center;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+                                            <td>Toplam Ürün</td>
+
+                                            <td>Mağaza Adı</td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=name&amp;order=ASC">Yetkili Adı</a>
+                                            </td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=c.email&amp;order=ASC">E-Posta</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=customer_group&amp;order=ASC">Müşteri Grubu</a>
+                                            </td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=c.date_added&amp;order=ASC">Üyelik Tarihi</a>
+                                            </td>
+                                            <td class="text-left">Müşteri tipi</td>
+                                            <td class="text-left">Iyzico</td>
+                                            <td class="text-left">Mağaza Komisyonu </td>
+                                            <td class="text-right">Düzenle</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="60">
+
+                                            </td>
+                                            <td>0</td>
+
+
+
+                                            <td><b>underwater2</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=60">underwater2 underwater2</a></td>
+                                            <td class="text-left">kiyankaya@hotmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">30/01/2020</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">15.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=60&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=60&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="59">
+
+                                            </td>
+                                            <td>0</td>
+
+
+
+                                            <td><b>underwater-underwater</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=59">underwater underwater</a></td>
+                                            <td class="text-left">kiyan@istanbul-soft.com.tr</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">30/01/2020</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">15.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=59&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=59&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="27">
+
+                                            </td>
+                                            <td>5</td>
+
+
+
+                                            <td><b>Baran Teknoloji</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=27">İbrahim  Baran</a></td>
+                                            <td class="text-left">yagmur@istanbul-soft.com.tr</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-check btn btn-success" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=27&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=27&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="26">
+
+                                            </td>
+                                            <td>189</td>
+
+
+
+                                            <td><b>İstanbulsoft</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=26">SERDAR POLAT</a></td>
+                                            <td class="text-left">c2cdemo@istanbul-soft.com.tr</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-check btn btn-success" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=26&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=26&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="15">
+
+                                            </td>
+                                            <td>48</td>
+
+
+
+                                            <td><b>Mobile Home</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=15">Melis Sönmez</a></td>
+                                            <td class="text-left">melis-sonmez@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=15&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=15&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="14">
+
+                                            </td>
+                                            <td>47</td>
+
+
+
+                                            <td><b>Merkür Kitap&amp;Müzik</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=14">Tamer Yılmaz</a></td>
+                                            <td class="text-left">yilmazztamer11@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=14&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=14&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="13">
+
+                                            </td>
+                                            <td>45</td>
+
+
+
+                                            <td><b>Seven Day</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=13">Erdem Korkmaz</a></td>
+                                            <td class="text-left">erdem-korkmaz@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=13&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=13&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="12">
+
+                                            </td>
+                                            <td>47</td>
+
+
+
+                                            <td><b>Home Style Mobilya</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=12">Elif Hancıoğlu</a></td>
+                                            <td class="text-left">elifhncgl@hotmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=12&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=12&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="11">
+
+                                            </td>
+                                            <td>47</td>
+
+
+
+                                            <td><b>Tiger</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=11">Nilay Topal</a></td>
+                                            <td class="text-left">nilaytpl@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=11&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=11&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="10">
+
+                                            </td>
+                                            <td>50</td>
+
+
+
+                                            <td><b>Miniko</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=10">Sevilay Özbay</a></td>
+                                            <td class="text-left">sevilay@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-check btn btn-success" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=10&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=10&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="9">
+
+                                            </td>
+                                            <td>47</td>
+
+
+
+                                            <td><b>Çınarlar Elektronik</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=9">Batuhan Çınar</a></td>
+                                            <td class="text-left">cnrbatuhan@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=9&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=9&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="8">
+
+                                            </td>
+                                            <td>49</td>
+
+
+
+                                            <td><b>Diamond Rose</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=8">Erkan Kuru</a></td>
+                                            <td class="text-left">erkan@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=8&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=8&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;" class="text-center">
+                                                <input type="checkbox" name="selected[]" value="7">
+
+                                            </td>
+                                            <td>54</td>
+
+
+
+                                            <td><b>White&amp;Black Tekstil</b></td>
+                                            <td class="text-left"><a href="index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=7">Feyza Karakaya</a></td>
+                                            <td class="text-left">karakayafeyza@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+
+                                            <td class="text-left">16/07/2019</td>
+
+
+                                            <td class="text-left">
+                                                <b>Mağaza</b>
+                                            </td>
+
+                                            <td>
+                                                <i class="fa fa-info btn btn-danger" aria-hidden="true" data-toggle="tooltip" data-original-title="Iyzico Bağlantısı Yapılmamış"></i>
+                                            </td>
+
+                                            <td class="text-left">0.00%</td>
+
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success btn-xs btn-block" disabled="">Onaylı</button>
+                                                <a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=7&amp;store_id=0" class="btn btn-warning btn-xs btn-block" target="_blank">Mağazaya Git</a>
+
+
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customerpartner/partner/update&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=7&amp;sort=date_added&amp;order=DESC" data-toggle="tooltip" title="" class="btn btn-info btn-xs btn-block" data-original-title="Düzenle"> Düzenle</a>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-6 text-left"></div>
+                            <div class="col-sm-6 text-right">Gösterilen: 1 ile 13 arası, toplam: 13 (1 Sayfa)</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+<!--
+                function filter() {
+
+                    url = 'index.php?route=customerpartner/partner&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&order=DESC&sort=date_added';
+
+
+                    var filter_name = $('input[name=\'filter_name\']').val();
+
+                    if (filter_name) {
+                        url += '&filter_name=' + encodeURIComponent(filter_name);
+                    }
+
+                    var filter_email = $('input[name=\'filter_email\']').val();
+
+                    if (filter_email) {
+                        url += '&filter_email=' + encodeURIComponent(filter_email);
+                    }
+
+                    var filter_customer_group_id = $('select[name=\'filter_customer_group_id\']').val();
+
+                    if (filter_customer_group_id != '*') {
+                        url += '&filter_customer_group_id=' + encodeURIComponent(filter_customer_group_id);
+                    }
+
+                    var filter_status = $('select[name=\'filter_status\']').val();
+
+                    if (filter_status != '*') {
+                        url += '&filter_status=' + encodeURIComponent(filter_status);
+                    }
+
+                    var filter_approved = $('select[name=\'filter_approved\']').val();
+
+                    if (filter_approved != '*') {
+                        url += '&filter_approved=' + encodeURIComponent(filter_approved);
+                    }
+
+                    var filter_ip = $('input[name=\'filter_ip\']').val();
+
+                    if (filter_ip) {
+                        url += '&filter_ip=' + encodeURIComponent(filter_ip);
+                    }
+
+                    var filter_date_added = $('input[name=\'filter_date_added\']').val();
+
+                    if (filter_date_added) {
+                        url += '&filter_date_added=' + encodeURIComponent(filter_date_added);
+                    }
+
+                    var filter_view_all = jQuery('#view_all').val();
+
+                    if (filter_view_all) {
+                        url += '&view_all=' + encodeURIComponent(filter_view_all);
+                    }
+
+                    location = url;
+                }
+                //--></script>
+
+            <script>
+<!--    //
+                var url = $('#prs_action').attr('formaction');
+
+                $('#partnet_status').on('change', function () {
+                    tmpurl = url + "&set_status=" + $(this).val();
+                    $('#prs_action').attr('formaction', tmpurl);
+                });
+
+            </script>
+            <script type="text/javascript">
+
+                // jQuery('#view_all').change(function(){
+                //     view_all_customers();
+                // })
+
+                // function view_all_customers() {
+                //   view_all = jQuery('#view_all').val();
+                //   location = 'index.php?route=customerpartner/partner&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&view_all='+view_all;
+                // }
+
+                $('input[name=\'filter_name\']').autocomplete({
+                    delay: 0,
+                    source: function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=customerpartner/partner/autocomplete&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&filter_name=' + encodeURIComponent(request) + '&filter_view=' + jQuery('#view_all').val(),
+                            dataType: 'json',
+                            success: function (json) {
+                                response($.map(json, function (item) {
+                                    return {
+                                        label: item.name,
+                                        value: item.id
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('input[name=\'filter_name\']').val(item['label']);
+                    }
+
+                });
+
+                $('input[name=\'filter_email\']').autocomplete({
+                    delay: 0,
+                    source: function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=customerpartner/partner/autocomplete&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&filter_email=' + encodeURIComponent(request) + '&filter_view=' + jQuery('#view_all').val(),
+                            dataType: 'json',
+                            success: function (json) {
+                                response($.map(json, function (item) {
+                                    return {
+                                        label: item.email,
+                                        value: item.id
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('input[name=\'filter_email\']').val(item['label']);
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</body>
+

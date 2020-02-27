@@ -1,0 +1,596 @@
+﻿
+@{
+    ViewBag.Title = "CanceledOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="page-header">
+                <div class="container-fluid affix-top">
+                    <div class="pull-right" style="display:inline-flex;">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Yeni İade Ekle</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Emin misiniz?') ? $('#form-filter').submit() : false;" data-original-title="Sil"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <h1>İade Sistemi </h1>
+                    <ul class="breadcrumb">
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu">Anasayfa</a></li>
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;order=ASC">İade Sistemi </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Müşteri İçin Manuel İade Oluştur</h4>
+                        </div>
+                        <div class="container-fluid" style="margin: 10px;">
+                            <input type="text" name="filter_rma_customer" value="" placeholder="İade oluşturmak için otomatik tamamlayı kullanarak müşteriyi seçin" id="input-customername" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> İade Yönetimi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">Satıcı Adı</label>
+                                        <input type="text" name="filter_customername" value="" placeholder="Satıcı Adı" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                        <input type="hidden" name="filter_customer_id" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-admin_adminstatus">İade Durumu Seçiniz</label>
+                                        <select name="filter_admin_status" id="input-admin_adminstatus" class="form-control">
+                                            <option value="*">  </option>
+                                            <option value="2">İade Süreci Başlatıldı</option>
+                                            <option value="3">İade Onaylandı</option>
+                                            <option value="4">İade Gerçekleşti</option>
+                                            <option value="cancel">Müşteri tarafından iptal edildi</option>
+                                            <option value="solve">Müşteri tarafından çözüldü</option>
+                                            <option value="admin">Mağazaya İade Edilen Ürün Adedi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">İsim </label>
+                                        <input type="text" name="filter_name" value="" placeholder="İsim " id="input-name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-admin_date"> Tarih</label>
+                                        <div class="input-group date">
+                                            <input type="text" name="filter_date" value="" data-date-format="YYYY-MM-DD" placeholder=" Tarih" id="input-admin_date" class="form-control">
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-calendar glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-admin_oid">Sipariş No </label>
+                                        <input type="text" name="filter_order" value="" placeholder="Sipariş No " id="input-admin_oid" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-status">İade Durumu</label>
+                                        <select name="filter_rma_status_id" id="input-status" class="form-control">
+                                            <option value="1" selected="selected">Aktif </option>
+                                            <option value="0">Pasif</option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button type="button" onclick="filter();" class="btn btn-primary"><i class="fa fa-search"></i> Filtre</button>
+                                        <button type="button" onclick="clrfilter();" class="btn btn-primary"><i class="fa fa-search"></i> Filtre Temizle</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/delete&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu" method="post" enctype="multipart/form-data" id="form-filter">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hove">
+                                    <thead>
+                                        <tr>
+                                            <td width="1" style="text-align: center;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=wro.order_id&amp;order=ASC"> Sipariş No  </a>
+                                            </td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=c.firstname&amp;order=ASC"> İsim  </a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=wro.id&amp;order=ASC"> Ürünler </a>
+                                            </td>
+                                            <td class="text-left">İade Miktarı</td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=wrr.id&amp;order=ASC"> Sebep  </a>
+                                            </td>
+                                            <td class="text-left">
+                                                İade Durumu
+                                            </td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;sort=wro.date&amp;order=ASC" class="desc"> Tarih</a>
+                                            </td>
+
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="17">
+                                            </td>
+                                            <td class="text-left">21</td>
+                                            <td class="text-left">Ibrahim baran</td>
+
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2020-01-24 17:44:30</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=17" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="16">
+                                            </td>
+                                            <td class="text-left">59</td>
+                                            <td class="text-left">SERDAR POLAT</td>
+
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2020-01-22 17:33:20</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=16" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="15">
+                                            </td>
+                                            <td class="text-left">72</td>
+                                            <td class="text-left">SERDAR POLAT</td>
+
+                                            <td class="text-left">Beli Bağlamalı Gömlek Beyaz <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Bozuk <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-12-26 17:03:27</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=15" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="14">
+                                            </td>
+                                            <td class="text-left">76</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left" style="color:green;font-weight:bold;">Çözüldü</td>
+                                            <td class="text-left">2019-07-29 18:35:50</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=14" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="12">
+                                            </td>
+                                            <td class="text-left">32</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-07-21 22:43:22</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=12" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="11">
+                                            </td>
+                                            <td class="text-left">9</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Mavi Dalga Desenli Taba Çapraz Çanta <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Bozuk <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-07-18 01:08:04</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=11" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="10">
+                                            </td>
+                                            <td class="text-left">278</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left" style="color:green;font-weight:bold;">Çözüldü</td>
+                                            <td class="text-left">2019-05-27 17:32:36</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=10" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="9">
+                                            </td>
+                                            <td class="text-left">278</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Goldmaster Optimus Kulaküstü Oyuncu Kulaklık Siyah <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Sebep Yok <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-05-27 17:32:02</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=9" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="8">
+                                            </td>
+                                            <td class="text-left">263</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Goldmaster Optimus Kulaküstü Oyuncu Kulaklık Siyah <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Hasar Görmüş <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-05-24 10:39:08</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=8" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="7">
+                                            </td>
+                                            <td class="text-left">49</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Kısa Kollu Tişört <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Hasar Görmüş <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2019-01-15 12:26:02</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=7" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="6">
+                                            </td>
+                                            <td class="text-left">44</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Kısa Kollu Tişört <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Bozuk <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2018-12-24 15:43:13</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=6" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="5">
+                                            </td>
+                                            <td class="text-left">51</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Turnigy XR Type Beech Wood Sport Propeller 15x5 <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Vazgeçtim <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2018-12-22 19:47:03</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=5" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="4">
+                                            </td>
+                                            <td class="text-left">48</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Canon Legria FS46 Video Kamera <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Hasar Görmüş <br> </td>
+                                            <td class="text-left" style="color:red;font-weight:bold;">Müşteri tarafından iptal edildi</td>
+                                            <td class="text-left">2018-12-20 15:24:43</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=4" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="3">
+                                            </td>
+                                            <td class="text-left">46</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Canon Legria FS46 Video Kamera <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Bozuk <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2018-12-20 09:34:32</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=3" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center;">
+                                                <input type="checkbox" name="selected[]" value="2">
+                                            </td>
+                                            <td class="text-left">47</td>
+                                            <td class="text-left"></td>
+
+                                            <td class="text-left">Canon Legria FS46 Video Kamera <br> </td>
+                                            <td class="text-left">1 <br> </td>
+                                            <td class="text-left">Hasar Görmüş <br> </td>
+                                            <td class="text-left" style="color:#eb1edd;font-weight:bold;">İade Süreci Başlatıldı</td>
+                                            <td class="text-left">2018-12-20 09:24:56</td>
+
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_rma_admin/getForm&amp;token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&amp;id=2" class="btn btn-info" data-toggle="tooltip" title="" data-original-title="Düzenle"><i class="fa fa-eye"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-6 text-left"></div>
+                            <div class="col-sm-6 text-right">Gösterilen: 1 ile 15 arası, toplam: 15 (1 Sayfa)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('input[name=\'filter_customername\']').autocomplete({
+                delay: 0,
+                source: function (request, response) {
+                    $.ajax({
+                        url: 'index.php?route=customerpartner/partner/autocomplete&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&filter_name=' + encodeURIComponent(request) + '&filter_view=0',
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $('input[name=\'filter_customer_id\']').val('');
+                        },
+                        success: function (json) {
+                            json[json.length] = {
+                                'id': 0,
+                                'name': 'admin',
+                                'email': '',
+                            }
+                            response($.map(json, function (item) {
+                                console.log(json);
+                                return {
+                                    label: item.name,
+                                    value: item.id
+                                }
+                            }));
+                        }
+                    });
+                },
+                'select': function (item) {
+                    $('input[name=\'filter_customername\']').val(item['label']);
+                    $('input[name=\'filter_customer_id\']').val(item['value']);
+                }
+            });
+        </script>
+        <script type="text/javascript">
+<!--
+            $('.date').datetimepicker({
+                pickTime: false,
+                format: "YYYY-MM-DD",
+            });
+
+            function clrfilter() {
+                location = 'index.php?route=catalog/wk_rma_admin&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu';
+            }
+
+            function filter() {
+                url = 'index.php?route=catalog/wk_rma_admin&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu';
+
+                var filter_name = $('input[name=\'filter_name\']').val();
+
+                if (filter_name) {
+                    url += '&filter_name=' + encodeURIComponent(filter_name);
+                }
+
+                var filter_order = $('input[name=\'filter_order\']').val();
+
+                if (filter_order) {
+                    url += '&filter_order=' + encodeURIComponent(filter_order);
+                }
+
+                var filter_rma_status = $('select[name=\'filter_rma_status\']').val();
+
+                if (filter_rma_status != '*') {
+                    url += '&filter_rma_status=' + encodeURIComponent(filter_rma_status);
+                }
+
+                var filter_admin_status = $('select[name=\'filter_admin_status\']').val();
+
+                if (filter_admin_status != '*') {
+                    url += '&filter_admin_status=' + encodeURIComponent(filter_admin_status);
+                }
+
+                var filter_date = $('input[name=\'filter_date\']').val();
+
+                if (filter_date) {
+                    url += '&filter_date=' + encodeURIComponent(filter_date);
+                }
+
+                var filter_rma_status_id = $('select[name=\'filter_rma_status_id\']').val();
+
+                if (filter_rma_status_id) {
+                    url += '&filter_rma_status_id=' + encodeURIComponent(filter_rma_status_id);
+                }
+
+                var filter_customer_id = $('input[name=\'filter_customer_id\']').val();
+
+                if (filter_customer_id) {
+                    url += '&filter_customer_id=' + encodeURIComponent(filter_customer_id);
+                }
+
+                var filter_customername = $('input[name=\'filter_customername\']').val();
+
+                if (filter_customername) {
+                    url += '&filter_customername=' + encodeURIComponent(filter_customername);
+                }
+
+                location = url;
+            }
+            $('input[name=\'filter_rma_customer\']').autocomplete({
+                'source': function (request, response) {
+                    $.ajax({
+                        url: 'index.php?route=customer/customer/autocomplete&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&filter_name=' + encodeURIComponent(request),
+                        dataType: 'json',
+                        success: function (json) {
+                            response($.map(json, function (item) {
+                                return {
+                                    label: item['name'] + '(' + item['email'] + ')',
+                                    value: item['customer_id'],
+                                    email: item['email']
+                                }
+                            }));
+                        }
+                    });
+                },
+                'select': function (item) {
+                    $('input[name=\'filter_rma_customer\']').val(item['label']);
+                    location = 'index.php?route=catalog/wk_customer_orders&token=I0uZf8lZmLdT3o2jkQ3eUDcKZ0BD62Tu&customer_id=' + encodeURIComponent(item['value']) + '&customer_email=' + encodeURIComponent(item['email']);
+                }
+            });
+//--></script>
+        <footer id="footer">
+            Geliştirici: <a href="https://www.istanbul-soft.com.tr" target="_blank" title="İstanbul Soft">İstanbul Soft</a> - Tüm Hakları Saklıdır.<br><br>
+
+        </footer>
+    </div><div class="bootstrap-datetimepicker-widget dropdown-menu"><div class="datepicker"><div class="datepicker-days" style="display: block;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="picker-switch">February 2020</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td></tr><tr><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td></tr><tr><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td></tr><tr><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td></tr><tr><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day active today">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td></tr><tr><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="picker-switch">2020</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month active">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="picker-switch">2020-2029</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year active">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year old">2030</span></td></tr></tbody></table></div></div></div>
+
+</body>
+

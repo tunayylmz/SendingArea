@@ -1,0 +1,609 @@
+﻿
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="page-header">
+                <div class="container-fluid affix-top">
+                    <div class="pull-right">
+                        <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/add&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Ekle"><i class="fa fa-plus"></i></a>
+                        <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Emin misiniz?') ? $('#form-customer').submit() : false;" data-original-title="Sil"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <h1>Müşteriler</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF">Anasayfa</a></li>
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF">Müşteriler</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> Müşteri Listesi</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">Müşteri Adı</label>
+                                        <input type="text" name="filter_name" value="" placeholder="Müşteri Adı" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-email">E-Posta</label>
+                                        <input type="text" name="filter_email" value="" placeholder="E-Posta" id="input-email" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-customer-group">Müşteri Grubu</label>
+                                        <select name="filter_customer_group_id" id="input-customer-group" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Bireysel</option>
+                                            <option value="2">Kurumsal</option>
+                                            <option value="5">Mağazalar</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-status">Durumu</label>
+                                        <select name="filter_status" id="input-status" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Açık</option>
+                                            <option value="0">Kapalı</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-approved">Onaylandı</label>
+                                        <select name="filter_approved" id="input-approved" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Evet</option>
+                                            <option value="0">Hayır</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-ip">IP</label>
+                                        <input type="text" name="filter_ip" value="" placeholder="IP" id="input-ip" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-date-added">Üyelik Tarihi</label>
+                                        <div class="input-group date">
+                                            <input type="text" name="filter_date_added" value="" placeholder="Üyelik Tarihi" data-date-format="YYYY-MM-DD" id="input-date-added" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-filter"></i> Filtre</button>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/delete&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF" method="post" enctype="multipart/form-data" id="form-customer">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked).trigger('change');"></td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=name&amp;order=DESC" class="asc">Müşteri Adı</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=c.email&amp;order=DESC">E-Posta</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=customer_group&amp;order=DESC">Müşteri Grubu</a>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=c.status&amp;order=DESC">Durumu</a>
+                                            </td>
+
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=c.date_added&amp;order=DESC">Üyelik Tarihi</a>
+                                            </td>
+                                            <td class="text-right">İşlemler</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="61">
+                                            </td>
+                                            <td class="text-left">123 123</td>
+                                            <td class="text-left">test@test2.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">31/01/2020</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=61&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=61" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="57">
+                                            </td>
+                                            <td class="text-left">12313212 1231321</td>
+                                            <td class="text-left">celalnuria21312312kgun@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">29/01/2020</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=57&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=57" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="63">
+                                            </td>
+                                            <td class="text-left">132131 31231</td>
+                                            <td class="text-left">312@dqdsadsd.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">07/02/2020</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=63&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=63" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="52">
+                                            </td>
+                                            <td class="text-left">ahmet tarık tulgar</td>
+                                            <td class="text-left">tulgartarik@gmail.com</td>
+                                            <td class="text-left">Mağazalar</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">11/12/2019</td>
+                                            <td class="text-right">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/approve&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=52" data-toggle="tooltip" title="" class="btn btn-success" data-original-title="Onayla"><i class="fa fa-thumbs-o-up"></i></a>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=52&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=52" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="53">
+                                            </td>
+                                            <td class="text-left">Alaettin Varışlı</td>
+                                            <td class="text-left"></td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">09/01/2020</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=53&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=53" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="25">
+                                            </td>
+                                            <td class="text-left">Atakan Sarıboğa</td>
+                                            <td class="text-left">saribogaatakan21@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=25&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=25" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="17">
+                                            </td>
+                                            <td class="text-left">Barış Durgun</td>
+                                            <td class="text-left">durgunbaris@hotmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=17&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=17" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="9">
+                                            </td>
+                                            <td class="text-left">Batuhan Çınar</td>
+                                            <td class="text-left">cnrbatuhan@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=9&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=9" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="20">
+                                            </td>
+                                            <td class="text-left">Berfin Binay</td>
+                                            <td class="text-left">binayybrfn@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=20&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=20" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="22">
+                                            </td>
+                                            <td class="text-left">Canberk Doğan</td>
+                                            <td class="text-left">canberkdogann12@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=22&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=22" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="18">
+                                            </td>
+                                            <td class="text-left">Ceyda Şengül</td>
+                                            <td class="text-left">sengul-ceyda@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=18&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=18" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="56">
+                                            </td>
+                                            <td class="text-left">Cll Kgn</td>
+                                            <td class="text-left">cll@cll.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">29/01/2020</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=56&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=56" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="24">
+                                            </td>
+                                            <td class="text-left">Deniz Duraç</td>
+                                            <td class="text-left">durac-deniz@gmail.com</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">16/07/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=24&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=24" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="39">
+                                            </td>
+                                            <td class="text-left">destek destek</td>
+                                            <td class="text-left">koray@istanbul-soft.com.tr</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">22/10/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=39&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=39" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="42">
+                                            </td>
+                                            <td class="text-left">destek destek</td>
+                                            <td class="text-left">destek@istanbul-soft.com.tr</td>
+                                            <td class="text-left">Bireysel</td>
+                                            <td class="text-left">Açık</td>
+                                            <td class="text-left">05/11/2019</td>
+                                            <td class="text-right">
+                                                <button type="button" class="btn btn-success" disabled=""><i class="fa fa-thumbs-o-up"></i></button>
+                                                <div class="btn-group" data-toggle="tooltip" title="" data-original-title="Oturum Aç">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle"><i class="fa fa-lock"></i></button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="index.php?route=customer/customer/login&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=42&amp;store_id=0" target="_blank">Varsayılan</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn btn-warning" disabled=""><i class="fa fa-unlock"></i></button>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;customer_id=42" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-6 text-left"><ul class="pagination"><li class="active"><span>1</span></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;page=2">2</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;page=3">3</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;page=4">4</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;page=2" class="next">&gt;</a></li><li><a href="https://pazaryeri.demoist.site/admin/index.php?route=customer/customer&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;page=4">&gt;|</a></li></ul></div>
+                            <div class="col-sm-6 text-right">Gösterilen: 1 ile 15 arası, toplam: 60 (4 Sayfa)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+<!--
+                $('#button-filter').on('click', function () {
+                    url = 'index.php?route=customer/customer&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF';
+
+                    var filter_name = $('input[name=\'filter_name\']').val();
+
+                    if (filter_name) {
+                        url += '&filter_name=' + encodeURIComponent(filter_name);
+                    }
+
+                    var filter_email = $('input[name=\'filter_email\']').val();
+
+                    if (filter_email) {
+                        url += '&filter_email=' + encodeURIComponent(filter_email);
+                    }
+
+                    var filter_customer_group_id = $('select[name=\'filter_customer_group_id\']').val();
+
+                    if (filter_customer_group_id != '*') {
+                        url += '&filter_customer_group_id=' + encodeURIComponent(filter_customer_group_id);
+                    }
+
+                    var filter_status = $('select[name=\'filter_status\']').val();
+
+                    if (filter_status != '*') {
+                        url += '&filter_status=' + encodeURIComponent(filter_status);
+                    }
+
+                    var filter_approved = $('select[name=\'filter_approved\']').val();
+
+                    if (filter_approved != '*') {
+                        url += '&filter_approved=' + encodeURIComponent(filter_approved);
+                    }
+
+                    var filter_ip = $('input[name=\'filter_ip\']').val();
+
+                    if (filter_ip) {
+                        url += '&filter_ip=' + encodeURIComponent(filter_ip);
+                    }
+
+                    var filter_date_added = $('input[name=\'filter_date_added\']').val();
+
+                    if (filter_date_added) {
+                        url += '&filter_date_added=' + encodeURIComponent(filter_date_added);
+                    }
+
+                    location = url;
+                });
+                //--></script>
+            <script type="text/javascript">
+<!--
+                $('input[name=\'filter_name\']').autocomplete({
+                    'source': function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=customer/customer/autocomplete&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&filter_name=' + encodeURIComponent(request),
+                            dataType: 'json',
+                            success: function (json) {
+                                response($.map(json, function (item) {
+                                    return {
+                                        label: item['name'],
+                                        value: item['customer_id']
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('input[name=\'filter_name\']').val(item['label']);
+                    }
+                });
+
+                $('input[name=\'filter_email\']').autocomplete({
+                    'source': function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=customer/customer/autocomplete&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&filter_email=' + encodeURIComponent(request),
+                            dataType: 'json',
+                            success: function (json) {
+                                response($.map(json, function (item) {
+                                    return {
+                                        label: item['email'],
+                                        value: item['customer_id']
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('input[name=\'filter_email\']').val(item['label']);
+                    }
+                });
+                //--></script>
+            <script type="text/javascript">
+<!--
+                $('.date').datetimepicker({
+                    pickTime: false
+                });
+//--></script>
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,210 @@
+﻿
+@{
+    ViewBag.Title = "ActivePasifCompanies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="content">
+            <div class="page-header">
+                <div class="container-fluid affix-top">
+                    <div class="pull-right">
+                        <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation/add&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Ekle"><i class="fa fa-plus"></i></a>
+                        <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Emin misiniz?') ? $('#form-wk_sellervacation').submit() : false;" data-original-title="Sil"><i class="fa fa-trash-o"></i></button>
+                    </div>
+                    <h1>Tatildeki Mağazalar</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=common/dashboard&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF">Anasayfa</a></li>
+                        <li><a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF">Tatildeki Mağazalar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-list"></i> Tatildeki Mağazalar</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">Mağaza Adı</label>
+                                        <input type="text" name="filter_name" value="" placeholder="Mağaza Adı" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-status">Durumu</label>
+                                        <select name="filter_approve" id="input-status" class="form-control">
+                                            <option value="*"></option>
+                                            <option value="1">Onaylı</option>
+                                            <option value="0">Onaylanmamış</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-search"></i> Filtre</button>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation/delete&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF" method="post" enctype="multipart/form-data" id="form-wk_sellervacation">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+
+                                            <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked).trigger('change');"></td>
+                                            <td class="text-left">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;sort=pd.name&amp;order=DESC" class="asc">Mağaza Adı</a>
+                                            </td>
+                                            <td class="text-left">
+                                                Başlangıç Tarihi
+                                            </td>
+                                            <td class="text-left">Bitiş Tarihi                  </td>
+                                            <td class="text-center">Açıklama</td>
+                                            <td class="text-left">Durumu</td>
+                                            <td class="text-center">İşlemler</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <input type="checkbox" name="selected[]" value="3">
+                                            </td>
+                                            <td class="text-left">Orbtext ltd. şti.</td>
+                                            <td class="text-left">2019-07-18 00:09:29</td>
+                                            <td class="text-left">2019-07-19 00:09:32</td>
+                                            <td class="text-center">dfg</td>
+                                            <td class="text-left">                                         Kapalı                  </td>
+                                            <td class="text-center">
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation/requestApprove&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;wk_sellervacation_id=3" data-toggle="tooltip" title="" class="btn btn-success" data-original-title="Onaylı"><i class="fa fa-thumbs-o-up"></i></a>
+                                                <a href="https://pazaryeri.demoist.site/admin/index.php?route=catalog/wk_sellervacation/edit&amp;token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&amp;wk_sellervacation_id=3" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Düzenle"><i class="fa fa-pencil"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-6 text-left"></div>
+                            <div class="col-sm-6 text-right">Gösterilen: 1 ile 1 arası, toplam: 1 (1 Sayfa)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+<!--
+                $('#button-filter').on('click', function () {
+                    var url = 'index.php?route=catalog/wk_sellervacation&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF';
+
+                    var filter_name = $('input[name=\'filter_name\']').val();
+
+                    if (filter_name) {
+                        url += '&filter_name=' + encodeURIComponent(filter_name);
+                    }
+
+                    var filter_approve = $('select[name=\'filter_approve\']').val();
+
+                    if (filter_approve != '*') {
+                        url += '&filter_approve=' + encodeURIComponent(filter_approve);
+                    }
+
+                    location = url;
+                });
+                --></script>
+            <script type="text/javascript">
+<!--
+                $('input[name=\'filter_name\']').autocomplete({
+                    'source': function (request, response) {
+                        $.ajax({
+                            url: 'index.php?route=catalog/wk_sellervacation/autocomplete&token=euVYjYorFZFJDFKueXif2f1u5LGPV1hF&filter_name=' + encodeURIComponent(request),
+                            dataType: 'json',
+                            success: function (json) {
+                                response($.map(json, function (item) {
+                                    return {
+                                        label: item['name'],
+                                        value: item['id']
+                                    }
+                                }));
+                            }
+                        });
+                    },
+                    'select': function (item) {
+                        $('input[name=\'filter_name\']').val(item.label);
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</body>
+

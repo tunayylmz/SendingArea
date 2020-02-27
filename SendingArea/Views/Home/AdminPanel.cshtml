@@ -1,0 +1,596 @@
+﻿
+@{
+    ViewBag.Title = "AdminPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <nav id="column-left">
+            <div id="profile">
+                <div>
+                    <img src="AdminPanel" alt="İstanbul Soft" title="demo" class="img-circle">
+                </div>
+                <div>
+                    <h4>İstanbul Soft</h4>
+                    <small>Yönetici</small>
+                </div>
+            </div>
+            <ul id="menu">
+                <li id="menu-dashboard">
+                    <a href="AdminPanel"><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                </li>
+                <li id="menu-order">
+                    <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Orders">Siparişler</a>
+                        </li>
+                        <li>
+                            <a href="CanceledOrders">İptal Edilenler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-shops">
+                    <a class="parent"><i class="fa fa-users fw"></i> <span>Mağaza Yönetimi</span></a>
+                    <ul>
+                        <li>
+                            <a href="Companies">Mağazalar</a>
+                        </li>
+                        <li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="menu-customer">
+                    <a class="parent"><i class="fa fa-user fw"></i> <span>Müşteriler</span></a>
+                    <ul>
+                        <li>
+                            <a href="Customers">Müşteriler</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="stats">
+                <ul>
+                    <li>
+                        <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div class="container-fluid">
+                <div class="row" style="padding-top:2%;">
+                    <div class="col-sm-3 col-xs-12">
+                        <style>
+                            .panel-default {
+                                border-radius: 10px;
+                                border-top: none;
+                            }
+
+                                .panel-default > .panel-heading {
+                                    background: none;
+                                    border: none;
+                                }
+
+                            .wk_order_status_box {
+                                font-size: 18px;
+                                padding: 25px 10px 25px 10px;
+                                margin: 5px 0px 12px 0px;
+                                box-shadow: 0px 0px 15px #b3b8ba;
+                                border-radius: 5px;
+                                min-height: 60px;
+                                color: #FFF;
+                            }
+
+                                .wk_order_status_box .c100 {
+                                    background: #FFF;
+                                    height: 50px;
+                                    padding-top: 20px;
+                                    text-align: center;
+                                    border-radius: 50%;
+                                }
+
+                                    .wk_order_status_box .c100 span {
+                                        color: #000;
+                                        margin-top: 18px;
+                                    }
+
+                                .wk_order_status_box a {
+                                    font-size: 14px;
+                                    color: #FFF !important;
+                                }
+
+                            .color_complete {
+                                background: rgb(17,159,154);
+                                background: linear-gradient(124deg, rgba(17,159,154,1) 0%, rgba(34,189,183,1) 35%, rgba(68,231,148,1) 100%);
+                                color: #FFF;
+                            }
+
+
+                                .color_complete:hover {
+                                    box-shadow: 0px 0px 15px #333333;
+                                }
+
+                            .color_process {
+                                background: rgb(219,80,38);
+                                background: linear-gradient(124deg, rgba(219,80,38,1) 0%, rgba(244,134,101,1) 35%, rgba(254,162,63,1) 100%);
+                            }
+
+                                .color_process:hover {
+                                    box-shadow: 0px 0px 15px #333333;
+                                }
+
+                            .color_cancel {
+                                background: rgb(102,8,237);
+                                background: linear-gradient(124deg, rgba(102,8,237,1) 0%, rgba(155,86,254,1) 35%, rgba(215,138,254,1) 100%);
+                            }
+
+                                .color_cancel:hover {
+                                    box-shadow: 0px 0px 15px #333333;
+                                }
+
+                            .margin_top {
+                                margin-top: 10%;
+                                margin-bottom: 15px;
+                            }
+
+                            .pasta, .tablo {
+                                background: linear-gradient(170deg, rgb(253, 253, 253) 0%, rgb(225, 225, 225) 100%);
+                                border-radius: 10px;
+                            }
+
+                            .raporbaslik {
+                                background: linear-gradient(170deg, rgba(52,125,210,1) 0%, rgba(0,53,116,1) 100%);
+                                padding: 10px;
+                                border-radius: 10px;
+                                color: #FFF;
+                                font-size: 16px;
+                                margin-bottom: 10px;
+                            }
+
+                            .small {
+                                width: 100%;
+                            }
+                        </style>
+
+                        <div class="tile" style="background-color: white;">
+                            <div class="tile-body" style="background-color: white;padding: 0;">
+                                <div id="wk_order_status_container" style="line-height: 5px;">
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="wk_order_status_box color_complete col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <div class="margin_top">
+                                                        <center>
+                                                            Toplam Mağaza
+                                                        </center>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div class="c100 p0 small green">
+                                                        <span>21</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="wk_order_status_box color_process col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <div class="margin_top">
+                                                        <center>
+                                                            Toplam Ürün
+                                                        </center>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div class="c100 p0 small green">
+                                                        <span>1566</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-xs-12">
+                                        <div class="wk_order_status_box color_cancel col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <div class="margin_top">
+                                                        <center>
+                                                            Çevrimiçi Müşteriler
+                                                        </center>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div class="c100 p0 small green">
+                                                        <span>3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="col-sm-3 col-xs-12">
+                        <style type="text/css">
+                            .popover {
+                                color: #666;
+                            }
+
+                            .satislar {
+                                margin: 5px 0;
+                                box-shadow: 0px 0px 10px #b3b8ba;
+                                border-radius: 5px;
+                                padding: 10px 10px 10px 10px !important;
+                                background: rgb(52,125,210);
+                                background: linear-gradient(170deg, rgba(52,125,210,1) 0%, rgba(0,53,116,1) 100%);
+                            }
+
+                                .satislar:hover {
+                                    box-shadow: 0px 0px 15px #333333;
+                                }
+
+                            .satilaricon {
+                                margin-top: 5%;
+                                margin-bottom: 5%;
+                                font-size: 18px !important;
+                                text-align: center;
+                            }
+
+                                .satilaricon .fa {
+                                    color: #FFF;
+                                    font-size: 58px !important;
+                                }
+
+                            .boxbaslik {
+                                margin-top: 1.6%;
+                                margin-bottom: 3%;
+                                font-size: 18px;
+                                color: #FFF;
+                                text-align: center;
+                            }
+
+                            .satislar .baslik {
+                                font-size: 14px;
+                                color: #FFF;
+                            }
+
+                            .satislar .amount {
+                                font-size: 14px;
+                                color: #000;
+                            }
+
+                                .satislar .amount p {
+                                    background: #FFF;
+                                    padding: 10px;
+                                    border-radius: 10px;
+                                }
+
+                            a {
+                                width: 100% !important;
+                            }
+                        </style>
+
+                        <div class="col-sm-12  col-xs-12 satislar">
+
+
+                            <div class="row">
+                                <div class="col-sm-12 boxbaslik"><i class="fa fa-line-chart" aria-hidden="true"></i> Siparişler</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 baslik">Hazırlanıyor</div><div class="col-sm-6 col-xs-12 amount"><p>83</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 baslik">Tamamlandı</div><div class="col-sm-6 col-xs-12 amount"><p>4</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 baslik">Ürün İadeleri</div><div class="col-sm-6 col-xs-12 amount"><p>0</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 boxbaslik"><i class="fa fa-line-chart" aria-hidden="true"></i> Ürünler</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 baslik">Düşük Stoklu Ürünler</div><div class="col-sm-6 col-xs-12 amount"><p>27</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12 baslik">Yorumlar</div><div class="col-sm-6 col-xs-12 amount"><p>2</p></div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <style>
+                        .panel {
+                            background: rgb(225, 225, 225);
+                            background: linear-gradient(170deg, rgb(253, 253, 253) 0%, rgb(225, 225, 225) 100%);
+                        }
+                    </style>
+
+                    @*<div class="col-sm-6 col-xs-12">
+                            <div class="col-sm-12  col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"><i class="fa fa-shopping-cart"></i> Son Siparişler</h3>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <td class="text-right">Sipariş No</td>
+                                                    <td>Müşteri</td>
+                                                    <td>Durumu</td>
+                                                    <td>Ekleme Tarihi</td>
+                                                    <td class="text-right">Toplam</td>
+                                                    <td class="text-right">Eylem</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right">135</td>
+                                                    <td>DiamondRose</td>
+                                                    <td>Onay Bekliyor</td>
+                                                    <td>22/02/2020</td>
+                                                    <td class="text-right">470,82 TL</td>
+                                                    <td class="text-right"><a href="index.php?route=customerpartner/order/info&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&amp;order_id=135&amp;seller_id=8" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">135</td>
+                                                    <td>istanbulsoft</td>
+                                                    <td>Onay Bekliyor</td>
+                                                    <td>22/02/2020</td>
+                                                    <td class="text-right">41,67 TL</td>
+                                                    <td class="text-right"><a href="index.php?route=customerpartner/order/info&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&amp;order_id=135&amp;seller_id=26" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">133</td>
+                                                    <td>istanbulsoft</td>
+                                                    <td>Onay Bekliyor</td>
+                                                    <td>18/02/2020</td>
+                                                    <td class="text-right">45,00 TL</td>
+                                                    <td class="text-right"><a href="index.php?route=customerpartner/order/info&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&amp;order_id=133&amp;seller_id=26" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">132</td>
+                                                    <td>White_Black_Tekstil</td>
+                                                    <td>Onay Bekliyor</td>
+                                                    <td>17/02/2020</td>
+                                                    <td class="text-right">177,00 TL</td>
+                                                    <td class="text-right"><a href="index.php?route=customerpartner/order/info&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&amp;order_id=132&amp;seller_id=7" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">131</td>
+                                                    <td>istanbulsoft</td>
+                                                    <td>Onay Bekliyor</td>
+                                                    <td>17/02/2020</td>
+                                                    <td class="text-right">36,00 TL</td>
+                                                    <td class="text-right"><a href="index.php?route=customerpartner/order/info&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&amp;order_id=131&amp;seller_id=26" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Göster"><i class="fa fa-eye"></i></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                </div>
+
+
+
+                <div class="col-md-12 col-xs-12 col-lg-12">
+                    <div id="content">
+                        <div class="col-md-12 col-xs-12" style="padding-left:0">
+                            <div class="raporbaslik" style="display:flex">
+                                <div class="col-md-6 col-xs-12 col-lg-6">Mağaza Bazında Satış Raporu</div>
+                                <div class="col-md-6 col-xs-12 col-lg-6 pull-right" style="text-align:right">
+                                    <a href="index.php?route=customerpartner/raporlar&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW" style="color:#FFF;">Detaylar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="col-md-4 col-xs-12 col-lg-4 pasta">
+                                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                                <canvas id="doughnutChart" style="height: 297px; width: 397px; display: block;" width="397" height="297" class="chartjs-render-monitor"></canvas>
+                            </div>
+
+                            <div class="col-md-8 col-xs-12 col-lg-8">
+
+                                <div class="well">
+                                    <form action="index.php?route=customerpartner/raporlar&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW" method="POST">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="input-name">Mağaza Adı</label>
+                                                    <div class="input-group">
+                                                        <input type="text" name="filter_name" value="" placeholder="Mağaza Adı" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu" style="display: none;"></ul><ul class="dropdown-menu" style="display: none;"></ul>
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-angle-double-down"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <button type="submit" class="btn btn-primary pull-right" style="margin-top:20px;"><i class="fa fa-search"></i> Filtre</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="table-responsive tablo">
+                                    <table width="100%" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <td>Mağaza</td>
+                                                <td>Sipariş Tutarı</td>
+                                                <td>Mağaza Hakediş Tutarı</td>
+                                                <td>Talimat Verilen Tutar</td>
+                                                <td>Ödenecek Tutar</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>istanbulsoft</td>
+                                                <td>1943.65</td>
+                                                <td>1558.29</td>
+                                                <td>407.81</td>
+                                                <td>1150.48</td>
+                                                <td><a href="index.php?route=customerpartner/raporlar/raporlarsatici&amp;seller_id=26&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW" class="btn btn-info">Satıcı İşlem Bazlı</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>BaranTek</td>
+                                                <td>243.60</td>
+                                                <td>180.20</td>
+                                                <td>21.82</td>
+                                                <td>158.38</td>
+                                                <td><a href="index.php?route=customerpartner/raporlar/raporlarsatici&amp;seller_id=27&amp;token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW" class="btn btn-info">Satıcı İşlem Bazlı</a></td>
+                                            </tr>
+                                            <tr style="background:#252F41; color:#FFF; font-weight:bold;">
+                                                <td></td>
+                                                <td>Toplam Sipariş Tutarı</td>
+                                                <td>Toplam Mağaza Hakediş Tutarı</td>
+                                                <td>Toplam Talimat Verilen Tutar</td>
+                                                <td>Toplam Ödenecek Tutar</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>2187.25</td>
+                                                <td>1738.49</td>
+                                                <td>429.63</td>
+                                                <td>1308.86</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <script>
+
+                            $('input[name=\'filter_name\']').autocomplete({
+                                delay: 0,
+                                source: function (request, response) {
+                                    $.ajax({
+                                        url: 'index.php?route=customerpartner/raporlar/autocomplete&token=AyZ6TGPJbwTZd4A1suxAUKgd8CoivAeW&filter_name=' + encodeURIComponent(request) + '&filter_view=' + jQuery('#view_all').val(),
+                                        dataType: 'json',
+                                        success: function (json) {
+                                            response($.map(json, function (item) {
+                                                return {
+                                                    label: item.name,
+                                                    value: item.id
+                                                }
+                                            }));
+                                        }
+                                    });
+                                },
+                                'select': function (item) {
+                                    $('input[name=\'filter_name\']').val(item['label']);
+                                }
+
+                            });
+
+                            //doughnut
+                            var ctxD = document.getElementById("doughnutChart").getContext('2d');
+
+                            var myLineChart = new Chart(ctxD, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: [
+                                        'Sipariş Tutarı  2187.25 ₺',
+                                        'Ödenecek Tutar  1738.49 ₺',
+                                        'Ödenmiş Tutar  429.63 ₺',
+                                        'Kargo Bedeli  82.60 ₺', 'Iyzico Komisyonu  56 ₺',
+                                        'Site Karı  274.67 ₺',
+
+                                    ],
+                                    innerRadius: "100%",
+                                    name: "Remaining Qty",
+                                    datasets: [{
+                                        data: [
+                                            '1738',
+                                            '430',
+                                            '430',
+                                            '83', '56',
+                                            '275',
+                                        ],
+                                        remaining_qty: [
+                                            '1738',
+                                            '430',
+                                            '430',
+                                            '83', '56',
+                                            '275',
+
+                                        ],
+                                        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360", "#5bc0de"],
+                                        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774", "#5bc0de"]
+                                    }]
+                                },
+                                options: {
+                                    cutoutPercentage: 65,
+                                    tooltips: {
+                                        callbacks: {
+                                            title: function (tooltipItem, data) {
+                                                return "";
+                                            },
+                                            label: function (tooltipItem, data) {
+                                                return '';
+                                            },
+                                            afterLabel: function (tooltipItem, data) {
+
+                                                var dataset = data['datasets'][0];
+                                                //var percent = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)
+                                                return data.labels[tooltipItem.index];
+                                            }
+                                        },
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+
+
+                </div>
+            </div>
+            <footer id="footer">
+                Geliştirici: <a href="https://www.istanbul-soft.com.tr" target="_blank" title="İstanbul Soft">İstanbul Soft</a> - Tüm Hakları Saklıdır.<br><br>
+
+            </footer>
+        </div>
+
+    </div>
+</body>
+
