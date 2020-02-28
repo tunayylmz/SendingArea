@@ -135,6 +135,7 @@
     <Content Include="Content\Css\AdminPanel.css" />
     <Content Include="Content\Css\animate.css" />
     <Content Include="Content\Css\bootstrap-select.min.css" />
+    <Content Include="Content\Css\CompaniesPanel.css" />
     <Content Include="Content\Css\elegant.css" />
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\Password.css" />
@@ -219,6 +220,12 @@
     <Content Include="Views\Home\Customers.cshtml" />
     <Content Include="Views\Home\CanceledOrders.cshtml" />
     <Content Include="Views\Home\ActivePasifCompanies.cshtml" />
+    <Content Include="Views\Home\CompaniesPanel.cshtml" />
+    <Content Include="Views\Home\MyOrders.cshtml" />
+    <Content Include="Views\Home\MyProfile.cshtml" />
+    <Content Include="Views\Home\ProfileSettings.cshtml" />
+    <Content Include="Views\Home\StoreClosure.cshtml" />
+    <Content Include="Views\Home\PaymentInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

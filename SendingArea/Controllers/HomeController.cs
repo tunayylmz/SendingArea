@@ -67,5 +67,33 @@ namespace SendingArea.Controllers
             return View();
         }
 
+        public ActionResult CompaniesPanel()
+        {
+            return View();
+        }
+
+        public ActionResult MyOrders()
+        {
+            return View();
+        }
+
+        public ActionResult PaymentInformation()
+        {
+            return View();
+        }
+
+        public ActionResult MyProfile()
+        {
+            return View();
+        }
+
+        public ActionResult ProfileSettings()
+        {
+            return View();
+        }
+        public ActionResult StoreClosure()
+        {
+            return View();
+        }
     }
 }
