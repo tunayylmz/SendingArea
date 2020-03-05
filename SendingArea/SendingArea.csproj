@@ -194,7 +194,6 @@
     <Content Include="Scripts\System Js\jquery-2.2.4.min.js" />
     <Content Include="Scripts\System Js\jquery.countdown.min.js" />
     <Content Include="Scripts\System Js\jquery.sticky.js" />
-    <Content Include="Scripts\System Js\MapsHere.js" />
     <Content Include="Scripts\System Js\owl.carousel.min.js" />
     <Content Include="Scripts\System Js\theme-ajax-mail.js" />
     <Content Include="Scripts\System Js\theme.js" />
