@@ -572,9 +572,10 @@ label{
     border-color: #e7e8ec;
     border-radius: 3px;
     box-shadow: none;
-    color: #c7c7c7;
+    color: #9c9c9c ;
     font-size: 14px;
-    height: 46px;    
+    font: bold;
+    height: 46px;
     padding: 10px 20px;
     font-weight: 300;
     text-transform: uppercase;
@@ -667,28 +668,28 @@ textarea.form-control {
 }
 
 ::-webkit-input-placeholder {
-    color: #c7c7c7 ;    
+    color: #9c9c9c;
 }
 :-moz-placeholder {
-    color: #c7c7c7;
+    color: #9c9c9c;
 }
 ::-moz-placeholder {
-    color: #c7c7c7;
+    color: #9c9c9c;
 }
 :-ms-input-placeholder {
-    color: #c7c7c7;
+    color: #9c9c9c;
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #c7c7c7;
+    color: #9c9c9c;
     opacity: 1;
 }
 .form-control::-moz-placeholder {
-    color: #c7c7c7;
+    color: #9c9c9c;
     opacity: 1;
 }
-.form-control::-ms-input-placeholder{
-    color: #c7c7c7;
+.form-control::-ms-input-placeholder {
+    color: #9c9c9c;
     opacity: 1;
 }
 .form-control:focus {

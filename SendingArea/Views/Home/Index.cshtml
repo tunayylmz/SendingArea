@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-@*inlaid-booth-270211*@
-@*AIzaSyC2pDmf7CKcQSZuRDLUmTMouoJD32sCVYs*@
+<script src="~/Scripts/System Js/GoogleMaps.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jguery/3.3.1/jquery.min.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyC2pDmf7CKcQSZuRDLUmTMouoJD32sCVYs" type="text/javascript"></script>
 <article>
@@ -24,91 +23,132 @@
     <section>
         <div class="theme-container container">
             <div class="row">
-                <div class="col-md-12  track-prod clrbg-before wow slideInUp calculate pt-100 pad-80 about-wrap clrbg-before" data-wow-offset="50" data-wow-delay=".20s">
+                <div class="col-md-12  track-prod clrbg-before wow slideInUp calculate pt-100 pad-80 about-wrap clrbg-before">
                     <div class="theme-container container">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <img src="~/images/Courier-Man.png" alt="" class="wow slideInLeft" data-wow-offset="50" data-wow-delay=".20s" />
+                                <img src="~/images/Courier-Man.png" alt="" class="wow slideInLeft" />
                             </div>
                             <div class="col-md-6">
                                 <div class="pad-10">
-                                </div><br /><br />
-                                <h2 class="section-title pb-10 wow fadeInUp" data-wow-offset="50" data-wow-delay=".20s"> kuryenizi çağırın </h2>
-                                <p class="fs-16 wow fadeInUp" data-wow-offset="50" data-wow-delay=".25s">
+                                </div><br />
+                                <h2 class="section-title pb-10 wow fadeInUp"> kuryenizi çağırın </h2>
+                                <p class="fs-16 wow fadeInUp">
                                     Anlık ve ileri zaman kargolarınız için hemen tokenizer planlayın.
                                 </p>
                                 <div class="calculate-form">
-                                    <form  id="distance_form">
+                                    <form id="distance_form" action="/Scripts/System Js/GoogleMaps.js">
                                         <div class="form-group">
                                             <div class="form-group">
-                                                <div class="col-sm-4"> <label class="title-2"> Konum Bilgileri  : </label></div>
+                                                <div class="col-sm-5"> <label class="title-2"> Konum Bilgileri : </label></div>
                                                 <div class="col-sm-9">
-                                                    <br />
-                                                    <div class="form-group col-sm-6 no-pad">
+                                                    <div class="form-group ">
                                                         <input id="from_places" class="form-control" placeholder="Nereden" />
                                                         <input id="origin" type="hidden" name="origin" required />
-                                                        @*<input type="text" data-bind="in:value" data-name="locations[from]" placeholder="Nereden" class="form-control from fw-600">*@
                                                     </div>
-                                                    <div class="form-group col-sm-6 no-pad">
+                                                    <div class="form-group ">
                                                         <input id="to_places" class="form-control" placeholder="Nereye" />
                                                         <input id="destination" type="hidden" name="destination" required />
-                                                        @*<input type="text" data-bind="in:value" data-name="locations[to]" placeholder="Nereye" class="form-control to fw-600">*@
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-9 col-xs-12 pull-left" style="display:none;" id="Km">
+                                                <div class="btn-1">
+                                                    <span> toplam mesafe : </span>
+                                                    <span class="btn-1 dark">
+                                                        <span id='in_kilo'></span> KM <span></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group wow fadeInUp">
+                                                <div class="col-sm-4"> <label class="title-2"> Kargo Tipi : </label></div>
+                                                <div class="col-sm-9">
+                                                    <div class="form-group">
+                                                        <select class=" form-control" title="Kargo Tipini Seçin" id="Kargo_Tipi">
+                                                            <option value="KargoTip">Kargo Tipini Seçin</option>
+                                                            <option value="Evrak">Evrak</option>
+                                                            <option value="Koli">Koli ve benzeri</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group wow fadeInUp"  id="koli_ozellikleri" style="display:none;">
+                                                <div class="col-sm-5"> <label class="title-2"> Kargo Özellikleri : </label></div>
+                                                <div class="form-group wow fadeInUp">
+                                                    <div class="col-sm-9"> <input type="text" placeholder="Yükseklik (cm)" class="form-control"> </div>
+                                                </div>
+                                                <div class="form-group wow fadeInUp">
+                                                    <div class="col-sm-9"> <input type="text" placeholder="Genişlik (cm)" class="form-control"> </div>
+                                                </div>
+                                                <div class="form-group wow fadeInUp">
+                                                    <div class="col-sm-9"> <input type="text" placeholder="Derinlik (cm)" class="form-control"> </div>
+                                                </div>
+                                                <div class="form-group wow fadeInUp">
+                                                    <div class="col-sm-9"> <input type="text" placeholder="Ağırlık (kg)" class="form-control"> </div>
                                                 </div>
                                             </div>
                                             <div class="form-group wow fadeInUp">
                                                 <div class="col-sm-4"> <label class="title-2"> Kurye Tipi : </label></div>
                                                 <div class="col-sm-9">
-                                                    <br />
-                                                    <select class="btn dropdown-toggle btn-default col-sm-12 form-control selectpicker" title="Kurye Tipini Seçin">
-                                                        <option value="Start">Kurye Tipini Seçin</option>
-                                                        <option value="Car">Araba</option>
-                                                        <option value="Moto">Motorsiklet</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group wow fadeInUp" >
-                                                    <div class="form-group col-sm-5 pull-left">
-                                                        <input class="btn-1" style="text-align:center;" type="submit" value="Kuryenizi Bulun"/>
-                                                            
-
-                                                        @*<div class="btn-1">
-                                                            <span> Total Cost: </span>
-                                                            <span data-bind="out:price, f:currency" data-name="cost" class="btn-1 dark">
-                                                                <span class="pr-sign">-&nbsp;</span> $<span class="pr-wrap" style="display: none;"><span class="pr">0</span></span>
-                                                            </span>*@
+                                                    <div class="form-group">
+                                                        <select class=" form-control" title="Kurye Tipini Seçin">
+                                                            <option value="KuryeTip">Kurye Tipini Seçin</option>
+                                                            <option value="Araba">Araba</option>
+                                                            <option value="Motor">Motorsiklet</option>
+                                                        </select>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group wow fadeInUp">
+                                                <div class="col-sm-9 col-xs-12 pull-left">
+                                                    <input class="btn-1" style="text-align:center;" type="submit" onclick="KmHesabi('Km')" value="Kuryenizi Bulun" />
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
-                                    <div id="result">
-                                        <ul class="list-group">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                mile
-                                                <span id="in_mile" class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                km
-                                                <span id='in_kilo' class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                in text
-                                                <span id="duration_text" class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                in minutes
-                                                <span id="duration_value" class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                from
-                                                <span id="from" class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                to
-                                                <span id="to" class="badge badge-primary badge-pill"></span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <script>
+                                        function KmHesabi(Km) {
+                                            var secilenID = document.getElementById(Km);
+                                            if (secilenID.style.display == "none") {
+                                                secilenID.style.display = "";
+                                            } else {
+                                                secilenID.style.display = "none";
+                                            }
+                                        }
+                                        /*
+                                         şurda yukarda bi metod var görüyon mu
+                                         bu çağrımı ne zaman yaparsan, oraya o zaman yazar
+                                         */
+                                    </script>
+                                    @*<div id="result">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    mile
+                                                    <span id="in_mile" class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    km
+                                                    <span id='in_kilo' class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    in text
+                                                    <span id="duration_text" class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    in minutes
+                                                    <span id="duration_value" class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    from
+                                                    <span id="from" class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    to
+                                                    <span id="to" class="badge badge-primary badge-pill"></span>
+                                                </li>
+                                            </ul>
+                                        </div>*@
                                 </div>
                                 <div class="pt-80 hidden-lg"></div>
                             </div>
@@ -118,72 +158,6 @@
             </div>
         </div>
     </section>
-    <script>
-        $(function () {
-            google.maps.event.addDomListener(window, 'load', function () {
-                var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
-                var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
-
-                google.maps.event.addListener(from_places, 'place_changed', function () {
-                    var from_places = from_places.getPlace();
-                    var from_address = from_place.formatted_address;
-                    $('#origin').val(from_address);
-                });
-
-                google.maps.event.addListener(to_places, 'place_changed', function () {
-                    var to_places = to_places.getPlace();
-                    var to_places = to_places.formatted_address;
-                    $('#destination').val(from_address);
-                });
-            });
-
-            function calculateDistance() {
-                var origin = $('#origin').val();
-                var destination = $('#destination').val();
-                var service = new google.maps.DistanceMatrixService();
-                service.getDistanceMatrix(
-                    {
-                        origins: [origin],
-                        destinations: [destination],
-                        travelMode: google.maps.TravelMode.DRIVING,
-                        unitSystem: google.maps.UnitSystem.IMPERIAL,
-                        avoidHighways: false,
-                        avoidTolls: false,
-                    }, callback);
-            }
-            function callback(response, status) {
-                if (status != google.maps.DistanceMatrixStatus.OK) {
-                    $('#result').html(err);
-                } else {
-                    var origin = response.originAddresses[0];
-                    var destination = response.destinationAddresses[0];
-                    if (response.rows[0].elemetnts[0].status === "ZERO_RESULTS") {
-                        $('result').html("Better get on a plane. There are no roads between" + origin + "fd");
-
-                    } else {
-                        var distance = response.rows[0].elemetnts[0].distance;
-                        var duration = response.rows[0].elemetnts[0].duration;
-                        console.log(response.rows[0].elemetnts[0].distance);
-                        var distance_in_kilo = distance.value / 1000;
-                        var distance_in_mile = distance.value / 1609.34;
-                        var duration_text = duration.text;
-                        var duration_value = duration.value;
-                        $('#in_mile').text(distance_in_mile.toFixed(2));
-                        $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                        $('#duration_text').text(duration_text);
-                        $('#duration_value').text(duration_value);
-                        $('#from').text(origin);
-                        $('#to').text(destination);
-
-                    }
-                }
-            }
-            $('#distance_form').submit(function (e) {
-                e.preventDefault();
-                calculateDistance();
-            });
-        });
-    </script>
     @*<section>
             <div class="theme-container container">
                 <div class="row">
@@ -422,3 +396,12 @@
     <!-- /.Contact us -->
 
 </article>
+<script type="text/javascript">
+    /**
+     * Niye pure JS yazıyon pure js ne hocam ben öyle bişey yazmıyorum :D
+     * of ulen :-D
+     * */
+
+
+
+</script>

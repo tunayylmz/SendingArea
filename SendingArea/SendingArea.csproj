@@ -191,6 +191,7 @@
     <Content Include="Scripts\System Js\bootstrap-select.min.js" />
     <Content Include="Scripts\System Js\bootstrap.min.js" />
     <Content Include="Scripts\System Js\data.binder.js" />
+    <Content Include="Scripts\System Js\GoogleMaps.js" />
     <Content Include="Scripts\System Js\jquery-2.2.4.min.js" />
     <Content Include="Scripts\System Js\jquery.countdown.min.js" />
     <Content Include="Scripts\System Js\jquery.sticky.js" />
