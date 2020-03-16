@@ -66,14 +66,61 @@
                                                     <div class="form-group">
                                                         <select class=" form-control" title="Kargo Tipini Seçin" id="Kargo_Tipi">
                                                             <option value="KargoTip">Kargo Tipini Seçin</option>
-                                                            <option value="Evrak">Evrak</option>
+                                                            <option value="Evrak">Evrak ve benzeri</option>
                                                             <option value="Koli">Koli ve benzeri</option>
                                                         </select>
                                                     </div>
                                                 </div>
+                                            </div><br />
+                                            <div class="dv-order-block-with-error col-sm-9" id="evrak_ozellikleri" style="display:none;">
+                                                <div class="dv-order-tabs dv-order-tabs--horizontal ">
+                                                    <div class="dv-order-tabs__tab dv-order-tabs__tab--active"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label dv-order-tabs__tab-label--active">
+                                                            0 - 1 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            1 - 5 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            5 - 10 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            10 - 15 kg
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <div class="form-group wow fadeInUp"  id="koli_ozellikleri" style="display:none;">
+                                            <div class="dv-order-block-with-error col-sm-9" id="koli_ozellikleri" style="display:none;">
+                                                <div class="dv-order-tabs dv-order-tabs--horizontal ">
+                                                    <div class="dv-order-tabs__tab dv-order-tabs__tab--active col-sm-9"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label dv-order-tabs__tab-label--active">
+                                                            0 - 30 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab col-sm-9"style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            30 - 60 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab col-sm-9" style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            60 - 99 kg
+                                                        </span>
+                                                    </div>
+                                                    <div class="dv-order-tabs__tab col-sm-9" style="text-align:center;">
+                                                        <span class="dv-order-tabs__tab-label">
+                                                            99-150 kg
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group wow fadeInUp" id="koli_ozellikleri" style="display:none;">
                                                 <div class="col-sm-5"> <label class="title-2"> Kargo Özellikleri : </label></div>
                                                 <div class="form-group wow fadeInUp">
                                                     <div class="col-sm-9"> <input type="text" placeholder="Yükseklik (cm)" class="form-control"> </div>
@@ -115,11 +162,7 @@
                                             } else {
                                                 secilenID.style.display = "none";
                                             }
-                                        }
-                                        /*
-                                         şurda yukarda bi metod var görüyon mu
-                                         bu çağrımı ne zaman yaparsan, oraya o zaman yazar
-                                         */
+                                        }                                                                                                    
                                     </script>
                                     @*<div id="result">
                                             <ul class="list-group">

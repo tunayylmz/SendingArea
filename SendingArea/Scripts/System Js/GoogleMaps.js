@@ -79,9 +79,12 @@ $(function () {
             $("#koli_ozellikleri").hide();
         }
     });
- 
-
-   
-
-
+    $('#Kargo_Tipi').on('change', function () {
+        if ($('#Kargo_Tipi').val() === "Evrak") {
+            $("#evrak_ozellikleri").show();
+        }
+        else {
+            $("#evrak_ozellikleri").hide();
+        }
+    });
 });
