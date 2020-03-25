@@ -7,7 +7,7 @@
     <title>Sending Area</title>
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.jss"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="~/Content/owl.carousel.css" rel="stylesheet" />
     <link href="~/Content/Css/animate.css" rel="stylesheet" />
     <link href="~/Content/Css/bootstrap-select.min.css" rel="stylesheet" />
@@ -144,98 +144,110 @@
         </header>
 
         @RenderBody()
-    <footer>
-        <div class="footer-main pad-120 white-clr" style="background-color:black">
-            <div class="theme-container container">
-                <div class="row">
+        <footer>
+            <div class="footer-main pad-120 white-clr" style="background-color:black">
+                <div class="theme-container container">
+                    <div class="row">
 
-                    <div class="col-md-3 col-sm-6 footer-widget">
-                        <a href="#"> <img class="logo" alt="#" src="" /> </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 footer-widget">
-                        <h2 class="title-1 fw-900">quick links</h2>
-                        <ul>
-                            <li> <a href="#">sitemap</a> </li>
-                            <li> <a href="#">pricing</a> </li>
-                            <li> <a href="#">payment method</a> </li>
-                            <li> <a href="#">support</a> </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 footer-widget">
-                        <h2 class="title-1 fw-900">important links</h2>
-                        <ul>
-                            <li> <a href="#">themeforest</a> </li>
-                            <li> <a href="#">envato</a> </li>
-                            <li> <a href="#">audiojungle</a> </li>
-                            <li> <a href="#">videohibe</a> </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 footer-widget">
-                        <h2 class="title-1 fw-900">İletişim linkleri</h2>
-                        <ul class="social-icons list-inline">
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#" class="fa fa-facebook"></a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#" class="fa fa-twitter"></a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#" class="fa fa-google-plus"></a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#" class="fa fa-linkedin"></a> </li>
-                        </ul>
-                        <ul class="payment-icons list-inline">
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#"> <img alt="#" src="~/images/payment-1.png" /> </a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#"> <img alt="#" src="~/images/payment-2.png" /> </a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#"> <img alt="#" src="~/images/payment-3.png" /> </a> </li>
-                            <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#"> <img alt="#" src="~/images/payment-4.png" /> </a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="theme-container container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <p> © Telif hakkı 2020, Tüm hakları saklıdır. </p>
-                    </div>
-                    <div class="col-md-6 col-sm-6 text-right">
-                        <p> Dizayn işlemleri <a href="#" class="main-clr"> Md Arge Tarafından yapılmıştır. </a> </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Popup: Login -->
-        <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-md">
-                <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
-
-                <div class="modal-content">
-                    <div class="login-wrap text-center">
-                        <h2 class="title-3"> giriş </h2>
-                        <p> Tüm ayrıntıları görmek için <strong> Sending Area </strong> ' da oturum açın </p>
-
-                        <div class="login-form clrbg-before">
-                            <form class="login">
-                                <div class="form-group"><input type="text" placeholder="EMAIL" class="form-control"></div>
-                                <div class="form-group"><input type="password" placeholder="ŞİFRE" class="form-control"></div>
-                                <div class="form-group">
-                                    <button class="btn-1 " type="submit"> giriş yapın </button>
-                                </div>
-                            </form>
-                            <a href="Password" class="gray-clr"> Şifrenizi mi unuttunuz? </a>
+                        <div class="col-md-3 col-sm-6 footer-widget">
+                            <a href="#"> <img class="logo" alt="#" src="" /> </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 footer-widget">
+                            <h2 class="title-1 fw-900">quick links</h2>
+                            <ul>
+                                <li> <a href="#">sitemap</a> </li>
+                                <li> <a href="#">pricing</a> </li>
+                                <li> <a href="#">payment method</a> </li>
+                                <li> <a href="#">support</a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 footer-widget">
+                            <h2 class="title-1 fw-900">important links</h2>
+                            <ul>
+                                <li> <a href="#">themeforest</a> </li>
+                                <li> <a href="#">envato</a> </li>
+                                <li> <a href="#">audiojungle</a> </li>
+                                <li> <a href="#">videohibe</a> </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 footer-widget">
+                            <h2 class="title-1 fw-900">İletişim linkleri</h2>
+                            <ul class="social-icons list-inline">
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#" class="fa fa-facebook"></a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#" class="fa fa-twitter"></a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#" class="fa fa-google-plus"></a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#" class="fa fa-linkedin"></a> </li>
+                            </ul>
+                            <ul class="payment-icons list-inline">
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".20s"> <a href="#"> <img alt="#" src="~/images/payment-1.png" /> </a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".25s"> <a href="#"> <img alt="#" src="~/images/payment-2.png" /> </a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".30s"> <a href="#"> <img alt="#" src="~/images/payment-3.png" /> </a> </li>
+                                <li class="wow fadeIn" data-wow-offset="50" data-wow-delay=".35s"> <a href="#"> <img alt="#" src="~/images/payment-4.png" /> </a> </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="create-accnt">
-                        <a href="MyAccount" class="white-clr"> Hesabınız yok mu? </a>
-                        <h2 class="title-2"> <a href="MyAccount" class="green-clr under-line">ÜCRETSİZ BİR HESAP OLUŞTUR</a> </h2>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="theme-container container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p> © Telif hakkı 2020, Tüm hakları saklıdır. </p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-right">
+                            <p> Dizayn işlemleri <a href="#" class="main-clr"> Md Arge Tarafından yapılmıştır. </a> </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /Popup: Login -->
-    </footer>
+            <!-- Popup: Login -->
+            <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
+
+                    <div class="modal-content">
+                        <div class="login-wrap text-center">
+                            <h2 class="title-3"> giriş </h2>
+                            <p> Tüm ayrıntıları görmek için <strong> Sending Area </strong> ' da oturum açın </p>
+
+                            <div class="login-form clrbg-before">
+                                <form class="login">
+                                    <div class="form-group"><input type="text" placeholder="EMAIL" class="form-control"></div>
+                                    <div class="form-group"><input type="password" placeholder="ŞİFRE" class="form-control"></div>
+                                    <div class="form-group">
+                                        <button class="btn-1 " type="submit"> giriş yapın </button>
+                                    </div>
+                                </form>
+                                <a href="Password" class="gray-clr"> Şifrenizi mi unuttunuz? </a>
+                            </div>
+                        </div>
+                        <div class="create-accnt">
+                            <a href="MyAccount" class="white-clr"> Hesabınız yok mu? </a>
+                            <h2 class="title-2"> <a href="MyAccount" class="green-clr under-line">ÜCRETSİZ BİR HESAP OLUŞTUR</a> </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Popup: Login -->
+            <!-- Search Popup -->
+            <div class="search-popup">
+                <div>
+                    <div class="popup-box-inner">
+                        <form>
+                            <input class="search-query" type="text" placeholder="Search and hit enter" />
+                        </form>
+                    </div>
+                </div>
+                <a href="javascript:void(0)" class="close-search"><i class="fa fa-close"></i></a>
+            </div>
+            <!-- / Search Popup -->
+        </footer>
     </main>
     <script src="~/Scripts/System Js/bootstrap-select.min.js"></script>
     <script src="~/Scripts/System Js/bootstrap.min.js"></script>
     <script src="~/Scripts/System Js/data.binder.js"></script>
-
+    <script src="~/Scripts/System Js/jquery-2.2.4.min.js"></script>
     <script src="~/Scripts/System Js/jquery.countdown.min.js"></script>
     <script src="~/Scripts/System Js/jquery.sticky.js"></script>
     <script src="~/Scripts/System Js/owl.carousel.min.js"></script>
@@ -246,7 +258,8 @@
     <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
