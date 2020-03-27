@@ -95,5 +95,9 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+        public ActionResult DenemeJquery()
+        {
+            return View();
+        }
     }
 }

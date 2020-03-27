@@ -213,10 +213,10 @@
 
                             <div class="login-form clrbg-before">
                                 <form class="login">
-                                    <div class="form-group"><input type="text" placeholder="EMAIL" class="form-control"></div>
-                                    <div class="form-group"><input type="password" placeholder="ŞİFRE" class="form-control"></div>
+                                    <div class="form-group"><input type="text" id="email" placeholder="EMAIL" class="form-control"></div>
+                                    <div class="form-group"><input type="password" id="password" placeholder="ŞİFRE" class="form-control"></div>
                                     <div class="form-group">
-                                        <button class="btn-1 " type="submit"> giriş yapın </button>
+                                        <button class="btn-1 " type="submit" id="submit" onclick="validate()"> giriş yapın </button>
                                     </div>
                                 </form>
                                 <a href="Password" class="gray-clr"> Şifrenizi mi unuttunuz? </a>
@@ -271,7 +271,7 @@
             type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
             type="text/javascript" charset="utf-8"></script>
-
     <script src="~/Scripts/System Js/GoogleMaps.js"></script>
+    <script src="~/Scripts/System Js/LoginSystem.js"></script>
 </body>
 </html>

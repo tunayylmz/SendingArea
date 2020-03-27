@@ -195,6 +195,7 @@
     <Content Include="Scripts\System Js\jquery-2.2.4.min.js" />
     <Content Include="Scripts\System Js\jquery.countdown.min.js" />
     <Content Include="Scripts\System Js\jquery.sticky.js" />
+    <Content Include="Scripts\System Js\LoginSystem.js" />
     <Content Include="Scripts\System Js\owl.carousel.min.js" />
     <Content Include="Scripts\System Js\theme-ajax-mail.js" />
     <Content Include="Scripts\System Js\theme.js" />
@@ -227,6 +228,7 @@
     <Content Include="Views\Home\ProfileSettings.cshtml" />
     <Content Include="Views\Home\StoreClosure.cshtml" />
     <Content Include="Views\Home\PaymentInformation.cshtml" />
+    <Content Include="Views\Home\DenemeJquery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
