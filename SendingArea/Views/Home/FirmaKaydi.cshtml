@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "FirmaKaydi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Content Wrap -->
+<link href="~/Content/Css/Account.css" rel="stylesheet" />
+<section class="banner mask-overlay pad-120 white-clr" style="padding-bottom: 0px; padding-top: 0px;">
+    <div class="grey" style="padding:0px; margin-top:2%;">
+        <div class="container">
+            <div class="topheader">
+                <h1 style="text-align: left;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit; color: white;">
+                          Firma Kayıt
+                        </font>
+                    </font>
+                </h1>
+                <div class="breadcrumbs" style="float:left;">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="Index">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Anasayfa
+                                    </font>
+                                </font>
+                            </a>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    /
+                                </font>
+                            </font>
+                        </li>
+                        <li>
+                            <span class="current">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                      Firma Kayıt
+                                    </font>
+                                </font>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pad-50 visible-lg"></div>
+</section>
+
+<div class="section white page-content" id="MyAccount">
+    <div class="container">
+        <div id="content" class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="post-contents">
+                <div class="woocommerce">
+                    <div class="woocommerce-notices-wrapper">
+                    </div>
+                    <h2>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">
+                                Kayıt Ol
+                            </font>
+                        </font>
+                    </h2>
+                    <form class="woocommerce-form woocommerce-form-login register" method="post">
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Şirket Ünvanı &nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="companyName" id="companyName" autocomplete="companyName" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Yetkili Ad - Soyad &nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="authorizedName" id="authorizedName" autocomplete="authorizedName" value="">
+                        </p>
+
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Telefon Numarası&nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="companyNumber" id="companyNumber" autocomplete="companyNumber" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">E-posta adresi&nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="companyEmail" id="companyEmail" autocomplete="companyEmail" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Fatura Adresi&nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="invoiceAddress" id="invoiceAddress" autocomplete="invoiceAddress" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Vergi Numarası&nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="taxNo" id="taxNo" autocomplete="taxNo" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="username">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Vergi Dairesi&nbsp; </font>
+                                </font><span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="taxOffice" id="taxOffice" autocomplete="taxOffice" value="">
+                        </p>
+                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                            <label for="password">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Şifre&nbsp;
+                                    </font>
+                                </font>
+                                <span class="required">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            *
+                                        </font>
+                                    </font>
+                                </span>
+                            </label>
+                            <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+                        </p>
+                        <p class="form-row">
+                            <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="38efa7f48d">
+                            <input type="hidden" name="_wp_http_referer" value="/themes/gocourierwp/my-account/">
+                            <br />
+                            <button style="background-color:#F5AB35;" type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Login">
+                                <font style="vertical-align: inherit; color:white ">
+                                    <font style="vertical-align: inherit;">
+                                        Kaydol
+                                    </font>
+                                </font>
+                            </button>
+                            <br /><br />
+                        </p>
+                        @*<p class="woocommerce-LostPassword lost_password">
+            <a href="http://event-theme.com/themes/gocourierwp/my-account/lost-password/">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        Şifreni mi unuttun?
+                    </font>
+                </font>
+            </a>
+        </p>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="sidebar" class="col-md-3 col-sm-12 col-xs-12">
+
+        </div>
+    </div>
+</div>
+<!-- Content Wrap -->

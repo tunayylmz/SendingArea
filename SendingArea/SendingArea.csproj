@@ -124,6 +124,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CourierCompany.cs" />
+    <Compile Include="Models\TasiyiciFirma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +214,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\MusteriKaydi.cshtml" />
     <Content Include="Views\Home\Password.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
@@ -223,7 +225,7 @@
     <Content Include="Views\Home\CanceledOrders.cshtml" />
     <Content Include="Views\Home\ActivePasifCompanies.cshtml" />
     <Content Include="Views\Home\CompaniesPanel.cshtml" />
-    <Content Include="Views\Home\MyOrders.cshtml" />
+    <Content Include="Views\Home\FirmaKaydi.cshtml" />
     <Content Include="Views\Home\MyProfile.cshtml" />
     <Content Include="Views\Home\ProfileSettings.cshtml" />
     <Content Include="Views\Home\StoreClosure.cshtml" />
@@ -232,7 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
