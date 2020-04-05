@@ -26,8 +26,12 @@ namespace SendingArea.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult FirmaKaydi(string companyName, string authorizedName, int companyNumber,string companyEmail, string invoiceAddress, int taxNo, string taxOffice, string password)
+        public ActionResult FirmaKaydi(string taxPlate, string registerNewspaper, string companyName, string authorizedName, int companyNumber,string companyEmail, string invoiceAddress, int taxNo, string taxOffice, string password)
         {
+            SendingArea.Models.DataConverter pdf = new SendingArea.Models.DataConverter();
+            
+
+
             Models.TasiyiciFirma firma = new Models.TasiyiciFirma();
 
             firma.Sirket_Adi = companyName;
@@ -47,15 +51,14 @@ namespace SendingArea.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult MusteriKaydi(string username, string tc, string email, string password)
+        public ActionResult MusteriKaydi(string username, int tc, string email, string password)
         {
-            Models.CourierCompany company = new Models.CourierCompany();
-            company.Name = username;
-            company.Phone = tc;
-            company.Address = email;
-            company.TaxNo = password;
-            company.TaxOffice = "TunayYilmaz";
-            company.WriteClass();
+            Models.Musteri musteri = new Models.Musteri();
+            musteri.Ad_Soyad = username;
+            musteri.TC_No = tc;
+            musteri.E_Posta = email;
+            musteri.sifre = password;
+            musteri.MusteriKaydiOlusturma();
             return View();
         }
         public ActionResult Password()
