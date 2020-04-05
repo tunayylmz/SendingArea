@@ -2619,7 +2619,8 @@ hr {
 input, select {
     line-height: normal;
     border: 1px solid #ededed;
-    padding: 10px
+    padding: 10px;
+    border-color: #dedede;
 }
 
 input, textarea, button, select {
@@ -6819,9 +6820,9 @@ input[type="radio"], input[type="checkbox"] {
     line-height: normal
 }
 
-input[type="file"] {
+/*input[type="file"] {
     display: block
-}
+}*/
 
 input[type="range"] {
     display: block;
