@@ -202,21 +202,20 @@
                 </div>
             </div>
             <!-- Popup: Login -->
+            @Html.Action("login-popup","PartialViewSample")
             <div class="modal fade login-popup" id="login-popup" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <a class="close close-btn" data-dismiss="modal" aria-label="Close"> x </a>
-
                     <div class="modal-content">
                         <div class="login-wrap text-center">
                             <h2 class="title-3"> giriş </h2>
                             <p> Tüm ayrıntıları görmek için <strong> Sending Area </strong> ' da oturum açın </p>
-
                             <div class="login-form clrbg-before">
                                 <form class="login">
                                     <div class="form-group"><input type="text" id="email" placeholder="EMAIL" class="form-control"></div>
                                     <div class="form-group"><input type="password" id="password" placeholder="ŞİFRE" class="form-control"></div>
                                     <div class="form-group">
-                                        <button class="btn-1 " type="submit" id="submit" onclick="validate()"> giriş yapın </button>
+                                        <button class="btn-1 " type="submit" id="submit"> giriş yapın </button>
                                     </div>
                                 </form>
                                 <a href="Password" class="gray-clr"> Şifrenizi mi unuttunuz? </a>

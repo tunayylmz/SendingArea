@@ -131,7 +131,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DataConverter.cs" />
+    <Compile Include="Models\FirmaPersonelKayit.cs" />
     <Compile Include="Models\Musteri.cs" />
+    <Compile Include="Models\SistemeGiris.cs" />
     <Compile Include="Models\TasiyiciFirma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,7 +206,6 @@
     <Content Include="Scripts\System Js\jquery-2.2.4.min.js" />
     <Content Include="Scripts\System Js\jquery.countdown.min.js" />
     <Content Include="Scripts\System Js\jquery.sticky.js" />
-    <Content Include="Scripts\System Js\LoginSystem.js" />
     <Content Include="Scripts\System Js\owl.carousel.min.js" />
     <Content Include="Scripts\System Js\theme-ajax-mail.js" />
     <Content Include="Scripts\System Js\theme.js" />
@@ -228,7 +229,7 @@
     <Content Include="Views\Home\AdminPanel.cshtml" />
     <Content Include="Views\Home\Orders.cshtml" />
     <Content Include="Views\Home\Companies.cshtml" />
-    <Content Include="Views\Home\Customers.cshtml" />
+    <Content Include="Views\Home\TasiyiciFirmalar.cshtml" />
     <Content Include="Views\Home\CanceledOrders.cshtml" />
     <Content Include="Views\Home\ActivePasifCompanies.cshtml" />
     <Content Include="Views\Home\CompaniesPanel.cshtml" />
@@ -238,9 +239,11 @@
     <Content Include="Views\Home\StoreClosure.cshtml" />
     <Content Include="Views\Home\PaymentInformation.cshtml" />
     <Content Include="Views\Home\DenemeJquery.cshtml" />
+    <Content Include="Views\Home\FirmaPersonelKayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\FirmaPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -11,8 +11,8 @@ namespace SendingArea.Models
     {
         public int Id { get; set; }
         public string Ad_Soyad { get; set; }
-        public int Cep_Tel { get; set; }
-        public int TC_No { get; set; }
+        public long Cep_Tel { get; set; }
+        public long TC_No { get; set; }
         public string E_Posta { get; set; }
         public string sifre { get; set; }
 

@@ -12,10 +12,10 @@ namespace SendingArea.Models
         public int Id { get; set; }
         public string Sirket_Adi { get; set; }
         public string Yetkili_AdSoyad { get; set; }
-        public int Telefon_No { get; set; }
+        public long Telefon_No { get; set; }
         public string Firma_Mail { get; set; }
         public string Fatura_Adresi { get; set; }
-        public int Vergi_No { get; set; }
+        public long Vergi_No { get; set; }
         public string Vergi_Dairesi { get; set; }
         public string sifre { get; set; }
 

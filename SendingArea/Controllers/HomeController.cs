@@ -10,7 +10,21 @@ namespace SendingArea.Controllers
 {
     public class HomeController : Controller
     {
-
+        public Models.TasiyiciFirma aktifFirma = new Models.TasiyiciFirma();
+        
+        public ActionResult PartialViewSample(string email, string password)
+        {
+            Models.Musteri musteriGirisBilgisi = new Models.Musteri();
+            musteriGirisBilgisi.E_Posta = email;
+            musteriGirisBilgisi.sifre = password;
+            Models.SistemeGiris sistemeGiris = new Models.SistemeGiris();
+            bool girdi = sistemeGiris.SistemeGirisIslemi();
+            if (girdi)
+            {
+                FirmaKaydi();
+            }
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
@@ -26,7 +40,7 @@ namespace SendingArea.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult FirmaKaydi(string taxPlate, string registerNewspaper, string companyName, string authorizedName, int companyNumber,string companyEmail, string invoiceAddress, int taxNo, string taxOffice, string password)
+        public ActionResult FirmaKaydi(string taxPlate, string registerNewspaper, string companyName, string authorizedName, long companyNumber,string companyEmail, string invoiceAddress, long taxNo, string taxOffice, string password)
         {
             SendingArea.Models.DataConverter pdf = new SendingArea.Models.DataConverter();
             
@@ -51,10 +65,11 @@ namespace SendingArea.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult MusteriKaydi(string username, int tc, string email, string password)
+        public ActionResult MusteriKaydi(string username,long phone, long tc, string email, string password)
         {
             Models.Musteri musteri = new Models.Musteri();
             musteri.Ad_Soyad = username;
+            musteri.Cep_Tel = phone;
             musteri.TC_No = tc;
             musteri.E_Posta = email;
             musteri.sifre = password;
@@ -85,7 +100,7 @@ namespace SendingArea.Controllers
         {
             return View();
         }
-        public ActionResult Customers()
+        public ActionResult TasiyiciFirmalar()
         {
             return View();
         }
@@ -120,6 +135,29 @@ namespace SendingArea.Controllers
         }
         public ActionResult DenemeJquery()
         {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult FirmaPersonelKayit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult FirmaPersonelKayit(string name,long phone,long tc, string email,string plaque,string brand,string model,long date,long capacity,long weight)
+        {
+            Models.FirmaPersonelKayit personelKayit = new Models.FirmaPersonelKayit();
+            personelKayit.Firma_Kayit_Id = aktifFirma.Id;
+            personelKayit.Ad_Soyad = name;
+            personelKayit.Cep_Tel = phone;
+            personelKayit.TC_No = tc;
+            personelKayit.E_Posta = email;
+            personelKayit.Motor_Plaka = plaque;
+            personelKayit.Motor_Marka = brand;
+            personelKayit.Motor_Model = model;
+            personelKayit.Motor_Model_Yili = date;
+            personelKayit.Motor_Tasima_Hacim = capacity;
+            personelKayit.Motor_Tasima_Agirlik = weight;
+            personelKayit.FirmaPersonelKaydiOlusturma();
             return View();
         }
     }
