@@ -137,6 +137,10 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+        public ActionResult LoginPopup()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult FirmaPersonelKayit()
         {
