@@ -11,6 +11,9 @@ namespace SendingArea.Controllers
     public class HomeController : Controller
     {
 
+        public Models.TasiyiciFirma Aktif_Firma = new Models.TasiyiciFirma();
+        public bool Firma_Girisi_Yapildi = false;
+
         public ActionResult Index()
         {
             return View();
@@ -30,8 +33,6 @@ namespace SendingArea.Controllers
         {
             SendingArea.Models.DataConverter pdf = new SendingArea.Models.DataConverter();
             
-
-
             Models.TasiyiciFirma firma = new Models.TasiyiciFirma();
 
             firma.Sirket_Adi = companyName;
