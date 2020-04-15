@@ -131,8 +131,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bireysel.cs" />
     <Compile Include="Models\DataConverter.cs" />
     <Compile Include="Models\FirmaPersonelKayit.cs" />
+    <Compile Include="Models\IsIdentity.cs" />
+    <Compile Include="Models\Kurumsal.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\SistemeGiris.cs" />
     <Compile Include="Models\TasiyiciFirma.cs" />
