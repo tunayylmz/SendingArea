@@ -16,7 +16,7 @@ namespace SendingArea.Models
             string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
             SqlConnection baglanti = new SqlConnection(conString);
             baglanti.Open();
-            SqlCommand veriCek = new SqlCommand("select * from Musteri_Kayit Where E_Posta='"+E_Posta+ "' and sifre='" + sifre + "'");
+            SqlCommand veriCek = new SqlCommand("select * from Musteri_Kayit Where E_Posta='"+E_Posta+ "' and sifre='" + sifre + "'",baglanti);
             SqlDataReader oku = veriCek.ExecuteReader();
             //System.Data.DataTable GirisVeri = new System.Data.DataTable();
             if (oku.HasRows)

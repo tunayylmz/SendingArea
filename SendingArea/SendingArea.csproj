@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,8 +223,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\MusteriKaydi.cshtml" />
-    <Content Include="Views\Home\Password.cshtml" />
+    <Content Include="Views\Login\MusteriKaydi.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
@@ -233,17 +233,18 @@
     <Content Include="Views\Home\CanceledOrders.cshtml" />
     <Content Include="Views\Home\ActivePasifCompanies.cshtml" />
     <Content Include="Views\Home\CompaniesPanel.cshtml" />
-    <Content Include="Views\Home\FirmaKaydi.cshtml" />
+    <Content Include="Views\Login\FirmaKaydi.cshtml" />
     <Content Include="Views\Home\MyProfile.cshtml" />
     <Content Include="Views\Home\ProfileSettings.cshtml" />
     <Content Include="Views\Home\StoreClosure.cshtml" />
     <Content Include="Views\Home\PaymentInformation.cshtml" />
     <Content Include="Views\Home\DenemeJquery.cshtml" />
     <Content Include="Views\Home\FirmaPersonelKayit.cshtml" />
+    <Content Include="Views\Login\Giris.cshtml" />
+    <Content Include="Views\Login\SifreDegisikligi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\FirmaPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
