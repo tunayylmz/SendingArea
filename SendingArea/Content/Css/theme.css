@@ -320,7 +320,6 @@ img{
 }
 .section-title, .title-1, .title-2, .title-3, .post-title, .widget-title, .font2-title1 {
     color: #222222;  
-    text-transform: uppercase;  
     letter-spacing: 1px;
 }
 .section-title { font-size: 28px; }
@@ -332,7 +331,6 @@ img{
     color: #f6f6f6;
     font-size: 114px;    
     position: absolute;
-    text-transform: uppercase;
     top: 8%;
     left: -2%;
 }
@@ -375,7 +373,6 @@ img{
     display: inline-block;
     margin: 0 5px;
     position: relative;
-    text-transform: uppercase;
 }
 .list-items{ margin-bottom: 0; margin-left: -5px;}
 .black-arrow i,.white-arrow i{   
@@ -522,7 +519,6 @@ h2,h3,h4,h5,h6{
     font-size: 14px;
     border-radius: 3px;
     color: #ffffff;
-    text-transform: uppercase;
 
     transition: all 0.4s ease-in-out;    
     -webkit-transition: all 0.4s ease-in-out;
@@ -544,7 +540,6 @@ h2,h3,h4,h5,h6{
     padding: 10px;
     font-size: 14px;    
     color: #222;
-    text-transform: uppercase;
     letter-spacing: 1px;
     min-width: 200px;
 
@@ -578,13 +573,11 @@ label{
     height: 46px;
     padding: 10px 20px;
     font-weight: 300;
-    text-transform: uppercase;
 }
 textarea.form-control {
     height: auto;
 }
 .bootstrap-select .btn {
-    text-transform: uppercase;
 }
 .form-control.submit-btn{
     height: auto;
@@ -838,9 +831,6 @@ textarea:focus:-ms-input-placeholder {
 .italic-text {
     font-style: italic;
 }
-.upper-text{
-    text-transform: uppercase;
-}
 .capital-text{
     text-transform: capitalize;
 }
@@ -1026,8 +1016,7 @@ textarea:focus:-ms-input-placeholder {
 }
 .top-bar2 ul {
     display: inline-block;
-    margin: 10px 0 0;    
-    text-transform: uppercase;
+    margin: 10px 0 0;
     width: 100%;
 }
 .top-bar2 .font2-title1 {
@@ -1623,7 +1612,6 @@ textarea:focus:-ms-input-placeholder {
     margin: 20px 0 0;
     letter-spacing: 1px;
     text-align: right;
-    text-transform: uppercase;
 }
 .breadcrumb-menubar > li + li::before {
     color: #9f9f9f;
@@ -1654,7 +1642,6 @@ textarea:focus:-ms-input-placeholder {
     display: inline-block;    
     padding: 15px 22px;
     text-align: center;
-    text-transform: uppercase;
 }
 .pagintn > li a:hover, .pagintn > li a:focus {
     color: #fff;
@@ -2201,9 +2188,6 @@ textarea:focus:-ms-input-placeholder {
     font-size: 50px;
     margin-right: 6px;
 }
-.theme-countdown {
-    text-transform: uppercase;
-}
 .theme-countdown > span + span {
     padding-left: 25px;
 }
@@ -2225,7 +2209,6 @@ textarea:focus:-ms-input-placeholder {
 }
 .footer-widget ul li a {
     font-size: 12px;
-    text-transform: uppercase;
 }
 .footer-widget li {
     padding: 5px 0;
@@ -2813,3 +2796,34 @@ textarea:focus:-ms-input-placeholder {
 /*********************************************** 
     8 - Responsive ENDS 
 ************************************************/
+/* Style the tab */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+    .tablink:hover {
+        background-color: #777;
+    }
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}

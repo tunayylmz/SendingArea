@@ -713,7 +713,6 @@ input[type="checkbox"]:checked::after,
 
 .tile-heading {
     padding: 5px 8px;
-    text-transform: uppercase;
     background-color: #1E91CF;
     color: #FFF
 }

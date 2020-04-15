@@ -649,7 +649,7 @@
             .woocommerce ul.products li.product .price .from {
                 font-size: .67em;
                 margin: -2px 0 0 0;
-                text-transform: uppercase;
+                
                 color: rgba(132,132,132,.5)
             }
 
@@ -1489,7 +1489,6 @@
     .woocommerce ul.order_details li {
         float: left;
         margin-right: 2em;
-        text-transform: uppercase;
         font-size: .715em;
         line-height: 1;
         border-right: 1px dashed #d3ced2;
@@ -3546,7 +3545,6 @@ input[type="search"] {
 
 .initialism {
     font-size: 90%;
-    text-transform: uppercase
 }
 
 .list-unstyled {
@@ -3585,10 +3583,6 @@ input[type="search"] {
 
 .text-lowercase {
     text-transform: lowercase
-}
-
-.text-uppercase {
-    text-transform: uppercase
 }
 
 .text-capitalize {
@@ -5258,10 +5252,8 @@ blockquote {
     transition: all 0.35s ease-in-out;
     padding: 1.1em 3em;
     font-size: 12px;
-    text-transform: uppercase;
     border-radius: 2px;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     user-select: none
 }
@@ -18464,7 +18456,6 @@ table td[class*="col-"], table th[class*="col-"] {
 
     .slim-wrap ul.menu-items li a {
         color: #121212;
-        text-transform: uppercase;
         font-size: 12px;
         font-weight: 400
     }
@@ -19089,7 +19080,6 @@ form#login {
     }
 
     .login-form-boootom-content a {
-        text-transform: uppercase;
         color: #060;
         font-weight: 700;
         font-size: 15px;
@@ -19111,7 +19101,6 @@ form#login .close {
 .user-login-content h1 {
     font-size: 21px;
     font-weight: 700;
-    text-transform: uppercase;
     margin-bottom: 0;
     text-align: center;
     letter-spacing: 1px;
@@ -19147,7 +19136,6 @@ form#login .close {
 
 .user-login-content .submit_button.button.form-control {
     color: #fff;
-    text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
     border: none
@@ -19181,7 +19169,6 @@ form#login .close {
         padding-top: 0;
         padding-bottom: 0;
         font-size: 13px;
-        text-transform: uppercase;
         text-decoration: none;
         font-weight: 700;
         padding: 0 20px;
@@ -19206,7 +19193,6 @@ form#login .close {
 .navbar-default .sub-menu li a {
     color: #121212;
     font-size: 13px;
-    text-transform: uppercase
 }
 
 .navbar-default .fa-angle-right {
@@ -19305,7 +19291,6 @@ form#login .close {
 }
 
 .navbar-default ul li a span:last-child {
-    text-transform: uppercase;
     font-size: 16px
 }
 
@@ -19437,7 +19422,6 @@ form#login .close {
     font-weight: 900;
     line-height: 24px;
     padding: 0;
-    text-transform: uppercase;
     letter-spacing: 1px
 }
 
@@ -19602,7 +19586,6 @@ body.boxed .image-box-left {
     .stat-details h4 {
         padding: 0;
         font-size: 16px;
-        text-transform: uppercase;
         font-size: 300
     }
 
@@ -19696,14 +19679,12 @@ body.boxed .image-box-left {
 
 .text-widget h4 {
     font-size: 21px;
-    text-transform: uppercase;
     padding-top: 15px;
     padding-bottom: 20px
 }
 
 .panel-grid-cell .widget-title {
     font-size: 16px;
-    text-transform: uppercase;
     padding-top: 15px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eaeaea;
@@ -19748,7 +19729,6 @@ body.boxed .image-box-left {
 }
 
     .address-main h5 {
-        text-transform: uppercase;
         font-size: 14px;
         font-weight: 900
     }
@@ -19759,7 +19739,6 @@ body.boxed .image-box-left {
     margin: 0;
     line-height: 1;
     position: relative;
-    text-transform: uppercase;
     z-index: 2
 }
 
@@ -19808,7 +19787,6 @@ body.boxed .image-box-left {
     padding: 20px;
     line-height: 1.6;
     font-size: 13px;
-    text-transform: uppercase;
     font-weight: 400;
     color: rgb(255,255,255);
     text-align: center;
@@ -19902,7 +19880,6 @@ body.boxed .image-box-left {
         font-weight: 700;
         margin-bottom: 0;
         margin-top: 0;
-        text-transform: uppercase
     }
 
 #payment span {
@@ -20026,7 +20003,6 @@ body.boxed .image-box-left {
 
 .shop-box .meta {
     font-size: 12px;
-    text-transform: uppercase
 }
 
 .nav-tabs > li > a {
@@ -20037,7 +20013,6 @@ body.boxed .image-box-left {
     line-height: 1;
     margin-right: -1px;
     padding: 15px 30px;
-    text-transform: uppercase
 }
 
     .nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -20143,7 +20118,6 @@ body.boxed .image-box-left {
 
     .shopcart .text-center h4 {
         font-size: 15px;
-        text-transform: uppercase
     }
 
 .closeme .fa-close {
@@ -20174,7 +20148,6 @@ body.boxed .image-box-left {
     width: 75%;
     float: left;
     font-size: 13px;
-    text-transform: uppercase;
     margin-bottom: 30px !important
 }
 
@@ -20284,7 +20257,6 @@ body.boxed .image-box-left {
             line-height: 1;
             margin-right: -1px;
             padding: 15px 30px;
-            text-transform: uppercase;
             display: block
         }
 
@@ -20364,7 +20336,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 30px;
     text-decoration: none;
-    text-transform: uppercase;
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
     -ms-transition: all 0.7s ease 0s;
@@ -20390,7 +20361,6 @@ body.boxed .image-box-left {
         font-weight: 400;
         padding: 14px 30px;
         text-decoration: none;
-        text-transform: uppercase;
         -webkit-transition: all 0.7s ease 0s;
         -moz-transition: all 0.7s ease 0s;
         -ms-transition: all 0.7s ease 0s;
@@ -20408,7 +20378,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 30px;
     text-decoration: none;
-    text-transform: uppercase;
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
     -ms-transition: all 0.7s ease 0s;
@@ -20432,7 +20401,6 @@ body.boxed .image-box-left {
 
     .woocommerce table.shop_table th {
         font-weight: 400;
-        text-transform: uppercase
     }
 
 .woocommerce-cart .cart-collaterals .cart_totals table {
@@ -20444,7 +20412,6 @@ body.boxed .image-box-left {
 }
 
 .woocommerce-cart .cart-collaterals .cart_totals table tr th {
-    text-transform: uppercase;
     font-weight: 400
 }
 
@@ -20458,7 +20425,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 30px;
     text-decoration: none;
-    text-transform: uppercase;
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
     -ms-transition: all 0.7s ease 0s;
@@ -20521,7 +20487,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 20px;
     text-decoration: none;
-    text-transform: uppercase;
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
     -ms-transition: all 0.7s ease 0s;
@@ -20615,7 +20580,6 @@ body.boxed .image-box-left {
     font-size: 17px;
     letter-spacing: 1px;
     padding-bottom: 15px;
-    text-transform: uppercase
 }
 
 .order-content-main {
@@ -20656,7 +20620,6 @@ body.boxed .image-box-left {
 }
 
     .item-des-order.order-left {
-        text-transform: uppercase;
         font-weight: 900
     }
 
@@ -20689,7 +20652,6 @@ body.boxed .image-box-left {
     .pricing-box h3 {
         font-size: 16px;
         line-height: 4;
-        text-transform: uppercase;
         padding: 0;
         z-index: 1
     }
@@ -20697,7 +20659,6 @@ body.boxed .image-box-left {
 .pricing-footer a {
     font-weight: 900;
     letter-spacing: 2px;
-    text-transform: uppercase
 }
 
     .pricing-footer a:hover {
@@ -20756,7 +20717,6 @@ body.boxed .image-box-left {
         color: #121212;
         font-size: 15px;
         font-weight: 700;
-        text-transform: uppercase
     }
 
         .pricing-description h4 span {
@@ -20789,7 +20749,6 @@ body.boxed .image-box-left {
     border-radius: 30px;
     padding: 15px 25px;
     color: #121212;
-    text-transform: uppercase
 }
 
 .style_2 .featured-on .pricing-footer a {
@@ -21030,7 +20989,6 @@ body.boxed .image-box-left {
         font-size: 15px;
         font-weight: 300;
         margin-bottom: 0;
-        text-transform: uppercase
     }
 
     .contact-details h1 {
@@ -21072,7 +21030,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 30px;
     text-decoration: none;
-    text-transform: uppercase
 }
 
 .videobg .btn-home {
@@ -21105,7 +21062,6 @@ body.boxed .image-box-left {
     font-weight: 400;
     padding: 14px 30px;
     text-decoration: none;
-    text-transform: uppercase
 }
 
     .btn-white:hover, .btn-white:focus {
@@ -21130,7 +21086,6 @@ body.boxed .image-box-left {
     font-weight: 700;
     padding: 15px 30px;
     text-decoration: none;
-    text-transform: uppercase;
     margin-top: 10px;
     display: block;
     width: 150px;
@@ -21255,7 +21210,6 @@ body.boxed .slides-navigation a.next {
     font-weight: 300;
     font-size: 18px;
     line-height: 24px;
-    text-transform: uppercase;
     padding: 0 20px
 }
 
@@ -21263,7 +21217,6 @@ body.boxed .slides-navigation a.next {
     color: #121212;
     text-shadow: none;
     font-size: 44px;
-    text-transform: uppercase;
     line-height: 64px;
     background-color: #fff;
     background-color: rgba(255,255,255,.4);
@@ -21435,7 +21388,6 @@ body.boxed .slides-navigation {
 }
 
     .error-actions a {
-        text-transform: uppercase;
         font-weight: 700
     }
 
@@ -21474,13 +21426,11 @@ body.boxed .slides-navigation {
         .breadcrumbs ul li a {
             padding: 0 7px;
             color: #b0b0b0;
-            text-transform: uppercase;
             font-size: 13px
         }
 
         .breadcrumbs ul li .current {
             padding-left: 7px;
-            text-transform: uppercase
         }
 
 #content {
@@ -21511,7 +21461,7 @@ body.boxed .slides-navigation {
     font-weight: 400;
     margin: 0 0 0em;
     padding-bottom: 0;
-    text-transform: uppercase;
+    
     -ms-word-wrap: break-word;
     word-wrap: break-word
 }
@@ -21537,7 +21487,7 @@ body.boxed .slides-navigation {
     -webkit-border-radius: 0;
     -o-border-radius: 0;
     border-radius: 0;
-    text-transform: uppercase;
+    
     padding: 10px 25px;
     font-weight: 400
 }
@@ -21741,7 +21691,7 @@ form.form-search {
 
 .widget .ts-form-calculate label {
     float: left;
-    text-transform: uppercase;
+    
     color: #121212;
     font-weight: 700;
     line-height: 26px
@@ -21749,7 +21699,7 @@ form.form-search {
 
 .ts-form-calculate .button.form-control {
     color: #fff;
-    text-transform: uppercase;
+    
     font-size: 16px;
     font-weight: 700;
     border: none
@@ -21785,7 +21735,7 @@ form.form-search {
 .input-title {
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 20px;
-    text-transform: uppercase
+    
 }
 
 .page .input-title {
@@ -21899,7 +21849,7 @@ form.form-search {
     border-radius: 2px;
     font-size: 11px;
     padding: 7px 10px;
-    text-transform: uppercase;
+    
     text-align: center;
     font-weight: 400;
     float: right;
@@ -22060,7 +22010,7 @@ form.form-search {
     .page-content table th {
         padding: 10px;
         border-right: 1px solid #ededed;
-        text-transform: uppercase
+        
     }
 
     .page-content table tr {
@@ -22096,7 +22046,7 @@ form.form-search {
 }
 
 .wpcf7-form .contact_form label {
-    text-transform: uppercase;
+    
     font-weight: 700;
     color: #121212;
     float: left;
@@ -22143,7 +22093,7 @@ form.form-search {
 
 .form-control::-moz-placeholder {
     color: #121212;
-    text-transform: uppercase
+    
 }
 
 .form-control:-ms-input-placeholder {
@@ -22231,7 +22181,7 @@ form.form-search {
         font-weight: 700;
         margin-top: 0;
         margin-bottom: 0;
-        text-transform: uppercase;
+        
         padding-bottom: 5px
     }
 
@@ -22350,12 +22300,12 @@ form.form-search {
     margin: 15px 0 0;
     padding: 0;
     color: #fff;
-    text-transform: uppercase;
+    
     font-weight: 900
 }
 
 .testi-item small {
-    text-transform: uppercase
+    
 }
 
 .footer-widget-wrap {
@@ -22594,7 +22544,7 @@ div.wpcf7 {
     top: 50px;
     width: 120px;
     z-index: 2;
-    text-transform: uppercase
+    
 }
 
 .progress_overlay {
@@ -22660,7 +22610,7 @@ div.wpcf7 {
     .widget-area-footer h3.title {
         font-weight: 900;
         color: #fff;
-        text-transform: uppercase;
+        
         letter-spacing: 2px;
         font-size: 16px;
         padding-bottom: 30px
@@ -22684,7 +22634,7 @@ div.wpcf7 {
         }
 
             .footer-widget ul li a {
-                text-transform: uppercase;
+                
                 color: #fff;
                 font-size: 13px
             }
@@ -22699,13 +22649,13 @@ div.wpcf7 {
 }
 
     .ts-callout-left h3 {
-        text-transform: uppercase
+        
     }
 
 .ts-callout a {
     float: right;
     border: 1px solid #121212;
-    text-transform: uppercase;
+    
     -webkit-transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
     transition: all 0.2s ease 0s
@@ -22720,7 +22670,7 @@ div.wpcf7 {
     margin-bottom: 10px;
     border: 1px solid #777;
     background: none;
-    text-transform: uppercase;
+    
     -webkit-border-radius: 0;
     -o-border-radius: 0;
     border-radius: 0
@@ -22860,7 +22810,7 @@ div.wpcf7 img.ajax-loader {
     }
 
 .ts-box-title {
-    text-transform: uppercase;
+    
     letter-spacing: 2px;
     font-size: 17px;
     margin-bottom: 15px

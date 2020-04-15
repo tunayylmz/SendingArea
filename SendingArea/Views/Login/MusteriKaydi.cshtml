@@ -19,7 +19,7 @@
                 <div class="breadcrumbs" style="float:left;">
                     <ul class="list-inline">
                         <li>
-                            <a href="Index">
+                            <a href="/Views/Home/Index">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
                                         Anasayfa
@@ -63,103 +63,239 @@
                             </font>
                         </font>
                     </h2>
-                    <form class="woocommerce-form woocommerce-form-login register" method="post">
-                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="username">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Kullanıcının adı - soyadı &nbsp; </font>
-                                </font><span class="required">
+                    <button class="tablink" onclick="openPage('Bireysel', this)" id="defaultOpen">Bireysel Müşteri</button>
+                    <button class="tablink" onclick="openPage('Kurumsal', this)" id="NoneDefault">Kurumsal Müşteri</button>
+                    <div id="Bireysel" class="tabcontent">
+                        <form class="woocommerce-form woocommerce-form-login register" method="post">
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Kullanıcının adı - soyadı &nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Telefon Numarası&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="phone" id="phone" autocomplete="phone" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Türkiye Cumhuriyeti kimlik numarası&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="tc" id="tc" autocomplete="tc" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">E-posta adresi&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="email" autocomplete="email" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="password">
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;">
-                                            *
+                                            Şifre&nbsp;
                                         </font>
                                     </font>
-                                </span>
-                            </label>
-                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="">
-                        </p>
-                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="username">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Telefon Numarası&nbsp; </font>
-                                </font><span class="required">
+                                    <span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+                            </p>
+                            <p class="form-row">
+                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="38efa7f48d">
+                                <input type="hidden" name="_wp_http_referer" value="/themes/gocourierwp/my-account/">
+                                <br />
+                                <button style="background-color:#F5AB35;" type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Login">
+                                    <font style="vertical-align: inherit; color:white ">
+                                        <font style="vertical-align: inherit;">
+                                            Kaydol
+                                        </font>
+                                    </font>
+                                </button>
+                                <br /><br />
+                            </p>
+                            @*<p class="woocommerce-LostPassword lost_password">
+                                    <a href="http://event-theme.com/themes/gocourierwp/my-account/lost-password/">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                Şifreni mi unuttun?
+                                            </font>
+                                        </font>
+                                    </a>
+                                </p>*@
+                        </form>
+                    </div>
+                    <div id="Kurumsal" class="tabcontent">
+                        <form class="woocommerce-form woocommerce-form-login register" method="post">
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Firma adı &nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="companyName" id="companyName" autocomplete="companyName" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Vergi Numarası&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="taxNo" id="taxNo" autocomplete="taxNo" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Vergi Dairesi&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="taxOffice" id="taxOffice" autocomplete="taxOffice" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Fatura Adresi&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="invoiceAddress" id="invoiceAddress" autocomplete="invoiceAddress" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Telefon Numarası&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="phone" id="phone" autocomplete="phone" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Fax Numarası&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="faxPhone" id="faxPhone" autocomplete="faxPhone" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="username">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">E-posta adresi&nbsp; </font>
+                                    </font><span class="required">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
+                                        </font>
+                                    </span>
+                                </label>
+                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="email" autocomplete="email" value="">
+                            </p>
+                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                <label for="password">
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;">
-                                            *
+                                            Şifre&nbsp;
                                         </font>
                                     </font>
-                                </span>
-                            </label>
-                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="phone" id="phone" autocomplete="phone" value="">
-                        </p>
-                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="username">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Türkiye Cumhuriyeti kimlik numarası&nbsp; </font>
-                                </font><span class="required">
-                                    <font style="vertical-align: inherit;">
+                                    <span class="required">
                                         <font style="vertical-align: inherit;">
-                                            *
+                                            <font style="vertical-align: inherit;">
+                                                *
+                                            </font>
                                         </font>
-                                    </font>
-                                </span>
-                            </label>
-                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="tc" id="tc" autocomplete="tc" value="">
-                        </p>
-                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="username">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">E-posta adresi&nbsp; </font>
-                                </font><span class="required">
-                                    <font style="vertical-align: inherit;">
+                                    </span>
+                                </label>
+                                <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
+                            </p>
+                            <p class="form-row">
+                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="38efa7f48d">
+                                <input type="hidden" name="_wp_http_referer" value="/themes/gocourierwp/my-account/">
+                                <br />
+                                <button style="background-color:#F5AB35;" type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Login">
+                                    <font style="vertical-align: inherit; color:white ">
                                         <font style="vertical-align: inherit;">
-                                            *
+                                            Kaydol
                                         </font>
                                     </font>
-                                </span>
-                            </label>
-                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="email" autocomplete="email" value="">
-                        </p>
-                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                            <label for="password">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        Şifre&nbsp;
-                                    </font>
-                                </font>
-                                <span class="required">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            *
-                                        </font>
-                                    </font>
-                                </span>
-                            </label>
-                            <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password">
-                        </p>
-                        <p class="form-row">
-                            <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="38efa7f48d">
-                            <input type="hidden" name="_wp_http_referer" value="/themes/gocourierwp/my-account/">
-                            <br />
-                            <button style="background-color:#F5AB35;" type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Login">
-                                <font style="vertical-align: inherit; color:white ">
-                                    <font style="vertical-align: inherit;">
-                                        Kaydol
-                                    </font>
-                                </font>
-                            </button>
-                            <br /><br />
-                        </p>
-                        @*<p class="woocommerce-LostPassword lost_password">
-            <a href="http://event-theme.com/themes/gocourierwp/my-account/lost-password/">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">
-                        Şifreni mi unuttun?
-                    </font>
-                </font>
-            </a>
-        </p>*@
-                    </form>
+                                </button>
+                                <br /><br />
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,3 +305,24 @@
     </div>
 </div>
 <!-- Content Wrap -->
+<script>
+    function openPage(pageName, elmnt) {
+        // Hide all elements with class="tabcontent" by default */
+
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        document.getElementById("defaultOpen").style.backgroundColor = "#555";
+        document.getElementById("NoneDefault").style.backgroundColor = "#555";
+        elmnt.style.backgroundColor = "#f5ab35";
+
+
+        // Show the specific tab content
+        document.getElementById(pageName).style.display = "block";
+        //document.getElementById(elmn).style.backgroundColor = "#f5ab35";
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>

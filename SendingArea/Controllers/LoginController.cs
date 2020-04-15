@@ -21,11 +21,8 @@ namespace SendingArea.Controllers
         {
             Models.Musteri musteriGirisBilgisi = new Models.Musteri();
             musteriGirisBilgisi.E_Posta = email;
-            musteriGirisBilgisi.sifre = password;
-            Models.SistemeGiris sistemeGiris = new Models.SistemeGiris();
-            sistemeGiris.E_Posta = email;
-            sistemeGiris.sifre = password;
-            bool girdi = sistemeGiris.SistemeGirisIslemi();
+            musteriGirisBilgisi.Sifre = password;
+            bool girdi = musteriGirisBilgisi.Kullanıcı_Girisi();
             if (girdi)
             {
                 TempData["mesaj"] = null ;
@@ -50,12 +47,12 @@ namespace SendingArea.Controllers
         public ActionResult MusteriKaydi(string username, long phone, long tc, string email, string password)
         {
             Models.Musteri musteri = new Models.Musteri();
-            musteri.Ad_Soyad = username;
-            musteri.Cep_Tel = phone;
-            musteri.TC_No = tc;
-            musteri.E_Posta = email;
-            musteri.sifre = password;
-            musteri.MusteriKaydiOlusturma();
+            //musteri.bireysel_musteri.Ad_Soyad = username;
+            //musteri.Cep_Tel = phone;
+            //musteri.TC_No = tc;
+            //musteri.E_Posta = email;
+            //musteri.sifre = password;
+            //musteri.MusteriKaydiOlusturma();
             return View();
         }
         [HttpGet]
