@@ -10,62 +10,14 @@ namespace SendingArea.Controllers
 {
     public class HomeController : Controller
     {
-
-        public Models.TasiyiciFirma Aktif_Firma = new Models.TasiyiciFirma();
-        public bool Firma_Girisi_Yapildi = false;
-
+        public Models.TasiyiciFirma aktifFirma = new Models.TasiyiciFirma();
+        
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult PopupLogin()
-        {
-            return View();
-        }
-        [HttpGet]
-        public ActionResult FirmaKaydi()
-        {
+        
 
-            return View();
-        }
-        [HttpPost]
-        public ActionResult FirmaKaydi(string taxPlate, string registerNewspaper, string companyName, string authorizedName, int companyNumber,string companyEmail, string invoiceAddress, int taxNo, string taxOffice, string password)
-        {
-            SendingArea.Models.DataConverter pdf = new SendingArea.Models.DataConverter();
-            
-            Models.TasiyiciFirma firma = new Models.TasiyiciFirma();
-
-            firma.Sirket_Adi = companyName;
-            firma.Yetkili_AdSoyad = authorizedName;
-            firma.Telefon_No = companyNumber;
-            firma.Firma_Mail = companyEmail;
-            firma.Fatura_Adresi = invoiceAddress;
-            firma.Vergi_No = taxNo;
-            firma.Vergi_Dairesi = taxOffice;
-            firma.sifre = password;
-            firma.FirmaKaydiOlusturma();
-            return View();
-        }
-        [HttpGet]
-        public ActionResult MusteriKaydi()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult MusteriKaydi(string username, int tc, string email, string password)
-        {
-            Models.Musteri musteri = new Models.Musteri();
-            musteri.Ad_Soyad = username;
-            musteri.TC_No = tc;
-            musteri.E_Posta = email;
-            musteri.sifre = password;
-            musteri.MusteriKaydiOlusturma();
-            return View();
-        }
-        public ActionResult Password()
-        {
-            return View();
-        }
         public ActionResult Confirmation()
         {
             return View();
@@ -86,7 +38,7 @@ namespace SendingArea.Controllers
         {
             return View();
         }
-        public ActionResult Customers()
+        public ActionResult TasiyiciFirmalar()
         {
             return View();
         }
@@ -119,8 +71,28 @@ namespace SendingArea.Controllers
         {
             return View();
         }
-        public ActionResult DenemeJquery()
+
+        [HttpGet]
+        public ActionResult FirmaPersonelKayit()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult FirmaPersonelKayit(string name,long phone,long tc, string email,string plaque,string brand,string model,long date,long capacity,long weight)
+        {
+            Models.FirmaPersonelKayit personelKayit = new Models.FirmaPersonelKayit();
+            personelKayit.Firma_Kayit_Id = aktifFirma.Id;
+            personelKayit.Ad_Soyad = name;
+            personelKayit.Cep_Tel = phone;
+            personelKayit.TC_No = tc;
+            personelKayit.E_Posta = email;
+            personelKayit.Motor_Plaka = plaque;
+            personelKayit.Motor_Marka = brand;
+            personelKayit.Motor_Model = model;
+            personelKayit.Motor_Model_Yili = date;
+            personelKayit.Motor_Tasima_Hacim = capacity;
+            personelKayit.Motor_Tasima_Agirlik = weight;
+            personelKayit.FirmaPersonelKaydiOlusturma();
             return View();
         }
     }

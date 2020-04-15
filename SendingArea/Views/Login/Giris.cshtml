@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="login-wrap text-center">
+            <h2 class="title-3"> giriş </h2>
+            <p> Tüm ayrıntıları görmek için <strong> Sending Area </strong> ' da oturum açın </p>
+            <div class="login-form clrbg-before">
+                <form class="login" method="post">
+                    <div class="form-group"><input type="text" id="email" name="email" placeholder="EMAIL" class="form-control"></div>
+                    <div class="form-group"><input type="password" id="password" name="password" placeholder="ŞİFRE" class="form-control"></div>
+                    <div class="form-group">
+                        <button class="btn-1 " type="submit" id="submit"> giriş yapın </button>
+                    </div>
+                </form>
+                @if (TempData["mesaj"] != null)
+                    {
+                        <div>
+                            <h4 style="color:white; border:7px solid red; background-color:red; border-radius:4px;">@TempData["mesaj"].ToString()</h4>
+                        </div>
+                    }
+                <a href="SifreDegisikligi" class="gray-clr"> Şifrenizi mi unuttunuz? </a>
+            </div>
+        </div>
+        <div class="create-accnt">
+            <a href="MusteriKaydi" class="white-clr"> Hesabınız yok mu? </a>
+            <h2 class="title-2"> <a href="MusteriKaydi" class="green-clr under-line">ÜCRETSİZ BİR HESAP OLUŞTUR</a> </h2>
+        </div>
+    </div>
+</div>
