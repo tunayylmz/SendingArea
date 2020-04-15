@@ -249,3 +249,9 @@ RETURN
         Sifre = @sifre
 ); 
 
+
+ALTER TABLE Bireysel
+DROP COLUMN Cinsiyet;
+
+select * from Musteri
+

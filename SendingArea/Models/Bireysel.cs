@@ -17,10 +17,6 @@ namespace SendingArea.Models
         public long Cep_Tel { get; set; }
         public long TC_No { get; set; }
         public string E_Posta { get; set; }
-        public int Dogum_Tarihi_Gun { get; set; }
-        public int Dogum_Tarihi_Ay { get; set; }
-        public int Dogum_Tarihi_Yil { get; set; }
-        public int Cinsiyet { get; set; }
 
 
         public bool RunInsertSQL()
@@ -50,7 +46,9 @@ namespace SendingArea.Models
             foreach (PropertyInfo item in tip.GetProperties())
             {
                 if (item.GetCustomAttributes(typeof(IsIdentity), true).Count() > 0) continue;
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(item.GetValue(entity, null));
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(",");
             }
             q.Remove(q.Length - 1, 1);

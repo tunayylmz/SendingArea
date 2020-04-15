@@ -23,9 +23,80 @@ namespace SendingArea.Models
             string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
             SqlConnection baglanti = new SqlConnection(conString);
             baglanti.Open();
-            SqlCommand com = new SqlCommand(CreateSQL<Musteri>(this), baglanti);
+            SqlCommand com;
+            System.Data.DataTable dt;
+            string sqlstr;
+            if (Bireysel_Kurumsal == "Bireysel")
+            {
+                bireysel_musteri.RunInsertSQL();
+                sqlstr = "SELECT * FROM Bireysel WHERE E_Posta = '" + this.E_Posta + "'";
+                com = new SqlCommand(sqlstr, baglanti);
+                dt = new System.Data.DataTable();
+                dt.Load(com.ExecuteReader());
+                if (dt.Rows.Count > 0)
+                {
+                    bireysel_musteri.Id = (long)dt.Rows[0]["Id"];
+                    Bireysel_Kurumsal_Id = bireysel_musteri.Id;
+                }
+                else
+                {
+                    sqlstr = "DELETE FROM Bireysel WHERE E_Posta = '" + this.E_Posta + "'";
+                    com = new SqlCommand(sqlstr, baglanti);
+                    com.ExecuteNonQuery();
+                    sqlstr = "DELETE FROM Musteri WHERE E_Posta = '" + this.E_Posta + "'";
+                    com = new SqlCommand(sqlstr, baglanti);
+                    com.ExecuteNonQuery();
+                    return false;
+                }
+            }
+            else if (Bireysel_Kurumsal == "Kurumsal")
+            {
+                kurumsal_musteri.RunInsertSQL();
+                sqlstr = "SELECT * FROM Kurumsal WHERE Yetkili_E_Posta = '" + this.E_Posta + "'";
+                com = new SqlCommand(sqlstr, baglanti);
+                dt = new System.Data.DataTable();
+                dt.Load(com.ExecuteReader());
+                if (dt.Rows.Count > 0)
+                {
+                    kurumsal_musteri.Id = (long)dt.Rows[0]["Id"];
+                    Bireysel_Kurumsal_Id = bireysel_musteri.Id;
+                }
+                else
+                {
+                    sqlstr = "DELETE FROM Kurumsal WHERE Yetkili_E_Posta = '" + this.E_Posta + "'";
+                    com = new SqlCommand(sqlstr, baglanti);
+                    com.ExecuteNonQuery();
+                    sqlstr = "DELETE FROM Musteri WHERE E_Posta = '" + this.E_Posta + "'";
+                    com = new SqlCommand(sqlstr, baglanti);
+                    com.ExecuteNonQuery();
+                    return false;
+                }
+            }
+
+            com = new SqlCommand(CreateSQL<Musteri>(this), baglanti);
             com.ExecuteNonQuery();
-            return false;
+
+            sqlstr = "SELECT * FROM Musteri WHERE E_Posta = '" + this.E_Posta + "'";
+            com = new SqlCommand(sqlstr, baglanti);
+            dt = new System.Data.DataTable();
+            dt.Load(com.ExecuteReader());
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                sqlstr = "DELETE FROM Bireysel WHERE E_Posta = '" + this.E_Posta + "'";
+                com = new SqlCommand(sqlstr, baglanti);
+                com.ExecuteNonQuery();
+                sqlstr = "DELETE FROM Kurumsal WHERE Yetkili_E_Posta = '" + this.E_Posta + "'";
+                com = new SqlCommand(sqlstr, baglanti);
+                com.ExecuteNonQuery();
+                sqlstr = "DELETE FROM Musteri WHERE E_Posta = '" + this.E_Posta + "'";
+                com = new SqlCommand(sqlstr, baglanti);
+                com.ExecuteNonQuery();
+                return false;
+            }
         }
 
         private string CreateSQL<T>(T entity)
@@ -45,7 +116,9 @@ namespace SendingArea.Models
             foreach (PropertyInfo item in tip.GetProperties())
             {
                 if (item.GetCustomAttributes(typeof(IsIdentity), true).Count() > 0) continue;
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(item.GetValue(entity, null));
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(",");
             }
             q.Remove(q.Length - 1, 1);
@@ -54,6 +127,7 @@ namespace SendingArea.Models
             return q.ToString();
         }
 
+        public bool giris_yapildi = false;
         public bool musteri_turu_bireysel_mi = true;
         public Bireysel bireysel_musteri = new Bireysel();
         public Kurumsal kurumsal_musteri = new Kurumsal();
@@ -65,8 +139,8 @@ namespace SendingArea.Models
             baglanti.Open();
 
             string sqlstr = "";
-            sqlstr += "SELECT * FROM Musteri WHERE E_Posta = " + this.E_Posta;
-            sqlstr += " AND Sifre = " + this.Sifre;
+            sqlstr += "SELECT * FROM Musteri WHERE E_Posta = '" + this.E_Posta;
+            sqlstr += "' AND Sifre = '" + this.Sifre +"'";
 
             SqlCommand com = new SqlCommand(sqlstr, baglanti);
             SqlDataReader reader = com.ExecuteReader();
@@ -97,9 +171,10 @@ namespace SendingArea.Models
                 }
                 else if (this.Bireysel_Kurumsal == "Kurumsal")
                     ConvertTableToClass<Kurumsal>(dt, ref kurumsal_musteri);
-
+                giris_yapildi = true;
                 return true;
             }
+            giris_yapildi = false;
             return false;
         }
 
