@@ -162,6 +162,7 @@ namespace SendingArea.Models
 
                 com = new SqlCommand(sqlstr, baglanti);
                 reader = com.ExecuteReader();
+                dt = new System.Data.DataTable();
                 dt.Load(reader);
 
                 if (this.Bireysel_Kurumsal == "Bireysel")
