@@ -48,7 +48,9 @@ namespace SendingArea.Models
             foreach (PropertyInfo item in tip.GetProperties())
             {
                 if (item.GetCustomAttributes(typeof(IsIdentity), true).Count() > 0) continue;
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(item.GetValue(entity, null));
+                if (item.PropertyType == typeof(string)) q.Append("'");
                 q.Append(",");
             }
             q.Remove(q.Length - 1, 1);
