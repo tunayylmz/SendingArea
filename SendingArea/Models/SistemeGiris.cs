@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Collections;
+
 namespace SendingArea.Models
 
 {
@@ -11,8 +13,11 @@ namespace SendingArea.Models
     {
         public string E_Posta { get; set; }
         public string sifre { get; set; }
-        public bool SistemeGirisIslemi()
+        public Musteri SistemeGirisIslemi()
         {
+            //ArrayList Kullanici = new ArrayList();
+            Musteri girisYapan = new Musteri();
+            
             string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
             SqlConnection baglanti = new SqlConnection(conString);
             baglanti.Open();
@@ -21,10 +26,19 @@ namespace SendingArea.Models
             //System.Data.DataTable GirisVeri = new System.Data.DataTable();
             if (oku.HasRows)
             {
+                while (oku.Read())
+                {
+                    girisYapan.E_Posta = oku["E_Posta"].ToString();
+                }
+                girisYapan.is_Login = "yes";
                 //GirisVeri.Load(oku);
-                return true;
+                //Session['s'] = '';
+
+                // return true;
             }
-            return false;
+            girisYapan.is_Login = "no";
+            return girisYapan;
+            //return false;
         }
 
     }

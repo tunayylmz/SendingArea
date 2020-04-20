@@ -12,6 +12,7 @@ namespace SendingArea.Models
     public class Musteri
     {
         [IsIdentity]
+        public string is_Login { get; set; }
         public long Id { get; set; }
         public string Bireysel_Kurumsal { get; set; }
         public long Bireysel_Kurumsal_Id { get; set; }
@@ -154,11 +155,15 @@ namespace SendingArea.Models
                 this.Bireysel_Kurumsal_Id = (long)dt.Rows[0]["Bireysel_Kurumsal_Id"];
 
                 if (this.Bireysel_Kurumsal == "Bireysel")
+                { 
                     sqlstr = "select * from Bireysel where Id = " + Bireysel_Kurumsal_Id;
-                else if (this.Bireysel_Kurumsal == "Kurumsal")
+                }
+                else if (this.Bireysel_Kurumsal == "Kurumsal") { 
                     sqlstr = "select * from Kurumsal where Id = " + Bireysel_Kurumsal_Id;
-                else
+                }
+                else { 
                     return false;
+                }
 
                 com = new SqlCommand(sqlstr, baglanti);
                 reader = com.ExecuteReader();

@@ -135,6 +135,7 @@
     <Compile Include="Models\DataConverter.cs" />
     <Compile Include="Models\FirmaPersonelKayit.cs" />
     <Compile Include="Models\IsIdentity.cs" />
+    <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Kurumsal.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\SistemeGiris.cs" />

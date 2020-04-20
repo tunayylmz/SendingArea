@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
 using System.Data.SqlClient;
+using SendingArea.Models;
 
 namespace SendingArea.Controllers
 {
@@ -15,10 +16,18 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public void Logout()
+        {
+            Session.Abandon();
+            Response.Redirect(Request.UrlReferrer.ToString());
+            //return View();
+        }
 
         [HttpPost]
         public ActionResult Giris(string email, string password)
         {
+
             Models.Musteri musteriGirisBilgisi = new Models.Musteri();
             musteriGirisBilgisi.E_Posta = email;
             musteriGirisBilgisi.Sifre = password;
@@ -26,10 +35,21 @@ namespace SendingArea.Controllers
             if (girdi)
             {
                 TempData["mesaj"] = null ;
+                Session["is_login"] = "girildi";
+                Session["E_Posta"] = musteriGirisBilgisi.E_Posta;
+                if (musteriGirisBilgisi.Bireysel_Kurumsal.ToString() == "Kurumsal")
+                {
+                    Session["Name"] = musteriGirisBilgisi.kurumsal_musteri.Firma_Adi;
+                }
+                else {
+                    Session["Name"] = musteriGirisBilgisi.bireysel_musteri.Ad_Soyad;
+                }
+                Response.Redirect("~/Home/Index");
             }
             else
             {
                 TempData["mesaj"] = "Bilgileri kontrol ediniz";
+                this.Session["is_login"] = "girilmedi";
             }
             return View();
             
