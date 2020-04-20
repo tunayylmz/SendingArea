@@ -199,59 +199,24 @@ BEGIN --Login İçin Select Sorgusu
     END
 END
 
-
---CREATE FUNCTION UserLogin(@e_posta varchar(50), @sifre varchar(50))  
---RETURNS table   
---AS   
----- Returns the stock level for the product.  
---RETURN   
---(  
---    DECLARE @Tur varchar(15);
---    DECLARE @Tur_Id bigint;
-
---    SELECT 
---        @Tur = Bireysel_Kurumsal,
---        @Tur_Id = Bireysel_Kurumsal_Id
---    FROM
---        Musteri
---    WHERE
---        E_Posta = @e_posta and
---        Sifre = @sifre;
-
-
---    IF @Tur = 'Bireysel'
---    BEGIN
---        select * from Bireysel
---        where
---            Id = @Tur_Id;
---    END
---    ELSE IF @Tur = 'Kurumsal'
---    BEGIN
---        select * from Kurumsal
---        where
---            Id = @Tur_Id;
---    END
---);  
-
-CREATE FUNCTION FindUserType(@e_posta varchar(50), @sifre varchar(50))  
-RETURNS table   
-AS   
--- Returns the stock level for the product.  
-RETURN   
-(  
-    SELECT 
-        Bireysel_Kurumsal,
-        Bireysel_Kurumsal_Id
-    FROM
-        Musteri
-    WHERE
-        E_Posta = @e_posta and
-        Sifre = @sifre
-); 
-
-
 ALTER TABLE Bireysel
 DROP COLUMN Cinsiyet;
 
 select * from Musteri
 
+
+BEGIN --Adres Tablosu Oluşturma
+
+    drop table Adresler
+
+    create table Adresler (
+        Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
+        Il varchar(100) NOT NULL,
+        Ilce varchar(100) NOT NULL,
+        Mahalle varchar(100) NOT NULL,
+        Cadde_Sokak varchar(100) NOT NULL,
+        Bina_No varchar(10) NOT NULL,
+        Kapi_No varchar(10) NOT NULL
+    );
+
+END
