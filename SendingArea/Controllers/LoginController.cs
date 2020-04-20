@@ -21,7 +21,6 @@ namespace SendingArea.Controllers
         {
             Session.Abandon();
             Response.Redirect(Request.UrlReferrer.ToString());
-            //return View();
         }
 
         [HttpPost]

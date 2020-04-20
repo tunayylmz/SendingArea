@@ -157,6 +157,7 @@
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\Password.css" />
     <Content Include="Content\Css\Payment.css" />
+    <Content Include="Content\Css\SonradanEklenenler.css" />
     <Content Include="Content\Css\theme.css" />
     <Content Include="Content\Css\owl.carousel.css" />
     <Content Include="favicon.ico" />

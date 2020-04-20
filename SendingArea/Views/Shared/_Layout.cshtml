@@ -20,7 +20,7 @@
     <link href="~/Content/Css/Pop-Up/tilda-grid-3.0.min.css" rel="stylesheet" />
     <link href="~/Content/Css/Pop-Up/tilda-slds-1.4.min.css" rel="stylesheet" />
     <link href="~/Content/Css/Pop-Up/tilda-zoom-2.0.min.css" rel="stylesheet" />
-
+    <link href="~/Content/Css/SonradanEklenenler.css" rel="stylesheet" />
 </head>
 <body id="home">
 
@@ -62,20 +62,34 @@
                     </div>
                 </div>
                 @*<div class="dv-desktop-menu__login-button b-header__login-button header-login-action">
-            <div class="dv-button dv-button--colorless dv-button--small">
-                <button>Giriş / Kayıt</button>
-            </div>
-        </div>*@
+                        <div class="dv-button dv-button--colorless dv-button--small">
+                            <button>Giriş / Kayıt</button>
+                        </div>
+                    </div>*@
+                @*<ul>
+                        <li><a href="#" class="round green">Login<span class="round">That is, if you already have an account.</span></a></li>
+                        <li><a href="#" class="round red">Sign Up<span class="round">But only if you really, really want to. </span></a></li>
+                        <li><a href="#" class="round yellow">Demo<span class="round">Take a look. This product is totally rad!</span></a></li>
+                    </ul>*@
                 @if (this.Session["is_login"] != null && this.Session["is_login"].ToString() == "girildi")
                 {
-                    <a href="~/Login/Logout">
-                        <span class="glyphicon glyphicon-log-out"></span>
-                    </a>
-                    <a style="font-size:13px;" class="sign-in  theme-clr-bg" href="@Url.Content("~/Login/Giris")">@Session["Name"]</a>
+                    <ul class="newContainer">
+                        <li class="newButton">
+                            <a href="~/Login/Logout" style="background-color:white; color:#222222;  font-size:20px;" class="round yellow">Çıkış<span class="round">Çıkış yapmak için tıklayınız</span></a>
+                        </li>
+                        <li class="newButton">
+                            <a href="#" class="round yellow">@Session["Name"]<span class="round">Merhaba @Session["Name"]</span></a>
+                        </li>
+                    </ul>
                 }
                 else
                 {
-                    <a style="text-align:center;" class="sign-in theme-clr-bg" href="@Url.Content("~/Login/Giris")"> Giriş / Kayıt </a>
+                    <ul class="newContainer">
+                        <li class="newButton">
+                            <a href="@Url.Content("~/Login/Giris")" class="round yellow" style="font-size:25px; color:white;">Giriş<span style="color:black" class="round">Giriş yapmak veya kayıt olmak için tıklayınız.</span></a>
+                        </li>
+                    </ul>
+                    @*<a style="text-align:center;" class="sign-in theme-clr-bg" href="@Url.Content("~/Login/Giris")"> Giriş / Kayıt </a>*@
                 }
             </div>
             <!-- /.Header Topbar -->
