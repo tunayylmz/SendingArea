@@ -21,12 +21,19 @@ namespace SendingArea.Models
 
         public bool RunInsertSQL()
         {
-            string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
-            SqlConnection baglanti = new SqlConnection(conString);
-            baglanti.Open();
-            SqlCommand com = new SqlCommand(CreateSQL<Bireysel>(this), baglanti);
-            com.ExecuteNonQuery();
-            return false;
+            try
+            {
+                string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
+                SqlConnection baglanti = new SqlConnection(conString);
+                baglanti.Open();
+                SqlCommand com = new SqlCommand(CreateSQL<Bireysel>(this), baglanti);
+                com.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private string CreateSQL<T>(T entity)

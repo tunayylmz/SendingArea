@@ -187,5 +187,30 @@ namespace SendingArea.Models
             }
         }
 
+        public bool CheckForRegister()
+        {
+            try
+            {
+                string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
+                SqlConnection baglanti = new SqlConnection(conString);
+                baglanti.Open();
+
+                string sqlstr = "";
+                sqlstr += "SELECT * FROM Musteri WHERE E_Posta = '" + this.E_Posta;
+                SqlCommand com = new SqlCommand(sqlstr, baglanti);
+                SqlDataReader reader = com.ExecuteReader();
+                System.Data.DataTable dt = new System.Data.DataTable();
+                dt.Load(reader);
+                if (dt.Rows.Count > 0)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+        }
+
     }
 }

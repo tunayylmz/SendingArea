@@ -9,16 +9,15 @@ using System.Web;
 
 namespace SendingArea.Models
 {
-    public class Kurumsal
+    public class Adresler
     {
         public long Id { get; set; }
-        public string Firma_Adi { get; set; }
-        public long Vergi_No { get; set; }
-        public string Vergi_Dairesi { get; set; }
-        public string Fatura_Adresi { get; set; }
-        public long Tel { get; set; }
-        public long Faks { get; set; }
-        public string Yetkili_E_Posta { get; set; }
+        public string Il { get; set; }
+        public string Ilce { get; set; }
+        public string Mahalle { get; set; }
+        public string Cadde_Sokak { get; set; }
+        public string Bina_No { get; set; }
+        public string Kapi_No { get; set; }
 
 
         public bool RunInsertSQL()
@@ -28,7 +27,7 @@ namespace SendingArea.Models
                 string conString = ConfigurationManager.ConnectionStrings["Baglanti"].ConnectionString;
                 SqlConnection baglanti = new SqlConnection(conString);
                 baglanti.Open();
-                SqlCommand com = new SqlCommand(CreateSQL<Kurumsal>(this), baglanti);
+                SqlCommand com = new SqlCommand(CreateSQL<Adresler>(this), baglanti);
                 com.ExecuteNonQuery();
                 return true;
             }
@@ -65,5 +64,6 @@ namespace SendingArea.Models
 
             return q.ToString();
         }
+
     }
 }
