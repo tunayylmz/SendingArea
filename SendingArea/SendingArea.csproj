@@ -126,15 +126,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adresler.cs" />
     <Compile Include="Models\Bireysel.cs" />
     <Compile Include="Models\DataConverter.cs" />
     <Compile Include="Models\FirmaPersonelKayit.cs" />
     <Compile Include="Models\IsIdentity.cs" />
+    <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Kurumsal.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\SistemeGiris.cs" />
@@ -155,6 +158,7 @@
     <Content Include="Content\Css\font-awesome.min.css" />
     <Content Include="Content\Css\Password.css" />
     <Content Include="Content\Css\Payment.css" />
+    <Content Include="Content\Css\SonradanEklenenler.css" />
     <Content Include="Content\Css\theme.css" />
     <Content Include="Content\Css\owl.carousel.css" />
     <Content Include="favicon.ico" />
@@ -229,22 +233,18 @@
     <Content Include="Views\Login\MusteriKaydi.cshtml" />
     <Content Include="Views\Home\Confirmation.cshtml" />
     <Content Include="Views\Home\Payment.cshtml" />
-    <Content Include="Views\Home\AdminPanel.cshtml" />
-    <Content Include="Views\Home\Orders.cshtml" />
-    <Content Include="Views\Home\Companies.cshtml" />
+    <Content Include="Views\Companies\FirmaAnasayfa.cshtml" />
+    <Content Include="Views\Companies\Siparisler.cshtml" />
+    <Content Include="Views\Companies\Musteriler.cshtml" />
     <Content Include="Views\Home\TasiyiciFirmalar.cshtml" />
-    <Content Include="Views\Home\CanceledOrders.cshtml" />
-    <Content Include="Views\Home\ActivePasifCompanies.cshtml" />
+    <Content Include="Views\Companies\IptalEdilenSiparisler.cshtml" />
+    <Content Include="Views\Companies\AktifPasifCalısanlar.cshtml" />
     <Content Include="Views\Home\CompaniesPanel.cshtml" />
     <Content Include="Views\Login\FirmaKaydi.cshtml" />
-    <Content Include="Views\Home\MyProfile.cshtml" />
-    <Content Include="Views\Home\ProfileSettings.cshtml" />
-    <Content Include="Views\Home\StoreClosure.cshtml" />
-    <Content Include="Views\Home\PaymentInformation.cshtml" />
-    <Content Include="Views\Home\DenemeJquery.cshtml" />
-    <Content Include="Views\Home\FirmaPersonelKayit.cshtml" />
+    <Content Include="Views\Companies\FirmaPersonelKayit.cshtml" />
     <Content Include="Views\Login\Giris.cshtml" />
     <Content Include="Views\Login\SifreDegisikligi.cshtml" />
+    <Content Include="Views\Companies\YeniMusteriKayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

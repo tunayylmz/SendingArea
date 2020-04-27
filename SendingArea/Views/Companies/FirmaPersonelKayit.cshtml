@@ -1,0 +1,299 @@
+﻿
+@{
+    ViewBag.Title = "FirmaPersonelKayit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
+<body class="horizontal-menu">
+    <div id="container">
+        <div id="content">
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <img src=@Url.Content("~/Companies/FirmaAnasayfa") alt="İstanbul Soft" title="demo" class="img-circle">
+                    </div>
+                    <div>
+                        <h4>İstanbul Soft</h4>
+                        <small>Yönetici</small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href=@Url.Content("~/Companies/FirmaAnasayfa")><i class="fa fa-home fw"></i> <span>Kontrol Paneli</span></a>
+                    </li>
+                    <li id="menu-order">
+                        <a class="parent"><i class="fa fa-briefcase fw"></i> <span>Sipariş Yönetimi</span></a>
+                        <ul>
+                            <li>
+                                <a href=@Url.Content("~/Companies/Siparisler")>Siparişler</a>
+                            </li>
+                            <li>
+                                <a href=@Url.Content("~/Companies/IptalEdilenSiparisler")>İptal Edilenler</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu-shops">
+                        <a class="parent"><i class="fa fa-users fw"></i> <span>Müşteri Yönetimi</span></a>
+                        <ul>
+                            <li>
+                                <a href=@Url.Content("~/Companies/Musteriler")>Müşteriler</a>
+                            </li>
+                            @*<li>
+                            <a href="ActivePasifCompanies">Aktif - Pasif Mağazalar</a>
+                        </li>*@
+                        </ul>
+                    </li>
+                    <li id="menu-customer">
+                        <a class="parent"><i class="fa fa-user fw"></i> <span>Çalışanlar ve Araçlar</span></a>
+                        <ul>
+                            <li>
+                                <a href=@Url.Content("~/Companies/AktifPasifCalısanlar")>Çalışanlar ve Araç Detayları</a>
+                            </li>
+                            <li>
+                                <a href=@Url.Content("~/Companies/FirmaPersonelKayit")>Yeni Personel Kaydı</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="stats">
+                    <ul>
+                        <li>
+                            <div>Tamamlanan Siparişler <span class="pull-right">4%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%"> <span class="sr-only">4%</span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>Hazırlanan Siparişler <span class="pull-right">83%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%"> <span class="sr-only">83%</span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>Diğer Durumlar <span class="pull-right">13%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100" style="width: 13%"> <span class="sr-only">13%</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-pencil"></i> Çalışan Ekle</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" id="form-customer" class="form-horizontal">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab-general" data-toggle="tab">Detaylı Bilgiler</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-general">
+                                    <div class="row">
+                                        <div class="col-sm-2" style="border:1px  solid #9c9c9c; border-radius:10px; text-align:center;">
+                                            <br />
+                                            <h5 style="font:bold;">Kayıtlı Personeller</h5>
+                                            <ul class="nav nav-pills nav-stacked" id="address">
+                                                <li class="source"><a href="#tab-customer" data-toggle="tab">Tunay Yılmaz</a></li>
+                                                <li class="source"><a href="#tab-customer" data-toggle="tab">Ömür Gürbüz</a></li>
+                                                <li class="source"><a href="#tab-customer" data-toggle="tab">Mert Karagöz</a></li>
+                                                <li class="source"><a href="#tab-customer" data-toggle="tab">Deniz Çelik</a></li>
+                                            </ul>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab-customer">
+                                                    @*<div class="form-group">
+                                                    <label class="col-sm-2 control-label" for="input-customer-group">Müşteri Grubu</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="customer_group_id" id="input-customer-group" class="form-control">
+                                                            <option value="1" selected="selected">Bireysel</option>
+                                                            <option value="2">Kurumsal</option>
+                                                            <option value="5">Mağazalar</option>
+                                                        </select>
+                                                    </div>
+                                                </div>*@
+
+                                                    <div class="form-group required">
+                                                        <label class="col-sm-2 control-label" for="input-firstname">Ad Soyad</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="name" value="" placeholder="Ad Soaydı" id="name" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group required">
+                                                        <label class="col-sm-2 control-label" for="input-lastname">Telefon</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="phone" value="" placeholder="Telefon" id="phone" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group required">
+                                                        <label class="col-sm-2 control-label" for="input-telephone">T.C. Kimlik Numarası</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="tc" value="" placeholder="T.C. Kimlik Numarası" id="tc" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    @*<div class="form-group custom-field custom-field2" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label">Güncel Faaliyet Belgesi</label>
+                                                    <div class="col-sm-10">
+                                                        <button type="button" id="button-custom-field2" data-loading-text="Yükleniyor..." class="btn btn-default"><i class="fa fa-upload"></i> Yükle</button>
+                                                        <input type="hidden" name="custom_field[2]" value="" id="input-custom-field2">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field3" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label">Vergi Levhası</label>
+                                                    <div class="col-sm-10">
+                                                        <button type="button" id="button-custom-field3" data-loading-text="Yükleniyor..." class="btn btn-default"><i class="fa fa-upload"></i> Yükle</button>
+                                                        <input type="hidden" name="custom_field[3]" value="" id="input-custom-field3">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field4" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label">Şirket Kuruluş Ticaret Sicil Gazetesi</label>
+                                                    <div class="col-sm-10">
+                                                        <button type="button" id="button-custom-field4" data-loading-text="Yükleniyor..." class="btn btn-default"><i class="fa fa-upload"></i> Yükle</button>
+                                                        <input type="hidden" name="custom_field[4]" value="" id="input-custom-field4">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field24" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field24">Satışını yaptığınız ürün türleri</label>
+                                                    <div class="col-sm-10">
+                                                        <textarea name="custom_field[24]" rows="5" placeholder="Satışını yaptığınız ürün türleri" id="input-custom-field24" class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field8" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field8">Vergi Numarası</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="custom_field[8]" value="" placeholder="Vergi Numarası" id="input-custom-field8" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field9" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field9">Vergi Dairesi</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="custom_field[9]" value="" placeholder="Vergi Dairesi" id="input-custom-field9" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field6" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label">Çalışma Mali Şart ve Prensipleri (Komisyon Anlaşması)</label>
+                                                    <div class="col-sm-10">
+                                                        <button type="button" id="button-custom-field6" data-loading-text="Yükleniyor..." class="btn btn-default"><i class="fa fa-upload"></i> Yükle</button>
+                                                        <input type="hidden" name="custom_field[6]" value="" id="input-custom-field6">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field25" data-sort="0" style="display: none;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field25">Kampanya kodu ( var ise )</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="custom_field[25]" value="" placeholder="Kampanya kodu ( var ise )" id="input-custom-field25" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field21" data-sort="1" style="display: none;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field21">Ünvan</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="custom_field[21]" value="" placeholder="Ünvan" id="input-custom-field21" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group custom-field custom-field14" data-sort="2" style="display: block;">
+                                                    <label class="col-sm-2 control-label" for="input-custom-field14">T.C. Numarası</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="custom_field[14]" value="" placeholder="T.C. Numarası" id="input-custom-field14" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-password">Parola</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" name="password" value="" placeholder="Parola" id="input-password" class="form-control" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-confirm">Parola(tekrar)</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" name="confirm" value="" placeholder="Parola(tekrar)" autocomplete="off" id="input-confirm" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label" for="input-newsletter">Bülten Aboneliği</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="newsletter" id="input-newsletter" class="form-control">
+                                                            <option value="1">Açık</option>
+                                                            <option value="0" selected="selected">Kapalı</option>
+                                                        </select>
+                                                    </div>*@
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">E-Posta</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="email" value="" placeholder="E-Posta" id="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Motor Plaka</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="plaque" value="" placeholder="Motor Plaka" id="plaque" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Motor Marka</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="brand" value="" placeholder="Motor Marka" id="brand" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Motor Model</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="model" value="" placeholder="Motor Model" id="model" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Model Yılı</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="date" value="" placeholder="Model Yılı" id="date" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Maksimum Hacim</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="capacity" value="" placeholder="Taşınacak Maksimum Hacim" id="capacity" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label class="col-sm-2 control-label" for="input-address">Maksimum Ağırlık</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="weight" value="" placeholder="Taşınacak Maksimum Ağırlık" id="weight" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button type="submit" form="form-customer" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                                                    <a href=@Url.Content("~/Companies/FirmaAnasayfa") class="btn btn-default"><i class="fa fa-reply"></i></a>
+                                                </div>
+                                                @*<div class="form-group">
+                                                <label class="col-sm-2 control-label" for="input-approved">Onaylandı</label>
+                                                <div class="col-sm-10">
+                                                    <select name="approved" id="input-approved" class="form-control">
+                                                        <option value="1" selected="selected">Evet</option>
+                                                        <option value="0">Hayır</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="input-safe">Güvenilir</label>
+                                                <div class="col-sm-10">
+                                                    <select name="safe" id="input-safe" class="form-control">
+                                                        <option value="1">Evet</option>
+                                                        <option value="0" selected="selected">Hayır</option>
+                                                    </select>
+                                                </div>
+                                            </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
