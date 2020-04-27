@@ -244,6 +244,7 @@
     <Content Include="Views\Companies\FirmaPersonelKayit.cshtml" />
     <Content Include="Views\Login\Giris.cshtml" />
     <Content Include="Views\Login\SifreDegisikligi.cshtml" />
+    <Content Include="Views\Companies\YeniMusteriKayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,7 +8,7 @@ namespace SendingArea.Controllers
 {
     public class CompaniesController : Controller
     {
-        public Models.TasiyiciFirma aktifFirma = new Models.TasiyiciFirma();
+        public Models.TasiyiciFirma yeniTasıyıcı = new Models.TasiyiciFirma();
         // GET: Companies
         public ActionResult FirmaAnasayfa()
         {
@@ -30,6 +30,10 @@ namespace SendingArea.Controllers
         {
             return View();
         }
+        public ActionResult YeniMusteriKayit()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult FirmaPersonelKayit()
         {
@@ -39,7 +43,7 @@ namespace SendingArea.Controllers
         public ActionResult FirmaPersonelKayit(string name, long phone, long tc, string email, string plaque, string brand, string model, long date, long capacity, long weight)
         {
             Models.FirmaPersonelKayit personelKayit = new Models.FirmaPersonelKayit();
-            personelKayit.Firma_Kayit_Id = aktifFirma.Id;
+            personelKayit.Firma_Kayit_Id = yeniTasıyıcı.Id;
             personelKayit.Ad_Soyad = name;
             personelKayit.Cep_Tel = phone;
             personelKayit.TC_No = tc;
