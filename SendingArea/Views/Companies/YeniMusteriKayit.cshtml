@@ -3,6 +3,7 @@
     ViewBag.Title = "YeniMusteriKayit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <link href="~/Content/Css/AdminPanel.css" rel="stylesheet" />
 <body class="horizontal-menu">
     <nav id="column-left">
@@ -92,7 +93,7 @@
                                 <div class="col-sm-2">
                                     <ul class="nav nav-pills nav-stacked" id="address">
                                         <li class="active"><a href="#tab-customer" data-toggle="tab">Ekli Müşteriler</a></li>
-                                        <li id="address-add"><a><i></i> Tunay Yılmaz</a></li>
+                                        <li id="" onclick=""><a><i></i> Tunay Yılmaz</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-10">
@@ -106,38 +107,6 @@
                                                         <option value="3">Kurumsal Müşteri</option>
                                                         <option value="1" selected="selected">Müşteri</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label" for="input-customer-group">Müşteri Grubu</label>
-                                                    <div class="col-sm-10">
-                                                        <select name="customer_group_id" id="input-customer-group" class="form-control">
-                                                            <option value="2">Bireysel Müşteri</option>
-                                                            <option value="3">Kurumsal Müşteri</option>
-                                                            <option value="1" selected="selected">Müşteri</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label" for="input-customer-group">Müşteri Grubu</label>
-                                                    <div class="col-sm-10">
-                                                        <select name="customer_group_id" id="input-customer-group" class="form-control">
-                                                            <option value="2">Bireysel Müşteri</option>
-                                                            <option value="3">Kurumsal Müşteri</option>
-                                                            <option value="1" selected="selected">Müşteri</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label" for="input-customer-group">Müşteri Grubu</label>
-                                                    <div class="col-sm-10">
-                                                        <select name="customer_group_id" id="input-customer-group" class="form-control">
-                                                            <option value="2">Bireysel Müşteri</option>
-                                                            <option value="3">Kurumsal Müşteri</option>
-                                                            <option value="1" selected="selected">Müşteri</option>
-                                                        </select>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group required">
@@ -170,32 +139,17 @@
                                                     <input type="text" name="fax" value="" placeholder="Faks" id="input-fax" class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="form-group required">
+                                                <label class="col-sm-2 control-label" for="input-adress">Adres Bilgisi</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="adress" value="" placeholder="Adres Bilgisini Aşağıdan Ekleyebilirsiniz" id="input-adress" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <a href=@Url.Content("~/Companies/AdresEklemeHaritasi") id="addressAdd" class="col-sm-2 control-label" onclick="addAddress();"><i class="fa fa-plus-circle"></i>Adres Ekle</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tab-ip">
-                            <div id="ip">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <td class="text-left">IP</td>
-                                                <td class="text-right">Toplam</td>
-                                                <td class="text-left">Üyelik Tarihi</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center" colspan="3">Gösterilecek sonuç yok!</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6 text-left"></div>
-                                    <div class="col-sm-6 text-right">Gösterilen: 0 ile 0 arası, toplam: 0 (0 Sayfa)</div>
                                 </div>
                             </div>
                         </div>
