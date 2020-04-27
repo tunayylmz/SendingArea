@@ -10,10 +10,12 @@ namespace SendingArea.Controllers
 {
     public class LoginController : Controller
     {
+
         [HttpGet]
         public ActionResult Giris()
         {
-            return View();
+            //return View();
+            return RedirectToAction("Giris", "LoginController");
         }
 
         [HttpPost]
