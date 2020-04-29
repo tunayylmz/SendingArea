@@ -3,89 +3,106 @@
     ViewBag.Title = "AdresEklemeHaritasi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-        <style type="text/css">
-            #map, html, body {
-                padding: 0;
-                margin: 0;
-                height: 100%;
-            }
+<script src="~/Scripts/System Js/GoogleMaps.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jguery/3.3.1/jquery.min.js"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyC2pDmf7CKcQSZuRDLUmTMouoJD32sCVYs" type="text/javascript"></script>
 
-            #panel {
-                width: 200px;
-                font-family: Arial, sans-serif;
-                font-size: 13px;
-                float: right;
-                margin: 10px;
-            }
+<style type="text/css">
+    #map, html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
 
-            #color-palette {
-                clear: both;
-            }
+    #panel {
+        width: 350px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        float: right;
+        margin: 10px;
+    }
 
-            .color-button {
-                width: 14px;
-                height: 14px;
-                font-size: 0;
-                margin: 2px;
-                float: left;
-                cursor: pointer;
-            }
+    #color-palette {
+        clear: both;
+    }
 
-            #delete-button {
-                margin-top: 5px;
-            }
-        </style>
-        <script>
-            function initMap() {
-                var myLatlng = { lat: -25.363, lng: 131.044 };
-                curposdiv = document.getElementById('curpos');
-                var map = new google.maps.Map(
-                    document.getElementById('map'), { zoom: 4, center: myLatlng });
+    .color-button {
+        width: 14px;
+        height: 14px;
+        font-size: 0;
+        margin: 2px;
+        float: left;
+        cursor: pointer;
+    }
 
-                // Create the initial InfoWindow.
-                var infoWindow = new google.maps.InfoWindow(
-                    { content: 'Click the map to get Lat/Lng!', position: myLatlng });
-                infoWindow.open(map);
+    #delete-button {
+        margin-top: 5px;
+    }
+</style>
+<script>
+    function initMap() {
+        var myLatlng = { lat: -25.363, lng: 131.044 };
+        curposdiv = document.getElementById('curpos');
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 4, center: myLatlng });
 
-                // Configure the click listener.
-                map.addListener('click', function (mapsMouseEvent) {
-                    // Close the current InfoWindow.
-                    infoWindow.close();
+        // Create the initial InfoWindow.
+        var infoWindow = new google.maps.InfoWindow(
+            { content: 'Click the map to get Lat/Lng!', position: myLatlng });
+        infoWindow.open(map);
 
-                  // Create a new InfoWindow.
-                  infoWindow = new google.maps.InfoWindow({ position: mapsMouseEvent.latLng });
-                  infoWindow.setContent(mapsMouseEvent.latLng.toString());
-                  infoWindow.open(map);
-                  var tny = mapsMouseEvent.latLng.toString();// map.getCenter().toUrlValue();
-                    document.getElementById('tny2').innerHTML = tny;
-                    var omr = map.getZoom();
-                    document.getElementById('tny3').innerHTML = omr;
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2pDmf7CKcQSZuRDLUmTMouoJD32sCVYs&callback=initMap">
-        </script>
-        <title>Getting LatLng from a Click Event</title>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
-        <style>
-                 /* Always set the map height explicitly to define the size of the div
+        // Configure the click listener.
+        map.addListener('click', function (mapsMouseEvent) {
+            // Close the current InfoWindow.
+            infoWindow.close();
+
+            // Create a new InfoWindow.
+            infoWindow = new google.maps.InfoWindow({ position: mapsMouseEvent.latLng });
+            infoWindow.setContent(mapsMouseEvent.latLng.toString());
+            infoWindow.open(map);
+            var tny = mapsMouseEvent.latLng.toString();// map.getCenter().toUrlValue();
+            document.getElementById('tny2').innerHTML = tny;
+            var omr = map.getZoom();
+            document.getElementById('tny3').innerHTML = omr;
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2pDmf7CKcQSZuRDLUmTMouoJD32sCVYs&callback=initMap">
+</script>
+<title>Getting LatLng from a Click Event</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<style>
+    /* Always set the map height explicitly to define the size of the div
             * element that contains the map. */
-                 #map {
-                     height: 100%;
-                 }
-                 /* Optional: Makes the sample page fill the window. */
-                 html, body {
-                     height: 100%;
-                     margin: 0;
-                     padding: 0;
-                 }
-        </style>
-    <body>
-        <div id="panel">
-            <div id="tny3"> </div>
-            <div id="tny2"> </div>
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+    <br /><br />
+    <div id="panel" class="form-group">
+        <div>
+            <div class="form-group" style="width:300px;">
+                <input id="from_places" class="form-control" placeholder="Adres Girin" />
+                <input id="origin" type="hidden" name="origin" required />
+            </div>
+            <div class="form-group" style="width:150px">
+                <input class="form-control" placeholder="Kapı No"/>
+            </div>
+            <div class="form-group" style="width:150px;">
+                <input class="form-control" placeholder="Daire No" />
+            </div>
         </div>
-        <div id="map" style="height:500px;">A</div>
-    </body>
+        <div id="tny3"> </div>
+        <div id="tny2"> </div>
+    </div>
+    <div  id="map" style="height:500px; width:60%;"></div>
+</body>
