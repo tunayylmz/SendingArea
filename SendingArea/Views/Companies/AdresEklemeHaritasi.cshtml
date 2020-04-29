@@ -38,6 +38,23 @@
     #delete-button {
         margin-top: 5px;
     }
+
+    .scroll {
+        background-color: #eee;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #e7e8ec;
+        overflow-y: scroll;
+    }
+
+
+        .scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+    .scroll {
+        -ms-overflow-style: none;
+    }
 </style>
 <script>
     function initMap() {
@@ -95,14 +112,44 @@
                 <input id="origin" type="hidden" name="origin" required />
             </div>
             <div class="form-group" style="width:150px">
-                <input class="form-control" placeholder="Kapı No"/>
+                <input class="form-control" placeholder="Kapı No" />
             </div>
             <div class="form-group" style="width:150px;">
                 <input class="form-control" placeholder="Daire No" />
             </div>
         </div>
-        <div id="tny3"> </div>
-        <div id="tny2"> </div>
+        <br />
+        <div>
+            <div style="float:left">
+                <div class=" form-group" style="width:150px;">
+                    <h4>Kayıtlı Adresler</h4>
+                    <ul class="scroll">
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                        <li class="form-control">ffff</li>
+                    </ul>
+                </div>
+                <div id="tny3"> </div>
+                <div id="tny2"> </div>
+            </div>
+            <div style="float:left; margin-left:50px;">
+                <div class=" form-group" style="width:150px;">
+                    <h4>Adres Detayları</h4>
+                    <ul class="scroll">
+                        
+                    </ul>
+                </div>
+                <div id="tny3"> </div>
+                <div id="tny2"> </div>
+            </div>
+        </div>
     </div>
-    <div  id="map" style="height:500px; width:60%;"></div>
+    <div id="map" style="height:500px; width:60%; margin-left:2%;"></div>
+    <br /><br />
 </body>
