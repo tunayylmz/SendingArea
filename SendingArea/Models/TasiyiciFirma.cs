@@ -21,6 +21,7 @@ namespace SendingArea.Models
 
 
         public Kurumsal FirmaBilgileri = new Kurumsal();
+        public string HataMesaji = "";
 
         public bool RunInsertSQL()
         {
@@ -36,11 +37,19 @@ namespace SendingArea.Models
                 dt.Load(com.ExecuteReader());
 
                 if (dt.Rows.Count > 0)
+                {
+                    HataMesaji = "Girmiş olduğunuz E-Posta adresi kullanılmaktadır. Lütfen farklı bir E-Posta adresi giriniz.";
                     return false;
+                }
+                    
 
-                this.Id = FirmaBilgileri.RunInsertSQLAndReturnId();
-                
-                if (this.Id == -1) return false;
+                this.KurumsalId = FirmaBilgileri.RunInsertSQLAndReturnId();
+
+                if (this.Id == -1)
+                {
+                    HataMesaji = "Sistemsel bir hata oluştu. Lütfen Sending Area yetkilisi ile iletişime geçin.";
+                    return false;
+                }
 
                 com = new SqlCommand(CreateSQL<TasiyiciFirma>(this), baglanti);
                 com.ExecuteNonQuery();
@@ -48,6 +57,7 @@ namespace SendingArea.Models
             }
             catch (Exception)
             {
+                HataMesaji = "Sistemsel bir hata oluştu. Lütfen Sending Area yetkilisi ile iletişime geçin.";
                 return false;
             }
         }
