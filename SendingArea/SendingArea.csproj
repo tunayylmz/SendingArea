@@ -140,7 +140,6 @@
     <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Kurumsal.cs" />
     <Compile Include="Models\Musteri.cs" />
-    <Compile Include="Models\SistemeGiris.cs" />
     <Compile Include="Models\TasiyiciFirma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

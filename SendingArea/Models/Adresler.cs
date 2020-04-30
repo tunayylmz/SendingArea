@@ -12,13 +12,11 @@ namespace SendingArea.Models
     public class Adresler
     {
         public long Id { get; set; }
-        public string Il { get; set; }
-        public string Ilce { get; set; }
-        public string Mahalle { get; set; }
-        public string Cadde_Sokak { get; set; }
-        public string Bina_No { get; set; }
-        public string Kapi_No { get; set; }
-
+        public long MusteriId { get; set; }
+        public string AdresMetni { get; set; }
+        public string AdresAdi { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
 
         public bool RunInsertSQL()
         {

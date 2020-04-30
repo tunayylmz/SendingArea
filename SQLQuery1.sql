@@ -92,6 +92,7 @@ BEGIN --Adres Tablosu Oluşturma
 
     create table Adresler (
         Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
+        MusteriId bigint NOT NULL,
         AdresMetni varchar(250) NOT NULL,
         AdresAdi varchar(50) NOT NULL,
         Lat float NOT NULL,
@@ -100,3 +101,15 @@ BEGIN --Adres Tablosu Oluşturma
 
 END
 
+BEGIN --MusteriAdres Tablosu Oluşturma
+
+    drop table MusteriAdresler
+
+    create table MusteriAdresler (
+        Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
+        AdresId bigint NOT NULL,
+        MusteriId bigint NOT NULL,
+
+    );
+
+END

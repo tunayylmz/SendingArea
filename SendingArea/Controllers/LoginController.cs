@@ -88,15 +88,17 @@ namespace SendingArea.Controllers
             SendingArea.Models.DataConverter pdf = new SendingArea.Models.DataConverter();
 
             Models.TasiyiciFirma firma = new Models.TasiyiciFirma();
-
-            firma.Sirket_Adi = companyName;
+            firma.FirmaBilgileri.Firma_Adi = companyName;
             firma.Yetkili_AdSoyad = authorizedName;
-            firma.Telefon_No = companyNumber;
-            firma.Firma_Mail = companyEmail;
-            firma.Fatura_Adresi = invoiceAddress;
-            firma.Vergi_No = taxNo;
-            firma.Vergi_Dairesi = taxOffice;
+            firma.FirmaBilgileri.Tel = companyNumber;
+            firma.Yetkili_E_Posta = companyEmail;
+            firma.FirmaBilgileri.Yetkili_E_Posta = companyEmail;
+            firma.Yetkili_E_Posta = companyEmail;
+            firma.FirmaBilgileri.Fatura_Adresi = invoiceAddress;
+            firma.FirmaBilgileri.Vergi_No = taxNo;
+            firma.FirmaBilgileri.Vergi_Dairesi = taxOffice;
             firma.sifre = password;
+            firma.FirmaBilgileri.RunInsertSQLAndReturnId();
             firma.FirmaKaydiOlusturma();
             return View();
         }
