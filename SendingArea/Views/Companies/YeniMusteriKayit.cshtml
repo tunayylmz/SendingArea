@@ -101,59 +101,71 @@
                                         <div id="Bireysel" class="tabcontent">
                                             <form action="#" method="post" id="form-customer" class="form-horizontal">
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-firstname">Adı-Soyad</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label" f>Adı-Soyad</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="firstname" value="" placeholder="Adı" id="input-name" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-email">E-Posta</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >E-Posta</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="email" value="" placeholder="E-Posta" id="input-email" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-telephone">Telefon</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >Telefon</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="telephone" value="" placeholder="Telefon" id="input-telephone" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label  style="color:#666666"class="col-sm-2 control-label" for="input-fax">Faks</label>
+                                                <div class="form-group required">
+                                                    <label  style="color:#666666"class="col-sm-2 control-label" >TC Kimlik Numarası</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="fax" value="" placeholder="Faks" id="input-fax" class="form-control">
+                                                        <input type="text" name="TC" value="" placeholder="TC Kimlik Numarası" id="input-TC" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group" style="padding-left:19%;">
-                                                    <a href=@Url.Content("~/Companies/AdresEklemeHaritasi") id="addressAdd" style="text-align:center; margin-right:5px;" class="col-sm-3 btn-1 control-label" onclick="addAddress();"> Kaydet ve Adres Ekle</a>
-                                                    <a style="text-align:center;" class="col-sm-2 btn-1 control-label">Kaydet ve Bitir</a>
+                                                    <a href=@Url.Content("~/Companies/AdresEklemeHaritasi") id="addressAdd" style="text-align:center; margin-right:5px;" class="col-sm-3 btn-1 " onclick="addAddress();"> Kaydet ve Adres Ekle</a>
+                                                    <a style="text-align:center;" class="col-sm-2 btn-1 ">Kaydet ve Bitir</a>
                                                 </div>
                                             </form>
                                         </div>
                                         <div id="Kurumsal" class="tabcontent">
                                             <form action="#" method="post" id="form-customer" class="form-horizontal">
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-firstname">Firma Adı</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label">Firma Adı</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="firstname" value="" placeholder="Firma Adı" id="input-name" class="form-control">
+                                                        <input type="text" name="companyName" value="" placeholder="Firma Adı" id="companyName" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-email">E-Posta</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >Yetkili E-Posta</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="email" value="" placeholder="E-Posta" id="input-email" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group required">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-telephone">Telefon</label>
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >Telefon</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="telephone" value="" placeholder="Telefon" id="input-telephone" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-fax">Faks</label>
+                                                <div class="form-group required">
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >Faks</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="fax" value="" placeholder="Faks" id="input-fax" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label style="color:#666666" class="col-sm-2 control-label" >Vergi No</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="vergiNo" value="" placeholder="Vergi No" id="input-vergiNo" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group required">
+                                                    <label style="color:#666666" class="col-sm-2 control-label" for="input-fax">Vergi Dairesi</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="vergiDairesi" value="" placeholder="Vergi Dairesi" id="input-vergiDairesi" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="form-group" style="padding-left:19%;">

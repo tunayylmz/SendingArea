@@ -76,7 +76,6 @@ namespace SendingArea.Controllers
         [HttpGet]
         public ActionResult FirmaKaydi()
         {
-
             return View();
         }
         [HttpPost]
@@ -95,9 +94,17 @@ namespace SendingArea.Controllers
             firma.FirmaBilgileri.Vergi_No = taxNo;
             firma.FirmaBilgileri.Vergi_Dairesi = taxOffice;
             firma.sifre = password;
-            firma.FirmaBilgileri.RunInsertSQLAndReturnId();
-            firma.FirmaKaydiOlusturma();
-            return View();
+            bool a= firma.RunInsertSQL();
+            if (a)
+            {
+                TempData["mesaj"] = "";
+                return View();
+            }
+            else
+            {
+                TempData["mesaj"] =firma.HataMesaji;
+                return View();
+            }
         }
 
     }
