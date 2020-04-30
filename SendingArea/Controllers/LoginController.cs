@@ -11,20 +11,17 @@ namespace SendingArea.Controllers
 {
     public class LoginController : Controller
     {
-
-        [HttpGet]
-        public ActionResult Giris()
-        {
-            //return View();
-            return RedirectToAction("Giris", "LoginController");
-        }
         [HttpGet]
         public void Logout()
         {
             Session.Abandon();
             Response.Redirect(Request.UrlReferrer.ToString());
         }
-
+        [HttpGet]
+        public ActionResult Giris()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Giris(string email, string password)
         {
