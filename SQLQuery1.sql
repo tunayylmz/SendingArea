@@ -1,122 +1,4 @@
-﻿
-/* 
-    MÜŞTERİ TABLOSU
-*/
-drop table Musteri_Kayit
-
-create table Musteri_Kayit (
- Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
- Ad_Soyad varchar(100) NOT NULL,
- Cep_Tel bigint NOT NULL,
- TC_No bigint NOT NULL,
- E_Posta varchar(50)NOT NULL,
- sifre varchar(20)NOT NULL,
-);
-
-select * from Musteri_Kayit
-
-
-insert into Musteri_Kayit(Ad_Soyad,Cep_Tel,TC_No,E_Posta,sifre)values('tunay',0,121,'tunaysabriyilmaz@gmail.com','232')
-
-
-/* 
-    FİRMA TABLOSU
-*/
-drop table Firma_Kayit
-
-create table Firma_Kayit (
- Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
- Sirket_Adi varchar(250) NOT NULL,
- Yetkili_AdSoyad varchar(250) NOT NULL,
- Telefon_No bigint NOT NULL,
- Firma_Mail varchar(250) NOT NULL,
- Fatura_Adresi varchar(250) NOT NULL,
- Vergi_No bigint NOT NULL,
- Vergi_Dairesi varchar(250)NOT NULL,
- sifre varchar(20)NOT NULL,
- Firma newid()
-);
-
-
-select * from Musteri_Kayit
-
-insert into musteri_kayit 
-(
- Ad_Soyad,
- Cep_Tel,
- TC_No,
- E_Posta,
- sifre 
-) values
-(
- 'ali veli',
- 5455906526,
- 12345678912,
- 'a@a.com',
- '123'
-)
-
-
-
-/* 
-    MOTOKURYE TABLOSU
-*/
-drop table Kurye_Kayit
-
-create table Kurye_Kayit (
- Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
- Firma_Kayit_Id bigint NOT NULL,
- Ad_Soyad varchar(100) NOT NULL,
- Cep_Tel bigint NOT NULL,
- TC_No bigint NOT NULL,
- E_Posta varchar(50)NOT NULL,
- Motor_Plaka varchar(10) NOT NULL,
- Motor_Marka varchar(50)NOT NULL,
- Motor_Model varchar(50)NOT NULL,
- Motor_Model_Yili bigint NOT NULL,
- Motor_Tasima_Hacim bigint NOT NULL,
- Motor_Tasima_Agirlik bigint NOT NULL
-);
-
-select * from Kurye_Kayit
-
-
-/* 
-    SİPARİŞ TABLOSU
-*/
-drop table Kurye_Kayit
-
-create table Kurye_Kayit (
- Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
- Firma_Kayit_Id bigint NOT NULL,
- Ad_Soyad varchar(100) NOT NULL,
- Cep_Tel bigint NOT NULL,
- TC_No bigint NOT NULL,
- E_Posta varchar(50)NOT NULL,
- Motor_Plaka varchar(10) NOT NULL,
- Motor_Marka varchar(50)NOT NULL,
- Motor_Model varchar(50)NOT NULL,
- Motor_Model_Yili bigint NOT NULL,
- Motor_Tasima_Hacim bigint NOT NULL,
- Motor_Tasima_Agirlik bigint NOT NULL
-);
-
-select * from Kurye_Kayit
-
-
-/*
-    Deneme Tablosu
-*/
-
-
-create table deneme (
- Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
- Firma varchar(16) newid
-);
-
-select newid from firma_kayit
-
-BEGIN --Bireysel Tablosu Oluşturma
+﻿BEGIN --Bireysel Tablosu Oluşturma
 
     drop table Bireysel
 
@@ -204,19 +86,17 @@ DROP COLUMN Cinsiyet;
 
 select * from Musteri
 
-
 BEGIN --Adres Tablosu Oluşturma
 
     drop table Adresler
 
     create table Adresler (
         Id bigint IDENTITY(1,1) PRIMARY KEY NOT NULL,
-        Il varchar(100) NOT NULL,
-        Ilce varchar(100) NOT NULL,
-        Mahalle varchar(100) NOT NULL,
-        Cadde_Sokak varchar(100) NOT NULL,
-        Bina_No varchar(10) NOT NULL,
-        Kapi_No varchar(10) NOT NULL
+        AdresMetni varchar(250) NOT NULL,
+        AdresAdi varchar(50) NOT NULL,
+        Lat float NOT NULL,
+        Long float NOT NULL
     );
 
 END
+
